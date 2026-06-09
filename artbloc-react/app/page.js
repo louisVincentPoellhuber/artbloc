@@ -68,7 +68,7 @@ function Home() {
         text="Expositions éphémères à but non lucratif où l'art et la communauté se rencontrent"
         textAddOn=" w-140 h-22 text-3xl text-white text-center"
         img="/ABHomeLogo.png"
-        imgAddOn="Nav bar logo"
+        imgAddOn="home AB logo"
         bgImg="bg-[url(/ABBannerTemp.jpg)]"
       />
 

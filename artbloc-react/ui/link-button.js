@@ -5,11 +5,24 @@ function LinkButton({
   textAddOn = "",
   buttonAddOn = "",
   address = "/",
-  newTab = false,
+  params = {},
+  role = "",
 }) {
   let component;
 
-  if (newTab == true) {
+  if (role === "newPage") {
+    component = (
+      <Link
+        href={{
+          pathname: address,
+          query: params,
+        }}
+        className={buttonAddOn}
+      >
+        <div className={textAddOn}>{text}</div>
+      </Link>
+    );
+  } else if (role === "newTab") {
     component = (
       <Link href={address} target="_blank" className={buttonAddOn}>
         <div className={textAddOn}>{text}</div>

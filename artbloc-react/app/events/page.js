@@ -1,6 +1,11 @@
+//import { useContext } from "react";
 import EventCard from "../../ui/event-card";
 
+//import EventContext from "../events/EventContext";
+
 function Events() {
+  //const test = useContext(EventContext);
+
   const eventType = ["future", "past"];
   const eventText = [
     ["Frontières Poreuses", "Novembre 2026", "Montréal"],
@@ -24,13 +29,40 @@ function Events() {
 
   const eventLink = [
     [
-      "/",
+      "/events/upcoming-event/FP2026",
       "https://www.eventbrite.ca/e/pop-up-exhibition-fragments-of-us-tickets-1467377809529?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
     ],
-    ["/", ""],
+    ["/events/past-event/FDN2025"],
   ];
 
   const eventBg = [" bg-[#586744] ", " bg-[#586744] "];
+
+  const eventInfo = [
+    [
+      "bg-[url(/ABBannerTemp.jpg)]",
+      "Description de lévénement: quoi sattendre, quest-ce qui va se passer, etc.",
+      [
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+      ],
+    ],
+    [
+      "bg-[url(/ABBannerTemp.jpg)]",
+      "Description de lévénement: quoi sattendre, quest-ce qui va se passer, etc.",
+      [
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+        "w-150 h-100 bg-[url(/chungus.png)]",
+      ],
+    ],
+  ];
 
   return (
     <div className="relative flex flex-col w-screen min-h-screen ml-15 mb-15">
@@ -47,6 +79,7 @@ function Events() {
         imgAddOn={eventImgAddOn[0]}
         link={eventLink[0]}
         bgColor={eventBg[0]}
+        eventInfo={eventInfo[0]}
       />
 
       <div className="relative flex w-175 h-18 text-5xl mt-20 ">
@@ -61,6 +94,7 @@ function Events() {
         imgAddOn={eventImgAddOn[1]}
         link={eventLink[1]}
         bgColor={eventBg[1]}
+        eventInfo={eventInfo[1]}
       />
     </div>
   );

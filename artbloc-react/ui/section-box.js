@@ -94,7 +94,7 @@ function SectionBox({
             textAddOn={textDiv[3]}
             buttonAddOn={textDiv[2]}
             address={linkProp[0]}
-            newTab={true}
+            role="newTab"
           />
         </div>
 

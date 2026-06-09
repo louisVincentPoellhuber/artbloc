@@ -6,8 +6,9 @@ function ArtistCard({
   textAddOn = "",
   img = "",
   imgAddOn = "",
-  divAddOn ="",
+  divAddOn = "",
   link = "/",
+  params = {},
 }) {
   let textDiv = [
     `relative flex w-full h-12 justify-center items-center text-2xl ${textAddOn[0]}`,
@@ -15,7 +16,13 @@ function ArtistCard({
   ];
 
   let component = (
-    <Link href={link} className={divAddOn}>
+    <Link
+      href={{
+        pathname: link,
+        query: params,
+      }}
+      className={divAddOn}
+    >
       <div className="relative flex flex-col items-center w-90 h-110 border-2">
         <Image
           src={img}

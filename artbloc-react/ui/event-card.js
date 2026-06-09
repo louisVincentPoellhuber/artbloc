@@ -1,6 +1,8 @@
+//import { useContext } from "react";
 import Image from "next/image";
 
 import LinkButton from "./link-button";
+//import EventContext from "../app/events/EventContext";
 
 function EventCard({
   type = "",
@@ -10,8 +12,13 @@ function EventCard({
   imgAddOn = "",
   link = [],
   bgColor = "",
+  eventInfo = [],
 }) {
+  //const test = useContext(EventContext);
+
   let boxDiv;
+
+  let eventParams;
 
   let textDiv = [
     `relative flex mt-8 ${textAddOn[0]}`,
@@ -25,7 +32,20 @@ function EventCard({
   if (type == "future") {
     boxDiv = `relative flex flex-col w-175 h-100 place-items-end ${bgColor} border`;
 
+    eventParams = {
+      bannerURL: eventInfo[0],
+      ticketsLink: link[1],
+      desc: eventInfo[1],
+      image1: eventInfo[2][0],
+      image2: eventInfo[2][1],
+      image3: eventInfo[2][2],
+      image4: eventInfo[2][3],
+      image5: eventInfo[2][4],
+      image6: eventInfo[2][5],
+    };
+
     component = (
+      //<EventContext value={eventInfo}>
       <div className="relative flex flex-row w-full h-120 justify-center mt-10">
         <Image
           src={img}
@@ -44,23 +64,38 @@ function EventCard({
               textAddOn=" text-2xl "
               buttonAddOn=" relative flex justify-center items-center w-45 h-15 bg-[#e7988c] border"
               address={link[0]}
-              newTab={false}
+              params={eventParams}
+              role="newPage"
             />
             <LinkButton
               text="Billets"
               textAddOn=" text-2xl "
               buttonAddOn=" relative flex justify-center items-center w-45 h-15 bg-[#e7988c] border"
               address={link[1]}
-              newTab={true}
+              role="newTab"
             />
           </div>
         </div>
       </div>
+      //</EventContext>
     );
   } else if (type == "past") {
     boxDiv = `relative flex flex-col w-175 h-100 place-items-start ${bgColor} border`;
 
+    eventParams = {
+      bannerURL: eventInfo[0],
+      ticketsLink: link[1],
+      desc: eventInfo[1],
+      image1: eventInfo[2][0],
+      image2: eventInfo[2][1],
+      image3: eventInfo[2][2],
+      image4: eventInfo[2][3],
+      image5: eventInfo[2][4],
+      image6: eventInfo[2][5],
+    };
+
     component = (
+      //<EventContext value={eventInfo}>
       <div className="relative flex flex-row w-full h-120 justify-center mt-10">
         <div className={boxDiv}>
           <div className={textDiv[2]}>{text[0]}</div>
@@ -72,7 +107,8 @@ function EventCard({
               textAddOn=" text-2xl "
               buttonAddOn=" relative flex justify-center items-center w-45 h-15 bg-[#e7988c] border"
               address={link[0]}
-              newTab={false}
+              params={eventParams}
+              role="newPage"
             />
           </div>
         </div>
@@ -84,6 +120,7 @@ function EventCard({
           className="absolute flex bottom-5 right-113 rotate-10 z-2 "
         />
       </div>
+      //</EventContext>
     );
   }
 
