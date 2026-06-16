@@ -12,7 +12,7 @@ export default async function Footer() {
       <div>
         <p className="mb-3 text-xl">{t("navigation")}</p>
         <ul className="space-y-1 text-base">
-          <li><Link href="/">{t("navigation")}</Link></li>
+          <li><Link href="/">Home</Link></li>
           <li><Link href="/artists">Artists</Link></li>
           <li><Link href="/events">Events</Link></li>
           <li><Link href="/about">About</Link></li>
