@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "accueil": "ACCUEIL",
+    "artistes": "ARTISTES",
+    "evenements": "ÉVÉNEMENTS",
+    "apropos": "À PROPOS",
+    "contact": "CONTACT",
+    "toggle": "EN"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "adresse": "Adresse",
+    "email": "Courriel",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  }
+}

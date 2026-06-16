@@ -1,73 +1,36 @@
-import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { getSite } from "@/lib/content";
 
-function Footer() {
+export default async function Footer() {
+  const locale = await getLocale();
+  const t = await getTranslations("footer");
+  const site = getSite(locale);
+
   return (
-    <div className="grid grid-cols-4 pt-7 pl-10 bg-[#2c2421] w-full h-full text-[#f5ebd9]">
+    <footer className="grid grid-cols-1 gap-6 bg-ink px-10 py-8 text-cream md:grid-cols-3">
       <div>
-        <p className="text-xl mb-4">Navigation</p>
-        <ul className="text-base mb-1">
-          <li>
-            <Link href="/" className="mb-1">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/artists" className="mb-1">
-              Artists
-            </Link>
-          </li>
-          <li>
-            <Link href="/events" className="mb-1">
-              Events
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="mb-1">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="mb-1">
-              Contact
-            </Link>
-          </li>
+        <p className="mb-3 text-xl">{t("navigation")}</p>
+        <ul className="space-y-1 text-base">
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/artists">Artists</Link></li>
+          <li><Link href="/events">Events</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
       </div>
-
       <div>
-        <p className="text-xl mb-4">Contact</p>
-        <ul className="text-base mb-1">
-          <li className="mb-1">
-            <Link href="mailto:artbloc@outlook.com" target="_blank">
-              Email
-            </Link>
-          </li>
-          <li className="mb-1">
-            <Link
-              href="https://www.instagram.com/artblocstudio/"
-              target="_blank"
-            >
-              Instagram
-            </Link>
-          </li>
-          <li className="mb-1">
-            <Link
-              href="https://www.facebook.com/profile.php?id=61579428009401"
-              target="_blank"
-            >
-              Facebook
-            </Link>
-          </li>
+        <p className="mb-3 text-xl">{t("contact")}</p>
+        <ul className="space-y-1 text-base">
+          <li><a href={`mailto:${site.contact.email}`}>{t("email")}</a></li>
+          <li><a href={site.contact.instagram} target="_blank" rel="noreferrer">{t("instagram")}</a></li>
+          <li><a href={site.contact.facebook} target="_blank" rel="noreferrer">{t("facebook")}</a></li>
         </ul>
       </div>
-
       <div>
-        <p className="text-xl mb-4">Address</p>
-
-        <p className="text-base mb-1">TBD</p>
+        <p className="mb-3 text-xl">{t("adresse")}</p>
+        <p className="text-base">{site.address}</p>
       </div>
-    </div>
+    </footer>
   );
 }
-
-export default Footer;
