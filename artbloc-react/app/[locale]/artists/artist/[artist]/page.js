@@ -1,26 +1,35 @@
-"use client";
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
-function Artist() {
-  const artistParams = useSearchParams();
+import { routing } from "@/i18n/routing";
+import { getAllArtistSlugs, getArtist } from "@/lib/content";
+import PageTitle from "@/ui/page-title";
+import MediumTags from "@/ui/medium-tags";
+import Blocks from "@/ui/blocks/blocks";
 
-  const name = artistParams.get("name");
-  const attributes = artistParams.get("attributes");
-  const picURL = artistParams.get("picURL");
-
-  let component = (
-    <div className="relative flex flex-col w-screen min-h-screen ml-15">
-      <div className="relative flex w-full h-26 text-8xl mt-40 ">{name}</div>
-      <div className="relative flex w-full h-14 text-xl mt-5 ">
-        {attributes}
-      </div>
-      <div className="relative flex">
-        <Image src={picURL} width={400} height={400} alt={name} />
-      </div>
-    </div>
+export function generateStaticParams() {
+  const slugs = getAllArtistSlugs();
+  return routing.locales.flatMap((locale) =>
+    slugs.map((artist) => ({ locale, artist }))
   );
-  return component;
 }
 
-export default Artist;
+export default async function ArtistPage({ params }) {
+  const { locale, artist: slug } = await params;
+  setRequestLocale(locale);
+
+  const artist = getArtist(slug, locale);
+  if (!artist) {
+    notFound();
+  }
+
+  return (
+    <article className="flex flex-col gap-12 pb-24">
+      <header>
+        <PageTitle>{artist.name}</PageTitle>
+        <MediumTags tags={artist.mediums} />
+      </header>
+      <Blocks blocks={artist.blocks} />
+    </article>
+  );
+}
