@@ -1,5 +1,5 @@
 //import { useContext } from "react";
-import EventCard from "../../ui/event-card";
+import EventCard from "@/ui/event-card";
 
 //import EventContext from "../events/EventContext";
 

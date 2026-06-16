@@ -1,4 +1,4 @@
-import SectionBox from "../ui/section-box";
+import SectionBox from "@/ui/section-box";
 
 function Home() {
   const homeEventBubblesText = [

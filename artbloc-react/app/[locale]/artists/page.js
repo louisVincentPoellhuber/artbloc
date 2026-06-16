@@ -1,4 +1,4 @@
-import ArtistCard from "../../ui/artist-card";
+import ArtistCard from "@/ui/artist-card";
 
 function Artists() {
   const artistText = [

@@ -2,7 +2,7 @@ import Form from "next/form";
 import Link from "next/link";
 import Image from "next/image";
 
-import SectionBox from "../../ui/section-box";
+import SectionBox from "@/ui/section-box";
 
 //auatomated email send using a bot email? look into it
 

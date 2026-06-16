@@ -1,5 +1,5 @@
-import SectionBox from "../../ui/section-box";
-import ArtistCard from "../../ui/artist-card";
+import SectionBox from "@/ui/section-box";
+import ArtistCard from "@/ui/artist-card";
 
 function About() {
   const aboutMissionText = [

@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-import LinkButton from "../../../../ui/link-button";
+import LinkButton from "@/ui/link-button";
 
 function PastEvent({ params }) {
   const eventParams = useSearchParams();
