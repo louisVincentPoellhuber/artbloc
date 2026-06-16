@@ -1,0 +1,23 @@
+{
+  "slug": "louis-vincent-poellhuber",
+  "name": "Louis-Vincent Poellhuber",
+  "mediums": ["Pixel art", "Guitar", "Vocals"],
+  "avatar": "/ABHomeLogo.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Louis célèbre la curiosité et la découverte de la vie de tous les jours à travers les pixels.",
+        "en": "Louis celebrates curiosity and the discovery of everyday life through pixels."
+      }
+    },
+    {
+      "type": "captionedImage",
+      "image": "/chungus.png",
+      "variant": "side",
+      "caption": { "fr": "Titre. Légende.", "en": "Title. Caption." }
+    },
+    { "type": "videoEmbed", "provider": "youtube", "id": "dQw4w9WgXcQ" }
+  ]
+}
