@@ -69,6 +69,17 @@ export function getEventsByStatus(status, locale) {
   return getAllEvents(locale).filter((event) => eventStatus(event) === status);
 }
 
+export function getAllEventSlugs() {
+  return listSlugs("events");
+}
+
+export function getEventArtists(event, locale) {
+  return (event.artists ?? [])
+    .map((slug) => getArtist(slug, locale))
+    .filter(Boolean)
+    .map((artist) => ({ slug: artist.slug, name: artist.name, avatar: artist.avatar }));
+}
+
 export function getTeam(locale) {
   return listSlugs("team").map((slug) =>
     deepLocalize(teamSchema.parse(readJson("team", `${slug}.json`)), locale)
