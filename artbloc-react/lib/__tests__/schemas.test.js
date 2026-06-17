@@ -51,3 +51,29 @@ describe("eventSchema", () => {
     expect(parsed.categories).toEqual([]);
   });
 });
+
+describe("new block types (1B)", () => {
+  it("parses quote with and without attribution", () => {
+    expect(() => Block.parse({ type: "quote", text: { fr: "x", en: "x" } })).not.toThrow();
+    expect(() =>
+      Block.parse({ type: "quote", text: { fr: "x" }, attribution: { fr: "y" } })
+    ).not.toThrow();
+  });
+
+  it("defaults textImage side to left", () => {
+    const b = Block.parse({ type: "textImage", text: { fr: "x" }, image: "/a.png" });
+    expect(b.side).toBe("left");
+  });
+
+  it("requires >=1 gallery image and defaults columns to 3", () => {
+    expect(() => Block.parse({ type: "gallery", images: [] })).toThrow();
+    expect(Block.parse({ type: "gallery", images: ["/a.png"] }).columns).toBe(3);
+  });
+
+  it("requires color and text on coloredSection", () => {
+    expect(() => Block.parse({ type: "coloredSection", text: { fr: "x" } })).toThrow();
+    expect(() =>
+      Block.parse({ type: "coloredSection", color: "coral", text: { fr: "x" } })
+    ).not.toThrow();
+  });
+});
