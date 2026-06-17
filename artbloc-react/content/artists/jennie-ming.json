@@ -1,0 +1,16 @@
+{
+  "slug": "jennie-ming",
+  "name": "Jennie Ming",
+  "mediums": ["Peinture à l'huile", "Illustration"],
+  "avatar": "/ABHomeLogo.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Jennie explore la couleur et la mémoire à travers la peinture à l'huile.",
+        "en": "Jennie explores colour and memory through oil painting."
+      }
+    }
+  ]
+}
