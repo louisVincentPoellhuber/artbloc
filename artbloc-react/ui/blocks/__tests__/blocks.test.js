@@ -20,4 +20,17 @@ describe("Blocks renderer", () => {
       /Unknown block type: "mystery"/
     );
   });
+
+  it("renders the new block types by registry key", () => {
+    render(
+      <Blocks
+        blocks={[
+          { type: "quote", text: "Citation" },
+          { type: "coloredSection", color: "coral", text: "Bande" },
+        ]}
+      />
+    );
+    expect(screen.getByText("Citation")).toBeInTheDocument();
+    expect(screen.getByText("Bande")).toBeInTheDocument();
+  });
 });
