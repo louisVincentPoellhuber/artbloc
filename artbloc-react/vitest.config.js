@@ -19,6 +19,16 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.js"],
   },
   resolve: {
-    alias: { "@": fileURLToPath(new URL("./", import.meta.url)) },
+    alias: [
+      // More-specific alias first: next-intl's createNavigation pulls in
+      // next/navigation (useRouter etc.) which can't resolve in the jsdom
+      // environment. Swap the whole module for a plain stub that renders
+      // <a href=…> so unit tests work without a Next.js router context.
+      {
+        find: "@/i18n/navigation",
+        replacement: fileURLToPath(new URL("./__mocks__/i18n-navigation.js", import.meta.url)),
+      },
+      { find: "@", replacement: fileURLToPath(new URL("./", import.meta.url)) },
+    ],
   },
 });
