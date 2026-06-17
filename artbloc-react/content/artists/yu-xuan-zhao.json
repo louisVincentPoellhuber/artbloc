@@ -1,0 +1,16 @@
+{
+  "slug": "yu-xuan-zhao",
+  "name": "Yu Xuan Zhao",
+  "mediums": ["Art numérique", "Animation"],
+  "avatar": "/ABHomeLogo.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Yu Xuan crée des mondes oniriques en art numérique et en animation.",
+        "en": "Yu Xuan builds dreamlike worlds in digital art and animation."
+      }
+    }
+  ]
+}

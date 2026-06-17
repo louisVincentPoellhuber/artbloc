@@ -1,0 +1,16 @@
+{
+  "slug": "nancy-zhu",
+  "name": "Nancy Zhu",
+  "mediums": ["Sculpture", "Céramique"],
+  "avatar": "/ABHomeLogo.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Nancy façonne des formes organiques en céramique et en argile.",
+        "en": "Nancy shapes organic forms in ceramic and clay."
+      }
+    }
+  ]
+}
