@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   getAllArtistSlugs,
+  getAllArtists,
   getArtist,
   getArtistColor,
   getEventsByStatus,
@@ -42,5 +43,21 @@ describe("content loader", () => {
 
   it("loads localized site config", () => {
     expect(getSite("fr").contact.email).toBe("artbloc@outlook.com");
+  });
+
+  it("loads all six artists", () => {
+    expect(getAllArtists("fr").length).toBe(6);
+  });
+
+  it("derives teal for an artist only in the 2025 event", () => {
+    expect(getArtistColor("nancy-zhu")).toBe("teal");
+  });
+
+  it("derives coral for an artist in the 2026 event", () => {
+    expect(getArtistColor("jennie-ming")).toBe("coral");
+  });
+
+  it("falls back to coral for an artist in no event", () => {
+    expect(getArtistColor("tian-su-zhong")).toBe("coral");
   });
 });
