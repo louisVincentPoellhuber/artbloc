@@ -13,3 +13,8 @@ export function Link({ href, children, ...rest }) {
     </a>
   );
 }
+
+export const usePathname = () => "/";
+export const useRouter = () => ({ push: () => {}, replace: () => {}, back: () => {} });
+export const redirect = () => {};
+export const getPathname = () => "/";
