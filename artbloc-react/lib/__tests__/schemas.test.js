@@ -46,7 +46,6 @@ describe("eventSchema", () => {
       title: { fr: "T", en: "T" },
       date: "2026-01-01",
       color: "coral",
-      status: "upcoming",
     });
     expect(parsed.artists).toEqual([]);
     expect(parsed.categories).toEqual([]);

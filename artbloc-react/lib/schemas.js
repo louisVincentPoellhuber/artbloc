@@ -41,9 +41,8 @@ export const artistSchema = z.object({
 export const eventSchema = z.object({
   slug: z.string(),
   title: LocalizedString,
-  date: z.string(),
+  date: z.string(), // ISO date; upcoming/past is derived from this (see lib/events.js)
   color: z.enum(["coral", "teal"]),
-  status: z.enum(["upcoming", "past"]),
   venue: LocalizedString.optional(),
   poster: z.string().optional(),
   eventbriteUrl: z.string().optional(),
