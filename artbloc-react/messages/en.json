@@ -14,5 +14,11 @@
     "email": "Email",
     "instagram": "Instagram",
     "facebook": "Facebook"
+  },
+  "events": {
+    "tickets": "Tickets",
+    "discover": "Discover",
+    "upcoming": "Upcoming",
+    "past": "Past events"
   }
 }
