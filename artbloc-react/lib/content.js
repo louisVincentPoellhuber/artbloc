@@ -8,6 +8,7 @@ import {
 } from "@/lib/schemas";
 import { deepLocalize } from "@/lib/localize";
 import { deriveArtistColor } from "@/lib/colors";
+import { eventStatus } from "@/lib/events";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -65,7 +66,7 @@ export function getAllEvents(locale) {
 }
 
 export function getEventsByStatus(status, locale) {
-  return getAllEvents(locale).filter((event) => event.status === status);
+  return getAllEvents(locale).filter((event) => eventStatus(event) === status);
 }
 
 export function getTeam(locale) {
