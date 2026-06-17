@@ -2,10 +2,18 @@
 
 @theme {
   --color-cream: #f5ebd9;
+  --color-parchment: #efe6d2;
   --color-ink: #2c2421;
   --color-coral: #d57278;
   --color-coral-soft: #e8998d;
   --color-teal: #4d7b7f;
   --color-teal-soft: #5c9899;
   --color-olive: #586744;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
 }
