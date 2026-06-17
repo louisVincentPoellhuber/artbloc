@@ -7,7 +7,13 @@ describe("colorClasses", () => {
     expect(colorClasses("teal").bg).toBe("bg-teal");
   });
 
-  it("falls back to coral for an unknown token", () => {
+  it("includes the soft shade for each token", () => {
+    expect(colorClasses("coral").soft).toBe("bg-coral-soft");
+    expect(colorClasses("teal").soft).toBe("bg-teal-soft");
+  });
+
+  it("falls back to coral (with soft) for an unknown token", () => {
     expect(colorClasses("bogus").bg).toBe("bg-coral");
+    expect(colorClasses("bogus").soft).toBe("bg-coral-soft");
   });
 });
