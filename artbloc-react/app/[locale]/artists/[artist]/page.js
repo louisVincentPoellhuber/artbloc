@@ -24,7 +24,7 @@ export default async function ArtistPage({ params }) {
   }
 
   return (
-    <article className="flex flex-col gap-12 pb-24">
+    <article className="flex flex-col gap-16 pb-24">
       <header>
         <PageTitle>{artist.name}</PageTitle>
         <MediumTags tags={artist.mediums} />

@@ -14,9 +14,9 @@ export default async function ArtistsPage({ params }) {
   return (
     <div className="pb-24">
       <PageTitle>Nos artistes</PageTitle>
-      <div className="grid grid-cols-4 gap-6 px-6 pt-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 pt-12 sm:grid-cols-3 lg:grid-cols-4">
         {artists.map((artist) => (
-          <Link key={artist.slug} href={`/artists/${artist.slug}`}>
+          <Link key={artist.slug} href={`/artists/${artist.slug}`} className="block h-full">
             <PersonCard
               image={artist.avatar}
               primary={artist.name}
