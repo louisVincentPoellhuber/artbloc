@@ -11,5 +11,33 @@
     { "fr": "Sculpture", "en": "Sculpture" }
   ],
   "artists": ["louis-vincent-poellhuber", "jennie-ming", "yu-xuan-zhao"],
-  "blocks": []
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Frontières Poreuses réunit des artistes émergents pour une soirée d'exposition éphémère.",
+        "en": "Porous Borders brings emerging artists together for one ephemeral exhibition night."
+      }
+    },
+    {
+      "type": "textImage",
+      "side": "left",
+      "image": "/ABBannerTemp.jpg",
+      "text": {
+        "fr": "Une nuit de peinture, de sculpture et de musique au cœur de Montréal.",
+        "en": "A night of painting, sculpture and music in the heart of Montreal."
+      }
+    },
+    {
+      "type": "quote",
+      "text": { "fr": "L'art appartient à tout le monde.", "en": "Art belongs to everyone." },
+      "attribution": { "fr": "Art Bloc", "en": "Art Bloc" }
+    },
+    {
+      "type": "gallery",
+      "columns": 3,
+      "images": ["/chungus.png", "/ABBannerTemp.jpg", "/AB2025Poster.png"]
+    }
+  ]
 }

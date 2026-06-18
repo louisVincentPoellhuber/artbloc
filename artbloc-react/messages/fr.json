@@ -14,5 +14,11 @@
     "email": "Courriel",
     "instagram": "Instagram",
     "facebook": "Facebook"
+  },
+  "events": {
+    "tickets": "Billets",
+    "discover": "Découvrir",
+    "upcoming": "À venir",
+    "past": "Événements passés"
   }
 }

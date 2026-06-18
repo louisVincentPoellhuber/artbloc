@@ -2,8 +2,11 @@ import { describe, it, expect } from "vitest";
 import {
   getAllArtistSlugs,
   getAllArtists,
+  getAllEventSlugs,
   getArtist,
   getArtistColor,
+  getEvent,
+  getEventArtists,
   getEventsByStatus,
   getSite,
 } from "@/lib/content";
@@ -59,5 +62,19 @@ describe("content loader", () => {
 
   it("falls back to coral for an artist in no event", () => {
     expect(getArtistColor("tian-su-zhong")).toBe("coral");
+  });
+
+  it("lists all event slugs", () => {
+    expect(getAllEventSlugs()).toEqual(
+      expect.arrayContaining(["fragments-de-nous", "frontieres-poreuses"])
+    );
+  });
+
+  it("resolves an event's artists to slug, name and avatar", () => {
+    const event = getEvent("frontieres-poreuses", "fr");
+    const artists = getEventArtists(event, "fr");
+    expect(artists.map((a) => a.slug)).toContain("louis-vincent-poellhuber");
+    expect(artists[0]).toHaveProperty("name");
+    expect(artists[0]).toHaveProperty("avatar");
   });
 });

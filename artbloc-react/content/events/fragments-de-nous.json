@@ -7,5 +7,32 @@
   "poster": "/AB2025Poster.png",
   "categories": [],
   "artists": ["louis-vincent-poellhuber", "nancy-zhu", "helen-vuong"],
-  "blocks": []
+  "blocks": [
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ richText — variante « lead »", "en": "▸ richText — \"lead\" variant" } },
+    { "type": "richText", "variant": "lead", "text": { "fr": "Texte d'introduction en variante lead, plus grand et accrocheur.", "en": "Lead-variant intro text, larger and attention-grabbing." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ richText — variante « body »", "en": "▸ richText — \"body\" variant" } },
+    { "type": "richText", "variant": "body", "text": { "fr": "Paragraphe de corps de texte standard, dans une colonne lisible centrée.", "en": "A standard body paragraph in a centered readable column." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ captionedImage — variante « full » (pleine largeur)", "en": "▸ captionedImage — \"full\" variant (full-bleed)" } },
+    { "type": "captionedImage", "variant": "full", "image": "/ABBannerTemp.jpg", "caption": { "fr": "Image pleine largeur avec légende.", "en": "Full-bleed image with a caption." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ captionedImage — variante « side » (décalée)", "en": "▸ captionedImage — \"side\" variant (offset)" } },
+    { "type": "captionedImage", "variant": "side", "image": "/chungus.png", "caption": { "fr": "Image décalée qui déborde la marge.", "en": "Offset image that breaks the margin." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ videoEmbed (YouTube)", "en": "▸ videoEmbed (YouTube)" } },
+    { "type": "videoEmbed", "provider": "youtube", "id": "dQw4w9WgXcQ" },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ quote — avec attribution", "en": "▸ quote — with attribution" } },
+    { "type": "quote", "text": { "fr": "L'art est un acte communautaire.", "en": "Art is a communal act." }, "attribution": { "fr": "Fragments de nous", "en": "Fragments of Us" } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ quote — sans attribution", "en": "▸ quote — without attribution" } },
+    { "type": "quote", "text": { "fr": "Une citation sans attribution.", "en": "A quote without attribution." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ textImage — image à gauche (side « left »)", "en": "▸ textImage — image left (side \"left\")" } },
+    { "type": "textImage", "side": "left", "image": "/chungus.png", "text": { "fr": "Texte à droite de l'image, qui se place à gauche.", "en": "Text to the right of the image, which sits on the left." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ textImage — image à droite (side « right »)", "en": "▸ textImage — image right (side \"right\")" } },
+    { "type": "textImage", "side": "right", "image": "/AB2025Poster.png", "text": { "fr": "Texte à gauche de l'image, qui se place à droite.", "en": "Text to the left of the image, which sits on the right." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ gallery — 2 colonnes", "en": "▸ gallery — 2 columns" } },
+    { "type": "gallery", "columns": 2, "images": ["/chungus.png", "/ABBannerTemp.jpg"] },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ gallery — 3 colonnes", "en": "▸ gallery — 3 columns" } },
+    { "type": "gallery", "columns": 3, "images": ["/chungus.png", "/ABBannerTemp.jpg", "/AB2025Poster.png"] },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ coloredSection — coral, avec titre", "en": "▸ coloredSection — coral, with heading" } },
+    { "type": "coloredSection", "color": "coral", "heading": { "fr": "Bande coral", "en": "Coral band" }, "text": { "fr": "Bande teintée pleine largeur avec titre.", "en": "Full-bleed tinted band with a heading." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ coloredSection — teal, sans titre", "en": "▸ coloredSection — teal, without heading" } },
+    { "type": "coloredSection", "color": "teal", "text": { "fr": "Bande teintée pleine largeur sans titre.", "en": "Full-bleed tinted band without a heading." } }
+  ]
 }

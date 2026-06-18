@@ -24,10 +24,40 @@ const VideoEmbedBlock = z.object({
   id: z.string(),
 });
 
+const QuoteBlock = z.object({
+  type: z.literal("quote"),
+  text: LocalizedString,
+  attribution: LocalizedString.optional(),
+});
+
+const TextImageBlock = z.object({
+  type: z.literal("textImage"),
+  text: LocalizedString,
+  image: z.string(),
+  side: z.enum(["left", "right"]).default("left"),
+});
+
+const GalleryBlock = z.object({
+  type: z.literal("gallery"),
+  images: z.array(z.string()).min(1),
+  columns: z.number().default(3),
+});
+
+const ColoredSectionBlock = z.object({
+  type: z.literal("coloredSection"),
+  color: z.enum(["coral", "teal"]),
+  heading: LocalizedString.optional(),
+  text: LocalizedString,
+});
+
 export const Block = z.discriminatedUnion("type", [
   RichTextBlock,
   CaptionedImageBlock,
   VideoEmbedBlock,
+  QuoteBlock,
+  TextImageBlock,
+  GalleryBlock,
+  ColoredSectionBlock,
 ]);
 
 export const artistSchema = z.object({
