@@ -24,6 +24,7 @@ export default async function AboutPage({ params }) {
         <PersonCard
           key={m.slug}
           image={m.photo}
+          hoverImage={m.hoverImage}
           primary={m.name}
           secondary={m.role}
           color={groupColor[m.group]}

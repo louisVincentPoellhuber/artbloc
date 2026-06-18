@@ -3,6 +3,7 @@
   "name": "Jennie Ming",
   "mediums": ["Peinture à l'huile", "Illustration"],
   "avatar": "/ABHomeLogo.png",
+  "hoverImage": "/chungus.png",
   "blocks": [
     {
       "type": "richText",
