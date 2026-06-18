@@ -25,9 +25,14 @@ function renderForm() {
   );
 }
 
+function fillRequired() {
+  fireEvent.change(screen.getByLabelText("Email"), { target: { value: "a@b.co" } });
+  fireEvent.change(screen.getByLabelText("Message"), { target: { value: "Bonjour" } });
+}
+
 describe("ContactForm", () => {
   beforeEach(() => {
-    vi.stubEnv("NEXT_PUBLIC_CONTACT_ENDPOINT", "https://example.test/submit");
+    vi.stubEnv("NEXT_PUBLIC_WEB3FORMS_KEY", "test-access-key");
   });
   afterEach(() => {
     vi.unstubAllEnvs();
@@ -40,28 +45,53 @@ describe("ContactForm", () => {
     expect(screen.getByText("Envoyer")).toBeInTheDocument();
   });
 
-  it("posts to the endpoint and shows success", async () => {
-    global.fetch = vi.fn().mockResolvedValue({ ok: true });
+  it("posts to Web3Forms with the access key and shows success", async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ success: true }) });
     renderForm();
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "a@b.co" } });
+    fillRequired();
     fireEvent.submit(screen.getByTestId("contact-form"));
-    await waitFor(() => expect(screen.getByText("Merci, votre message a été envoyé.")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Merci, votre message a été envoyé.")).toBeInTheDocument()
+    );
     expect(global.fetch).toHaveBeenCalledWith(
-      "https://example.test/submit",
+      "https://api.web3forms.com/submit",
       expect.objectContaining({ method: "POST" })
     );
+    const body = JSON.parse(global.fetch.mock.calls[0][1].body);
+    expect(body.access_key).toBe("test-access-key");
+    expect(body.email).toBe("a@b.co");
   });
 
-  it("shows the error state when the response is not ok", async () => {
-    global.fetch = vi.fn().mockResolvedValue({ ok: false });
+  it("shows the error state when the service reports failure", async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ success: false }) });
     renderForm();
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "a@b.co" } });
+    fillRequired();
     fireEvent.submit(screen.getByTestId("contact-form"));
     await waitFor(() => expect(screen.getByText("Une erreur est survenue.")).toBeInTheDocument());
   });
 
-  it("shows a notice when the endpoint is not configured", () => {
-    vi.stubEnv("NEXT_PUBLIC_CONTACT_ENDPOINT", "");
+  it("shows the error state when the request throws", async () => {
+    global.fetch = vi.fn().mockRejectedValue(new Error("network"));
+    renderForm();
+    fillRequired();
+    fireEvent.submit(screen.getByTestId("contact-form"));
+    await waitFor(() => expect(screen.getByText("Une erreur est survenue.")).toBeInTheDocument());
+  });
+
+  it("silently drops a submission when the honeypot is filled (no network call)", async () => {
+    global.fetch = vi.fn();
+    renderForm();
+    fillRequired();
+    fireEvent.click(screen.getByRole("checkbox", { hidden: true }));
+    fireEvent.submit(screen.getByTestId("contact-form"));
+    await waitFor(() =>
+      expect(screen.getByText("Merci, votre message a été envoyé.")).toBeInTheDocument()
+    );
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it("shows a notice when the access key is not configured", () => {
+    vi.stubEnv("NEXT_PUBLIC_WEB3FORMS_KEY", "");
     renderForm();
     expect(screen.getByText("Le formulaire n'est pas encore configuré.")).toBeInTheDocument();
   });
