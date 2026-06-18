@@ -20,5 +20,34 @@
     "discover": "Discover",
     "upcoming": "Upcoming",
     "past": "Past events"
+  },
+  "about": {
+    "missionTitle": "Mission",
+    "missionLead": "Art Bloc gives emerging artists a space through temporary exhibitions in Montreal.",
+    "missionBody": "Our mission is to lower the barriers to the art world for emerging artists and give them visibility. By offering an accessible exhibition space, the project aims to democratize local art and build connections within the cultural scene.",
+    "historyTitle": "Our story",
+    "historyBody": "Our commitment to nurturing creativity. Art Bloc was born in October 2024 from a simple but striking observation: many young artists gradually give up their practice under the weight of other responsibilities. Where musicians have open mics, artists will have Art Bloc.",
+    "meetTitle": "Meet us",
+    "execTitle": "Executive board",
+    "satellitesTitle": "Satellites"
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "A question? Write to us — we'd be happy to reply.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "submitting": "Sending…",
+    "success": "Thanks, your message has been sent.",
+    "error": "Something went wrong. Please try again.",
+    "notConfigured": "The form isn't configured yet.",
+    "action1Title": "Join as an artist",
+    "action1Body": "Artists are at the heart of our project. Sign up to discuss taking part in an upcoming event.",
+    "action2Title": "Subscribe to our newsletter",
+    "action2Body": "Join our community and stay up to date with all the news from Art Bloc!",
+    "action3Title": "Support our mission",
+    "action3Body": "Your contributions help sustain our organization and reach a wider audience through art."
   }
 }

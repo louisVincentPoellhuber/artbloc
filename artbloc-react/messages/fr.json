@@ -20,5 +20,34 @@
     "discover": "Découvrir",
     "upcoming": "À venir",
     "past": "Événements passés"
+  },
+  "about": {
+    "missionTitle": "Mission",
+    "missionLead": "Art Bloc vise à offrir un espace aux artistes émergents par l'intermédiaire d'expositions temporaires à Montréal.",
+    "missionBody": "Notre mission est de réduire les barrières d'accès au monde de l'art pour les artistes émergents et de leur offrir une visibilité. En proposant un espace d'exposition accessible, le projet aspire à démocratiser l'art local et à créer des liens au sein de la scène culturelle.",
+    "historyTitle": "Notre histoire",
+    "historyBody": "Notre engagement à nourrir la créativité. Art Bloc est né en octobre 2024 d'une observation simple mais percutante : plusieurs jeunes artistes abandonnent progressivement leur pratique sous le poids des responsabilités. Là où les musiciens ont les open mics, les artistes auront Art Bloc.",
+    "meetTitle": "Rencontrez-nous",
+    "execTitle": "Conseil exécutif",
+    "satellitesTitle": "Satellites"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "intro": "Une question ? Écrivez-nous ! Il nous fera plaisir de vous répondre.",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer",
+    "submitting": "Envoi…",
+    "success": "Merci, votre message a été envoyé.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "notConfigured": "Le formulaire n'est pas encore configuré.",
+    "action1Title": "Joindre en tant qu'artiste",
+    "action1Body": "Les artistes sont au cœur de notre projet. Inscrivez-vous pour discuter des possibilités de participer à un prochain événement.",
+    "action2Title": "Inscrivez-vous à notre infolettre",
+    "action2Body": "Rejoignez notre communauté et restez à jour de toutes les nouvelles d'Art Bloc !",
+    "action3Title": "Contribuer à notre mission",
+    "action3Body": "Vos contributions nous aident à pérenniser notre organisme et à toucher un public plus large grâce à l'art."
   }
 }
