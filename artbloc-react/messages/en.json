@@ -43,6 +43,7 @@
     "success": "Thanks, your message has been sent.",
     "error": "Something went wrong. Please try again.",
     "notConfigured": "The form isn't configured yet.",
+    "emailSubject": "New message from the Art Bloc site",
     "action1Title": "Join as an artist",
     "action1Body": "Artists are at the heart of our project. Sign up to discuss taking part in an upcoming event.",
     "action2Title": "Subscribe to our newsletter",

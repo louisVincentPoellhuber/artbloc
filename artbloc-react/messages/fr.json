@@ -43,6 +43,7 @@
     "success": "Merci, votre message a été envoyé.",
     "error": "Une erreur est survenue. Veuillez réessayer.",
     "notConfigured": "Le formulaire n'est pas encore configuré.",
+    "emailSubject": "Nouveau message du site Art Bloc",
     "action1Title": "Joindre en tant qu'artiste",
     "action1Body": "Les artistes sont au cœur de notre projet. Inscrivez-vous pour discuter des possibilités de participer à un prochain événement.",
     "action2Title": "Inscrivez-vous à notre infolettre",

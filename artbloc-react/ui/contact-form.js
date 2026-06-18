@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
   const [state, setState] = useState("idle"); // idle | submitting | success | error
 
@@ -28,6 +29,9 @@ export default function ContactForm() {
 
     const payload = Object.fromEntries(formData.entries());
     payload.access_key = accessKey;
+    payload.subject = t("emailSubject"); // localized to the visitor's language
+    payload.replyto = payload.email; // hitting "reply" reaches the sender
+    payload.language = locale; // tag the email with FR/EN
 
     setState("submitting");
     try {
@@ -52,7 +56,6 @@ export default function ContactForm() {
     <form data-testid="contact-form" onSubmit={onSubmit} className="flex flex-col gap-4" aria-busy={state === "submitting"}>
       {/* anti-spam honeypot (hidden from users + assistive tech) */}
       <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-      <input type="hidden" name="subject" value="Nouveau message — site Art Bloc" />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm text-ink/70">

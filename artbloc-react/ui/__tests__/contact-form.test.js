@@ -14,6 +14,7 @@ const messages = {
     success: "Merci, votre message a été envoyé.",
     error: "Une erreur est survenue.",
     notConfigured: "Le formulaire n'est pas encore configuré.",
+    emailSubject: "Nouveau message du site Art Bloc",
   },
 };
 
@@ -60,6 +61,9 @@ describe("ContactForm", () => {
     const body = JSON.parse(global.fetch.mock.calls[0][1].body);
     expect(body.access_key).toBe("test-access-key");
     expect(body.email).toBe("a@b.co");
+    expect(body.replyto).toBe("a@b.co");
+    expect(body.language).toBe("fr");
+    expect(body.subject).toBe("Nouveau message du site Art Bloc");
   });
 
   it("shows the error state when the service reports failure", async () => {
