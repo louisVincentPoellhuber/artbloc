@@ -49,6 +49,7 @@ describe("eventSchema", () => {
     });
     expect(parsed.artists).toEqual([]);
     expect(parsed.categories).toEqual([]);
+    expect(parsed.orientation).toBe("left");
   });
 });
 

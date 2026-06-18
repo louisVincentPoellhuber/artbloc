@@ -24,6 +24,7 @@ export default async function EventsPage({ params }) {
       venue={event.venue ?? ""}
       poster={event.poster}
       status={status}
+      orientation={event.orientation}
       ticketsUrl={event.eventbriteUrl}
       discoverLabel={t("discover")}
       ticketsLabel={t("tickets")}

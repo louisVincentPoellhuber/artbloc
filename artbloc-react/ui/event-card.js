@@ -8,31 +8,45 @@ export default function EventCard({
   venue,
   poster,
   status,
+  orientation,
   ticketsUrl,
   discoverLabel,
   ticketsLabel,
 }) {
   const upcoming = status === "upcoming";
-  const posterSide = upcoming ? "md:order-last md:-rotate-6" : "md:order-first md:rotate-6";
+  // Poster side is an explicit per-event choice (independent of upcoming/past):
+  // "left" = poster left / panel right; "right" = mirrored (poster right). It
+  // always tilts outward, away from the text. The left layout gets a little more
+  // padding so the text/buttons sit further from the poster.
+  const posterRight = orientation === "right";
+  const posterPos = posterRight
+    ? "order-last -ml-12 rotate-6"
+    : "order-first -mr-12 -rotate-6";
+  const panelPad = posterRight ? "pr-16" : "pl-24";
+
   return (
-    <article className="flex flex-col gap-4 overflow-hidden rounded-2xl bg-olive p-6 text-cream transition hover:shadow-xl motion-safe:hover:-translate-y-1 md:flex-row md:items-center md:gap-8">
-      <div className={`w-40 shrink-0 ${posterSide}`}>
+    <article className="group relative mx-auto flex w-full max-w-2xl items-center py-2">
+      <div
+        className={`relative z-10 w-52 shrink-0 ${posterPos} transition-transform duration-300 motion-safe:group-hover:scale-105`}
+      >
         <Image
           src={poster}
           alt=""
-          width={300}
-          height={400}
-          className="h-auto w-full rounded-xl object-cover shadow-lg"
+          width={420}
+          height={560}
+          className="h-auto w-full rounded-xl object-cover shadow-2xl"
         />
       </div>
-      <div className="flex-1">
+      <div
+        className={`flex-1 rounded-2xl bg-olive p-8 text-cream shadow-lg transition motion-safe:group-hover:-translate-y-1 ${panelPad}`}
+      >
         <h3 className="font-display text-3xl font-semibold md:text-4xl">{title}</h3>
-        <p className="mt-1 text-cream/80">{date}</p>
-        {venue ? <p className="text-cream/80">{venue}</p> : null}
-        <div className="mt-4 flex flex-wrap gap-3">
+        <p className="mt-2 text-lg text-cream/80">{date}</p>
+        {venue ? <p className="text-lg text-cream/80">{venue}</p> : null}
+        <div className="mt-6 flex flex-wrap gap-4">
           <Link
             href={`/events/${slug}`}
-            className="rounded-full bg-cream px-4 py-2 text-sm font-medium text-ink transition hover:bg-white"
+            className="rounded-full bg-coral-soft px-7 py-3 text-base font-medium text-ink transition hover:bg-coral hover:text-cream"
           >
             {discoverLabel}
           </Link>
@@ -41,7 +55,7 @@ export default function EventCard({
               href={ticketsUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-coral px-4 py-2 text-sm font-medium text-cream transition hover:bg-coral-soft"
+              className="rounded-full bg-coral px-7 py-3 text-base font-medium text-cream transition hover:bg-coral-soft hover:text-ink"
             >
               {ticketsLabel}
             </a>

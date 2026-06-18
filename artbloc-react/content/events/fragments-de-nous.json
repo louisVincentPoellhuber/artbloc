@@ -3,6 +3,7 @@
   "title": { "fr": "Fragments de nous", "en": "Fragments of Us" },
   "date": "2025-11-15",
   "color": "teal",
+  "orientation": "right",
   "venue": { "fr": "Bâtiment 7", "en": "Bâtiment 7" },
   "poster": "/AB2025Poster.png",
   "categories": [],

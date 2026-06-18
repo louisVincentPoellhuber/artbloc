@@ -73,6 +73,9 @@ export const eventSchema = z.object({
   title: LocalizedString,
   date: z.string(), // ISO date; upcoming/past is derived from this (see lib/events.js)
   color: z.enum(["coral", "teal"]),
+  // Card poster side — explicit per event, independent of upcoming/past.
+  // "left" = poster left / panel right; "right" = mirrored (poster right).
+  orientation: z.enum(["left", "right"]).default("left"),
   venue: LocalizedString.optional(),
   poster: z.string().optional(),
   eventbriteUrl: z.string().optional(),
