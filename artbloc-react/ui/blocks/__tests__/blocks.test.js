@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { NextIntlClientProvider } from "next-intl";
 import Blocks from "@/ui/blocks/blocks";
 
 describe("Blocks renderer", () => {
@@ -36,7 +37,9 @@ describe("Blocks renderer", () => {
 
   it("renders a carousel block with one image per entry", () => {
     const { container } = render(
-      <Blocks blocks={[{ type: "carousel", images: ["/a.png", "/b.png"] }]} />
+      <NextIntlClientProvider locale="fr" messages={{ carousel: { label: "Carrousel", previous: "Précédent", next: "Suivant" } }}>
+        <Blocks blocks={[{ type: "carousel", images: ["/a.png", "/b.png"] }]} />
+      </NextIntlClientProvider>
     );
     expect(container.querySelectorAll("img").length).toBe(2);
   });
