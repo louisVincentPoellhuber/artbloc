@@ -9,6 +9,7 @@ import {
   getEventArtists,
   getEventsByStatus,
   getSite,
+  getTeam,
 } from "@/lib/content";
 
 describe("content loader", () => {
@@ -76,5 +77,12 @@ describe("content loader", () => {
     expect(artists.map((a) => a.slug)).toContain("louis-vincent-poellhuber");
     expect(artists[0]).toHaveProperty("name");
     expect(artists[0]).toHaveProperty("avatar");
+  });
+
+  it("loads six team members across two groups", () => {
+    const team = getTeam("fr");
+    expect(team.length).toBe(6);
+    expect(team.filter((m) => m.group === "exec").length).toBe(4);
+    expect(team.filter((m) => m.group === "satellite").length).toBe(2);
   });
 });
