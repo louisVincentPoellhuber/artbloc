@@ -50,5 +50,10 @@
     "action2Body": "Rejoignez notre communauté et restez à jour de toutes les nouvelles d'Art Bloc !",
     "action3Title": "Contribuer à notre mission",
     "action3Body": "Vos contributions nous aident à pérenniser notre organisme et à toucher un public plus large grâce à l'art."
+  },
+  "carousel": {
+    "label": "Carrousel",
+    "previous": "Précédent",
+    "next": "Suivant"
   }
 }

@@ -19,6 +19,7 @@ export default async function ArtistsPage({ params }) {
           <Link key={artist.slug} href={`/artists/${artist.slug}`} className="block h-full">
             <PersonCard
               image={artist.avatar}
+              hoverImage={artist.hoverImage}
               primary={artist.name}
               secondary={artist.mediums[0] ?? ""}
               color={getArtistColor(artist.slug)}

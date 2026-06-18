@@ -25,7 +25,7 @@ export default function EventCard({
   const panelPad = posterRight ? "pr-16" : "pl-24";
 
   return (
-    <article className="group relative mx-auto flex w-full max-w-2xl items-center py-2">
+    <article className="group relative mx-auto flex w-full max-w-2xl items-center py-2 transition-transform duration-300 motion-safe:hover:scale-[1.01]">
       <div
         className={`relative z-10 w-52 shrink-0 ${posterPos} transition-transform duration-300 motion-safe:group-hover:scale-105`}
       >

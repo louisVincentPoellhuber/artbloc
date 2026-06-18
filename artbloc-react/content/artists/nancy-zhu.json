@@ -3,6 +3,7 @@
   "name": "Nancy Zhu",
   "mediums": ["Sculpture", "Céramique"],
   "avatar": "/ABHomeLogo.png",
+  "hoverImage": "/ABBannerTemp.jpg",
   "blocks": [
     {
       "type": "richText",

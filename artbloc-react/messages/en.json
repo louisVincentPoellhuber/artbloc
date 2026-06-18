@@ -50,5 +50,10 @@
     "action2Body": "Join our community and stay up to date with all the news from Art Bloc!",
     "action3Title": "Support our mission",
     "action3Body": "Your contributions help sustain our organization and reach a wider audience through art."
+  },
+  "carousel": {
+    "label": "Carousel",
+    "previous": "Previous",
+    "next": "Next"
   }
 }
