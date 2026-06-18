@@ -34,6 +34,8 @@
     { "type": "richText", "variant": "body", "text": { "fr": "▸ coloredSection — coral, avec titre", "en": "▸ coloredSection — coral, with heading" } },
     { "type": "coloredSection", "color": "coral", "heading": { "fr": "Bande coral", "en": "Coral band" }, "text": { "fr": "Bande teintée pleine largeur avec titre.", "en": "Full-bleed tinted band with a heading." } },
     { "type": "richText", "variant": "body", "text": { "fr": "▸ coloredSection — teal, sans titre", "en": "▸ coloredSection — teal, without heading" } },
-    { "type": "coloredSection", "color": "teal", "text": { "fr": "Bande teintée pleine largeur sans titre.", "en": "Full-bleed tinted band without a heading." } }
+    { "type": "coloredSection", "color": "teal", "text": { "fr": "Bande teintée pleine largeur sans titre.", "en": "Full-bleed tinted band without a heading." } },
+    { "type": "richText", "variant": "body", "text": { "fr": "▸ carousel", "en": "▸ carousel" } },
+    { "type": "carousel", "images": ["/chungus.png", "/ABBannerTemp.jpg", "/AB2025Poster.png", "/chungus.png"] }
   ]
 }
