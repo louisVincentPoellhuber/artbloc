@@ -78,3 +78,12 @@ describe("new block types (1B)", () => {
     ).not.toThrow();
   });
 });
+
+describe("carousel block (P3)", () => {
+  it("parses a carousel with images", () => {
+    expect(() => Block.parse({ type: "carousel", images: ["/a.png"] })).not.toThrow();
+  });
+  it("rejects a carousel with no images", () => {
+    expect(() => Block.parse({ type: "carousel", images: [] })).toThrow();
+  });
+});

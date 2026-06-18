@@ -33,4 +33,11 @@ describe("Blocks renderer", () => {
     expect(screen.getByText("Citation")).toBeInTheDocument();
     expect(screen.getByText("Bande")).toBeInTheDocument();
   });
+
+  it("renders a carousel block with one image per entry", () => {
+    const { container } = render(
+      <Blocks blocks={[{ type: "carousel", images: ["/a.png", "/b.png"] }]} />
+    );
+    expect(container.querySelectorAll("img").length).toBe(2);
+  });
 });

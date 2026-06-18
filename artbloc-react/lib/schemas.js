@@ -50,6 +50,11 @@ const ColoredSectionBlock = z.object({
   text: LocalizedString,
 });
 
+const CarouselBlock = z.object({
+  type: z.literal("carousel"),
+  images: z.array(z.string()).min(1),
+});
+
 export const Block = z.discriminatedUnion("type", [
   RichTextBlock,
   CaptionedImageBlock,
@@ -58,6 +63,7 @@ export const Block = z.discriminatedUnion("type", [
   TextImageBlock,
   GalleryBlock,
   ColoredSectionBlock,
+  CarouselBlock,
 ]);
 
 export const artistSchema = z.object({
