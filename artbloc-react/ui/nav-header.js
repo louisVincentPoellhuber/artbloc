@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useHideOnScroll } from "@/lib/use-hide-on-scroll";
 
 const LINKS = [
   { href: "/", key: "accueil", accent: "bg-coral" },
@@ -23,9 +24,14 @@ export default function NavHeader() {
   const router = useRouter();
   const locale = useLocale();
   const otherLocale = locale === "fr" ? "en" : "fr";
+  const hidden = useHideOnScroll();
 
   return (
-    <header className="absolute top-0 right-0 z-20 m-4 flex h-16 items-center gap-1 rounded-full bg-white/95 px-3 shadow-sm backdrop-blur">
+    <header
+      className={`fixed top-0 right-0 z-20 m-4 flex h-16 items-center gap-1 rounded-full bg-white/70 px-3 shadow-sm backdrop-blur-md transition duration-300 ${
+        hidden ? "-translate-y-[150%] opacity-0" : "translate-y-0 opacity-100"
+      }`}
+    >
       <Image src="/ABNavLogo.png" width={40} height={40} alt="Art Bloc" className="mr-1" />
       <nav className="flex items-center gap-1">
         {LINKS.map((link) => (
