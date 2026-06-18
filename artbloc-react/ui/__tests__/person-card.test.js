@@ -23,4 +23,18 @@ describe("PersonCard", () => {
     render(<PersonCard image="/x.png" primary="Jennie Ming" secondary="Illustration" color="coral" />);
     expect(screen.getByAltText("Jennie Ming")).toBeInTheDocument();
   });
+
+  it("renders only the base image when no hoverImage", () => {
+    const { container } = render(
+      <PersonCard image="/x.png" primary="A" secondary="b" color="coral" />
+    );
+    expect(container.querySelectorAll("img").length).toBe(1);
+  });
+
+  it("renders a second crossfade image when hoverImage is set", () => {
+    const { container } = render(
+      <PersonCard image="/x.png" hoverImage="/y.png" primary="A" secondary="b" color="coral" />
+    );
+    expect(container.querySelectorAll("img").length).toBe(2);
+  });
 });

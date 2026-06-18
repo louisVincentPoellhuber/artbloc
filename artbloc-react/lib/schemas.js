@@ -65,6 +65,7 @@ export const artistSchema = z.object({
   name: z.string(),
   mediums: z.array(z.string()).default([]),
   avatar: z.string(),
+  hoverImage: z.string().optional(),
   blocks: z.array(Block).default([]),
 });
 
@@ -89,6 +90,7 @@ export const teamSchema = z.object({
   name: z.string(),
   role: LocalizedString,
   photo: z.string(),
+  hoverImage: z.string().optional(),
   group: z.enum(["exec", "satellite"]),
 });
 
