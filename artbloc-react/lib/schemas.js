@@ -84,6 +84,7 @@ export const eventSchema = z.object({
   // "left" = poster left / panel right; "right" = mirrored (poster right).
   orientation: z.enum(["left", "right"]).default("left"),
   venue: LocalizedString.optional(),
+  price: LocalizedString.optional(),
   poster: z.string().optional(),
   eventbriteUrl: z.string().optional(),
   categories: z.array(LocalizedString).default([]),

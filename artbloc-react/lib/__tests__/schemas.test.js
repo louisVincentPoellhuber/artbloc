@@ -87,3 +87,21 @@ describe("carousel block (P3)", () => {
     expect(() => Block.parse({ type: "carousel", images: [] })).toThrow();
   });
 });
+
+describe("event price (2B)", () => {
+  it("accepts an event with no price", () => {
+    expect(() =>
+      eventSchema.parse({ slug: "e", title: { fr: "T" }, date: "2026-01-01", color: "coral" })
+    ).not.toThrow();
+  });
+  it("accepts an optional localized price", () => {
+    const parsed = eventSchema.parse({
+      slug: "e",
+      title: { fr: "T" },
+      date: "2026-01-01",
+      color: "coral",
+      price: { fr: "Gratuit", en: "Free" },
+    });
+    expect(parsed.price).toEqual({ fr: "Gratuit", en: "Free" });
+  });
+});
