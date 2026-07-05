@@ -4,6 +4,7 @@ import { getSite, getEventsByStatus, getAllArtists, getArtistColor } from "@/lib
 import { Link } from "@/i18n/navigation";
 import HomeHero from "@/ui/home-hero";
 import GradientSphereCluster from "@/ui/gradient-sphere-cluster";
+import TexturedBackground from "@/ui/textured-background";
 import SectionLink from "@/ui/section-link";
 import Carousel from "@/ui/carousel";
 import PersonCard from "@/ui/person-card";
@@ -35,8 +36,9 @@ export default async function HomePage({ params }) {
       </section>
 
       {edition ? (
-        <section className="flex min-h-screen flex-col justify-center gap-8 bg-olive px-6 py-16 text-cream">
-          <div className="flex flex-col gap-10 md:flex-row md:items-center">
+        <section className="relative flex min-h-screen flex-col justify-center gap-8 overflow-hidden bg-olive px-6 py-16 text-cream">
+          <TexturedBackground variant="olive" />
+          <div className="relative z-10 flex flex-col gap-10 md:flex-row md:items-center">
             <div className="md:w-1/2">
               <h2 className="font-display text-5xl font-semibold md:text-6xl">
                 {t("editionPrefix")} {new Date(edition.date).getFullYear()}{" "}
@@ -62,33 +64,36 @@ export default async function HomePage({ params }) {
               <GradientSphereCluster labels={edition.categories} />
             </div>
           </div>
-          <div className="self-end">
+          <div className="relative z-10 self-end">
             <SectionLink href="/events" label={t("seeEvents")} />
           </div>
         </section>
       ) : null}
 
       {editionArtists.length > 0 ? (
-        <section className="flex min-h-screen flex-col justify-center gap-8 bg-coral px-6 py-16 text-cream">
-          <h2 className="font-display text-5xl font-semibold md:text-6xl">
+        <section className="relative flex min-h-screen flex-col justify-center gap-8 overflow-hidden bg-coral px-6 py-16 text-cream">
+          <TexturedBackground variant="coral" />
+          <h2 className="relative z-10 font-display text-5xl font-semibold md:text-6xl">
             {t("artistsTitle")} <span className="align-middle">▪</span>
           </h2>
-          <Carousel>
-            {editionArtists.map((a) => (
-              <div key={a.slug} className="w-64 shrink-0 snap-start">
-                <Link href={`/artists/${a.slug}`}>
-                  <PersonCard
-                    image={a.avatar}
-                    hoverImage={a.hoverImage}
-                    primary={a.name}
-                    secondary={a.mediums[0] ?? ""}
-                    color={getArtistColor(a.slug)}
-                  />
-                </Link>
-              </div>
-            ))}
-          </Carousel>
-          <div className="self-end">
+          <div className="relative z-10">
+            <Carousel>
+              {editionArtists.map((a) => (
+                <div key={a.slug} className="w-64 shrink-0 snap-start">
+                  <Link href={`/artists/${a.slug}`}>
+                    <PersonCard
+                      image={a.avatar}
+                      hoverImage={a.hoverImage}
+                      primary={a.name}
+                      secondary={a.mediums[0] ?? ""}
+                      color={getArtistColor(a.slug)}
+                    />
+                  </Link>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+          <div className="relative z-10 self-end">
             <SectionLink href="/artists" label={t("seeArtists")} />
           </div>
         </section>
