@@ -55,5 +55,14 @@
     "label": "Carousel",
     "previous": "Previous",
     "next": "Next"
+  },
+  "home": {
+    "tagline": "Non-profit pop-up exhibitions where art and community meet.",
+    "description": "Art Bloc is a clear, community-oriented description — the bloc, etc.",
+    "editionPrefix": "Edition",
+    "artistsTitle": "Our artists",
+    "involvementTitle": "Get involved",
+    "seeEvents": "See all our events",
+    "seeArtists": "See all our artists"
   }
 }
