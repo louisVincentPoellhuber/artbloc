@@ -1,108 +1,109 @@
-import SectionBox from "@/ui/section-box";
+import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 
-function Home() {
-  const homeEventBubblesText = [
-    "Édition 2026 ▪",
-    "Novembre 2026",
-    "Montreal",
-    "GRATUIT",
-    "Billets",
-    "Musique",
-    "Sculpture",
-    "Peinture",
-    "Art digital",
-    "Dessin",
-    "Installations",
-    "Nourriture",
-    "Voir tous nos événements >",
-  ];
-  const homeEventBubblesTextAddOn = [
-    " w-180 h-26 text-8xl text-[#f5ebd9] ",
-    " w-80 h-28 text-4xl text-[#f5ebd9] ",
-    " w-1/4 h-1/10 bg-[#f5ebd9] ",
-    " text-3xl ",
-    " w-115 h-12 text-4xl text-[#f5ebd9] ",
-  ];
-  const homeEventBubblesLink = [
-    "https://www.eventbrite.ca/e/pop-up-exhibition-fragments-of-us-tickets-1467377809529?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
-    "/events",
-  ];
+import { getSite, getEventsByStatus, getAllArtists, getArtistColor } from "@/lib/content";
+import { Link } from "@/i18n/navigation";
+import HomeHero from "@/ui/home-hero";
+import GradientSphereCluster from "@/ui/gradient-sphere-cluster";
+import SectionLink from "@/ui/section-link";
+import Carousel from "@/ui/carousel";
+import PersonCard from "@/ui/person-card";
+import ActionCard from "@/ui/action-card";
 
-  const homeArtistCarouselText = ["Nos artistes ▪", "Voir tous nos artistes >"];
-  const homeArtistCarouselTextAddOn = [
-    " w-180 h-26 text-8xl ",
-    " w-100 h-12 text-4xl text-[#f5ebd9] ",
-  ];
-  const homeInvolvementText = [
-    "Impliquez-vous!",
-    [
-      "Joindre en tant qu’artiste",
-      "Les artistes sont au coeur de notre projet. Incrivez-vous pour discuter des possibilités de participer à un de nos prochains évènements.",
-    ],
-    [
-      "Inscrivez-vous à notre infolettre",
-      "Rejoignez notre communauté et restez à jour de toutes les nouvelles de Art Bloc!",
-    ],
-    [
-      "Contribuer à notre mission",
-      "Vos contributions nous aident à pérenniser notre organisme et à toucher un public plus large grâce à l'art. Chaque don compte pour bâtir une communauté artistique inclusive.",
-    ],
-  ];
-  const homeInvolvementTextAddOn = [
-    " w-full h-30 text-8xl ",
-    " w-full h-28 text-3xl ",
-    " w-7/8 h-40 text-lg",
-  ];
-  //need actual links
-  const homeInvolvementLink = [
-    "/contact",
-    "mailto:artbloc@outlook.com",
-    "/contact",
-  ];
-  const homeInvolvementBg = ["bg-[#d57278]", "bg-[#e8998d]"];
+export default async function HomePage({ params }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("home");
+  const tc = await getTranslations("contact");
+  const te = await getTranslations("events");
+  const format = await getFormatter();
+
+  const site = getSite(locale);
+  const edition = getEventsByStatus("upcoming", locale)[0];
+  const editionArtists = edition
+    ? getAllArtists(locale).filter((a) => edition.artists.includes(a.slug))
+    : [];
 
   return (
     <div>
-      <SectionBox
-        role="homeStaticPic"
-        text="Expositions éphémères à but non lucratif où l'art et la communauté se rencontrent"
-        textAddOn=" w-140 h-22 text-3xl text-white text-center"
-        img="/ABHomeLogo.png"
-        imgAddOn="home AB logo"
-        bgImg="bg-[url(/ABBannerTemp.jpg)]"
-      />
+      <HomeHero images={site.slideshow} tagline={t("tagline")} />
 
-      <SectionBox
-        role="homeABDesc"
-        text="Art Bloc est une description bien claire, orientée vers la communauté, le bloc, etc."
-        textAddOn=" w-screen h-screen text-7xl text-center "
-      />
+      <section className="flex min-h-screen items-center justify-center bg-cream px-6">
+        <p className="mx-auto max-w-4xl text-center font-display text-4xl leading-tight text-ink md:text-6xl">
+          {t("description")}
+        </p>
+      </section>
 
-      <SectionBox
-        role="homeEventBubbles"
-        text={homeEventBubblesText}
-        textAddOn={homeEventBubblesTextAddOn}
-        link={homeEventBubblesLink}
-        bgImg="bg-[#586744]"
-      />
+      {edition ? (
+        <section className="flex min-h-screen flex-col justify-center gap-8 bg-olive px-6 py-16 text-cream">
+          <div className="flex flex-col gap-10 md:flex-row md:items-center">
+            <div className="md:w-1/2">
+              <h2 className="font-display text-5xl font-semibold md:text-6xl">
+                {t("editionPrefix")} {new Date(edition.date).getFullYear()}{" "}
+                <span className="align-middle">▪</span>
+              </h2>
+              <p className="mt-6 text-2xl">
+                {format.dateTime(new Date(edition.date), { year: "numeric", month: "long" })}
+              </p>
+              {edition.venue ? <p className="text-2xl">{edition.venue}</p> : null}
+              {edition.price ? <p className="text-2xl">{edition.price}</p> : null}
+              {edition.eventbriteUrl ? (
+                <a
+                  href={edition.eventbriteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-block rounded-full bg-cream px-8 py-3 font-medium text-ink transition hover:bg-white"
+                >
+                  {te("tickets")}
+                </a>
+              ) : null}
+            </div>
+            <div className="md:w-1/2">
+              <GradientSphereCluster labels={edition.categories} />
+            </div>
+          </div>
+          <div className="self-end">
+            <SectionLink href="/events" label={t("seeEvents")} />
+          </div>
+        </section>
+      ) : null}
 
-      <SectionBox
-        role="homeArtistCarousel"
-        text={homeArtistCarouselText}
-        textAddOn={homeArtistCarouselTextAddOn}
-        link="/artists"
-        bgImg="bg-[#ef8678]"
-      />
+      {editionArtists.length > 0 ? (
+        <section className="flex min-h-screen flex-col justify-center gap-8 bg-coral px-6 py-16 text-cream">
+          <h2 className="font-display text-5xl font-semibold md:text-6xl">
+            {t("artistsTitle")} <span className="align-middle">▪</span>
+          </h2>
+          <Carousel>
+            {editionArtists.map((a) => (
+              <div key={a.slug} className="w-64 shrink-0 snap-start">
+                <Link href={`/artists/${a.slug}`}>
+                  <PersonCard
+                    image={a.avatar}
+                    hoverImage={a.hoverImage}
+                    primary={a.name}
+                    secondary={a.mediums[0] ?? ""}
+                    color={getArtistColor(a.slug)}
+                  />
+                </Link>
+              </div>
+            ))}
+          </Carousel>
+          <div className="self-end">
+            <SectionLink href="/artists" label={t("seeArtists")} />
+          </div>
+        </section>
+      ) : null}
 
-      <SectionBox
-        role="homeInvolvement"
-        text={homeInvolvementText}
-        textAddOn={homeInvolvementTextAddOn}
-        link={homeInvolvementLink}
-        bgImg={homeInvolvementBg}
-      />
+      <section className="flex min-h-screen flex-col justify-center bg-cream px-6 py-16">
+        <h2 className="mb-12 text-center font-display text-5xl font-semibold text-ink md:text-6xl">
+          {t("involvementTitle")} <span className="text-coral">!</span>
+        </h2>
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          <ActionCard title={tc("action1Title")} body={tc("action1Body")} href={`mailto:${site.contact.email}`} />
+          <ActionCard title={tc("action2Title")} body={tc("action2Body")} href="#" />
+          <ActionCard title={tc("action3Title")} body={tc("action3Body")} href="#" />
+        </div>
+      </section>
     </div>
   );
 }
-
-export default Home;

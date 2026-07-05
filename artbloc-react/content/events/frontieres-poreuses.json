@@ -7,9 +7,15 @@
   "venue": { "fr": "Montréal", "en": "Montreal" },
   "poster": "/AB2025Poster.png",
   "eventbriteUrl": "https://www.eventbrite.ca/",
+  "price": { "fr": "Gratuit", "en": "Free" },
   "categories": [
     { "fr": "Musique", "en": "Music" },
-    { "fr": "Sculpture", "en": "Sculpture" }
+    { "fr": "Sculpture", "en": "Sculpture" },
+    { "fr": "Peinture", "en": "Painting" },
+    { "fr": "Art numérique", "en": "Digital art" },
+    { "fr": "Dessin", "en": "Drawing" },
+    { "fr": "Installations", "en": "Installations" },
+    { "fr": "Nourriture", "en": "Food" }
   ],
   "artists": ["louis-vincent-poellhuber", "jennie-ming", "yu-xuan-zhao"],
   "blocks": [

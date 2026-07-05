@@ -55,5 +55,14 @@
     "label": "Carrousel",
     "previous": "Précédent",
     "next": "Suivant"
+  },
+  "home": {
+    "tagline": "Expositions éphémères à but non lucratif où l'art et la communauté se rencontrent.",
+    "description": "Art Bloc est une description bien claire, orientée vers la communauté, le bloc, etc.",
+    "editionPrefix": "Édition",
+    "artistsTitle": "Nos artistes",
+    "involvementTitle": "Impliquez-vous",
+    "seeEvents": "Voir tous nos événements",
+    "seeArtists": "Voir tous nos artistes"
   }
 }
