@@ -36,9 +36,9 @@ export default async function HomePage({ params }) {
       </section>
 
       {edition ? (
-        <section className="relative flex min-h-screen flex-col justify-center gap-8 overflow-hidden bg-olive px-6 py-16 text-cream">
+        <section className="relative flex min-h-screen items-center overflow-hidden bg-olive px-6 py-24 text-cream">
           <TexturedBackground variant="olive" />
-          <div className="relative z-10 flex flex-col gap-10 md:flex-row md:items-center">
+          <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center">
             <div className="md:w-1/2">
               <h2 className="font-display text-5xl font-semibold md:text-6xl">
                 {t("editionPrefix")} {new Date(edition.date).getFullYear()}{" "}
@@ -64,20 +64,21 @@ export default async function HomePage({ params }) {
               <GradientSphereCluster labels={edition.categories} />
             </div>
           </div>
-          <div className="relative z-10 self-end">
+          <div className="absolute bottom-8 right-6 z-10 md:bottom-12 md:right-12">
             <SectionLink href="/events" label={t("seeEvents")} />
           </div>
         </section>
       ) : null}
 
       {editionArtists.length > 0 ? (
-        <section className="relative flex min-h-screen flex-col justify-center gap-8 overflow-hidden bg-coral px-6 py-16 text-cream">
+        <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-coral px-6 py-24 text-cream">
           <TexturedBackground variant="coral" />
-          <h2 className="relative z-10 font-display text-5xl font-semibold md:text-6xl">
-            {t("artistsTitle")} <span className="align-middle">▪</span>
-          </h2>
-          <div className="relative z-10">
-            <Carousel>
+          <div className="relative z-10 mx-auto w-full max-w-6xl">
+            <h2 className="font-display text-5xl font-semibold md:text-6xl">
+              {t("artistsTitle")} <span className="align-middle">▪</span>
+            </h2>
+            <div className="mt-10">
+              <Carousel>
               {editionArtists.map((a) => (
                 <div key={a.slug} className="w-64 shrink-0 snap-start">
                   <Link href={`/artists/${a.slug}`}>
@@ -91,9 +92,10 @@ export default async function HomePage({ params }) {
                   </Link>
                 </div>
               ))}
-            </Carousel>
+              </Carousel>
+            </div>
           </div>
-          <div className="relative z-10 self-end">
+          <div className="absolute bottom-8 right-6 z-10 md:bottom-12 md:right-12">
             <SectionLink href="/artists" label={t("seeArtists")} />
           </div>
         </section>
