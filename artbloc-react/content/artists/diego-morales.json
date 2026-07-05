@@ -1,0 +1,17 @@
+{
+  "slug": "diego-morales",
+  "name": "Diego Morales",
+  "mediums": ["Sculpture sur bois"],
+  "avatar": "/ABBannerTemp.jpg",
+  "hoverImage": "/chungus.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Diego taille le bois récupéré pour en révéler des formes organiques.",
+        "en": "Diego carves reclaimed wood to reveal organic forms."
+      }
+    }
+  ]
+}

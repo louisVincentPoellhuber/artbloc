@@ -1,0 +1,17 @@
+{
+  "slug": "amara-okafor",
+  "name": "Amara Okafor",
+  "mediums": ["Photographie", "Collage"],
+  "avatar": "/AB2025Poster.png",
+  "hoverImage": "/ABBannerTemp.jpg",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Amara compose des collages photographiques entre mémoire et migration.",
+        "en": "Amara builds photographic collages between memory and migration."
+      }
+    }
+  ]
+}

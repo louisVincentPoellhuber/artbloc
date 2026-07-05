@@ -49,8 +49,8 @@ describe("content loader", () => {
     expect(getSite("fr").contact.email).toBe("artbloc@outlook.com");
   });
 
-  it("loads all six artists", () => {
-    expect(getAllArtists("fr").length).toBe(6);
+  it("loads all ten artists", () => {
+    expect(getAllArtists("fr").length).toBe(10);
   });
 
   it("derives teal for an artist only in the 2025 event", () => {

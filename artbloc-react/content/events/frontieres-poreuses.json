@@ -17,7 +17,17 @@
     { "fr": "Installations", "en": "Installations" },
     { "fr": "Nourriture", "en": "Food" }
   ],
-  "artists": ["louis-vincent-poellhuber", "jennie-ming", "yu-xuan-zhao"],
+  "artists": [
+    "louis-vincent-poellhuber",
+    "jennie-ming",
+    "yu-xuan-zhao",
+    "helen-vuong",
+    "tian-su-zhong",
+    "amara-okafor",
+    "diego-morales",
+    "priya-nair",
+    "sofia-rossi"
+  ],
   "blocks": [
     {
       "type": "richText",

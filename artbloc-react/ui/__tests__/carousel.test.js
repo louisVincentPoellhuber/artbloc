@@ -38,4 +38,34 @@ describe("Carousel", () => {
     fireEvent.click(screen.getByRole("button", { name: "Suivant" }));
     expect(scrollBy).toHaveBeenCalled();
   });
+
+  it("suppresses the click that ends a mouse drag", () => {
+    const onClick = vi.fn((e) => e.preventDefault());
+    renderCarousel(
+      <Carousel>
+        <a href="/x" onClick={onClick}>
+          Card
+        </a>
+      </Carousel>
+    );
+    const track = screen.getByRole("group");
+    fireEvent.pointerDown(track, { pointerType: "mouse", clientX: 200 });
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 60 });
+    fireEvent.pointerUp(track, { pointerType: "mouse", clientX: 60 });
+    fireEvent.click(screen.getByText("Card"));
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("lets a click through when there was no drag", () => {
+    const onClick = vi.fn((e) => e.preventDefault());
+    renderCarousel(
+      <Carousel>
+        <a href="/x" onClick={onClick}>
+          Card
+        </a>
+      </Carousel>
+    );
+    fireEvent.click(screen.getByText("Card"));
+    expect(onClick).toHaveBeenCalled();
+  });
 });

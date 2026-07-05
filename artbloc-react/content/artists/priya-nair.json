@@ -1,0 +1,17 @@
+{
+  "slug": "priya-nair",
+  "name": "Priya Nair",
+  "mediums": ["Art numérique", "Animation"],
+  "avatar": "/chungus.png",
+  "hoverImage": "/AB2025Poster.png",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Priya anime des mondes numériques inspirés du folklore.",
+        "en": "Priya animates digital worlds drawn from folklore."
+      }
+    }
+  ]
+}
