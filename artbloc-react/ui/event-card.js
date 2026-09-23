@@ -20,14 +20,14 @@ export default function EventCard({
   // padding so the text/buttons sit further from the poster.
   const posterRight = orientation === "right";
   const posterPos = posterRight
-    ? "order-last -ml-12 rotate-6"
-    : "order-first -mr-12 -rotate-6";
-  const panelPad = posterRight ? "pr-16" : "pl-24";
+    ? "md:order-last md:-ml-12 md:rotate-6"
+    : "md:order-first md:-mr-12 md:-rotate-6";
+  const panelPad = posterRight ? "md:pr-16" : "md:pl-24";
 
   return (
-    <article className="group relative mx-auto flex w-full max-w-2xl items-center py-2 transition-transform duration-300 motion-safe:hover:scale-[1.01]">
+    <article className="group relative mx-auto flex w-full max-w-2xl flex-col items-center py-2 transition-transform duration-300 md:flex-row motion-safe:hover:scale-[1.01]">
       <div
-        className={`relative z-10 w-52 shrink-0 ${posterPos} transition-transform duration-300 motion-safe:group-hover:scale-105`}
+        className={`relative z-10 w-40 shrink-0 md:w-52 ${posterPos} transition-transform duration-300 motion-safe:group-hover:scale-105`}
       >
         <Image
           src={poster}
@@ -38,7 +38,7 @@ export default function EventCard({
         />
       </div>
       <div
-        className={`flex-1 rounded-2xl bg-olive p-8 text-cream shadow-lg transition motion-safe:group-hover:-translate-y-1 ${panelPad}`}
+        className={`mt-4 w-full flex-1 rounded-2xl bg-olive p-6 text-cream shadow-lg transition md:mt-0 md:w-auto md:p-8 motion-safe:group-hover:-translate-y-1 ${panelPad}`}
       >
         <h3 className="font-display text-3xl font-semibold md:text-4xl">{title}</h3>
         <p className="mt-2 text-lg text-cream/80">{date}</p>
