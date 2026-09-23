@@ -19,10 +19,17 @@
     "facebook": "Facebook"
   },
   "events": {
+    "title": "Nos événements",
     "tickets": "Billets",
     "discover": "Découvrir",
     "upcoming": "À venir",
     "past": "Événements passés"
+  },
+  "artists": {
+    "title": "Nos artistes"
+  },
+  "video": {
+    "title": "Vidéo Art Bloc"
   },
   "about": {
     "missionTitle": "Mission",

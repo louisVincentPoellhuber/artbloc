@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { NextIntlClientProvider } from "next-intl";
 import RichText from "@/ui/blocks/rich-text";
 import CaptionedImage from "@/ui/blocks/captioned-image";
 import VideoEmbed from "@/ui/blocks/video-embed";
@@ -20,7 +21,11 @@ describe("CaptionedImage", () => {
 
 describe("VideoEmbed", () => {
   it("renders a YouTube iframe for the id", () => {
-    const { container } = render(<VideoEmbed id="abc123" />);
+    const { container } = render(
+      <NextIntlClientProvider locale="fr" messages={{ video: { title: "Vidéo Art Bloc" } }}>
+        <VideoEmbed id="abc123" />
+      </NextIntlClientProvider>
+    );
     const iframe = container.querySelector("iframe");
     expect(iframe).toBeTruthy();
     expect(iframe.getAttribute("src")).toContain("abc123");

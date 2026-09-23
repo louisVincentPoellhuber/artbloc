@@ -19,10 +19,17 @@
     "facebook": "Facebook"
   },
   "events": {
+    "title": "Our events",
     "tickets": "Tickets",
     "discover": "Discover",
     "upcoming": "Upcoming",
     "past": "Past events"
+  },
+  "artists": {
+    "title": "Our artists"
+  },
+  "video": {
+    "title": "Art Bloc video"
   },
   "about": {
     "missionTitle": "Mission",

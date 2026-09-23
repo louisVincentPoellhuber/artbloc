@@ -3,15 +3,22 @@ import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import Blocks from "@/ui/blocks/blocks";
 
+const messages = {
+  video: { title: "Vidéo Art Bloc" },
+  carousel: { label: "Carrousel", previous: "Précédent", next: "Suivant" },
+};
+
 describe("Blocks renderer", () => {
   it("renders each known block by type", () => {
     render(
-      <Blocks
-        blocks={[
-          { type: "richText", text: "Premier" },
-          { type: "videoEmbed", id: "xyz" },
-        ]}
-      />
+      <NextIntlClientProvider locale="fr" messages={messages}>
+        <Blocks
+          blocks={[
+            { type: "richText", text: "Premier" },
+            { type: "videoEmbed", id: "xyz" },
+          ]}
+        />
+      </NextIntlClientProvider>
     );
     expect(screen.getByText("Premier")).toBeInTheDocument();
   });
@@ -37,7 +44,7 @@ describe("Blocks renderer", () => {
 
   it("renders a carousel block with one image per entry", () => {
     const { container } = render(
-      <NextIntlClientProvider locale="fr" messages={{ carousel: { label: "Carrousel", previous: "Précédent", next: "Suivant" } }}>
+      <NextIntlClientProvider locale="fr" messages={messages}>
         <Blocks blocks={[{ type: "carousel", images: ["/a.png", "/b.png"] }]} />
       </NextIntlClientProvider>
     );
