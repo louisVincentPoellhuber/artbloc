@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
@@ -14,6 +14,30 @@ const LINKS = [
   { href: "/contact", key: "contact", accent: "bg-coral-soft" },
 ];
 
+// Exit is shorter than entrance: arriving can be leisurely, dismissing should not be.
+const EXIT_MS = 150;
+const STAGGER_MS = 40;
+const STAGGER_OFFSET_MS = 80;
+
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+
+function subscribeToReducedMotion(onChange) {
+  const mq = window.matchMedia?.(REDUCED_MOTION);
+  if (!mq) return () => {};
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
+// Subscribed rather than read once, so flipping the OS setting takes effect
+// immediately instead of at the next full page load.
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeToReducedMotion,
+    () => window.matchMedia?.(REDUCED_MOTION).matches ?? false,
+    () => false
+  );
+}
+
 function isActive(pathname, href) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -26,6 +50,11 @@ export default function NavHeader() {
   const locale = useLocale();
   const otherLocale = locale === "fr" ? "en" : "fr";
   const [menuOpen, setMenuOpen] = useState(false);
+  // `mounted` trails `menuOpen` on close so the panel survives its exit
+  // transition; `shown` drives the classes that actually animate.
+  const [mounted, setMounted] = useState(false);
+  const [shown, setShown] = useState(false);
+  const reduceMotion = usePrefersReducedMotion();
   const scrollHidden = useHideOnScroll();
   const hidden = headerHidden({ hidden: scrollHidden, menuOpen });
   const triggerRef = useRef(null);
@@ -36,7 +65,42 @@ export default function NavHeader() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Escape, body-scroll lock and initial focus all belong to the open state.
+  // Drive mount/unmount around the transition. Under reduced motion there is no
+  // transition to wait for, so both edges are immediate.
+  useEffect(() => {
+    if (menuOpen) {
+      // The extra commit is the mechanism here, not an accident: the panel has
+      // to render once in its hidden state before `shown` flips, or the browser
+      // has no "from" value to animate out of.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMounted(true);
+      if (reduceMotion) {
+        setShown(true);
+        return;
+      }
+      // Two frames, deliberately: one rAF still lands in the same paint as the
+      // mount, so the browser coalesces hidden→shown and no transition runs.
+      // The first frame lets the hidden state paint; the second flips it.
+      let inner;
+      const outer = requestAnimationFrame(() => {
+        inner = requestAnimationFrame(() => setShown(true));
+      });
+      return () => {
+        cancelAnimationFrame(outer);
+        if (inner) cancelAnimationFrame(inner);
+      };
+    }
+    setShown(false);
+    if (reduceMotion) {
+      setMounted(false);
+      return;
+    }
+    const timer = setTimeout(() => setMounted(false), EXIT_MS);
+    return () => clearTimeout(timer);
+  }, [menuOpen, reduceMotion]);
+
+  // Escape and the body-scroll lock belong to the open state and release the
+  // moment it closes — the exiting panel is inert and must not hold them.
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (event) => {
@@ -45,12 +109,16 @@ export default function NavHeader() {
     document.addEventListener("keydown", onKeyDown);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    panelRef.current?.focus();
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = previousOverflow;
     };
   }, [menuOpen]);
+
+  // Focus waits for the panel to exist — it mounts a commit after the open.
+  useEffect(() => {
+    if (menuOpen && mounted) panelRef.current?.focus();
+  }, [menuOpen, mounted]);
 
   // Resizing up to desktop must not leave the pill stranded behind a dead overlay.
   useEffect(() => {
@@ -88,6 +156,13 @@ export default function NavHeader() {
       event.preventDefault();
       first.focus();
     }
+  }
+
+  // Entrance cascades down the list; exit drops every delay so the panel leaves
+  // as one piece.
+  function itemDelay(index) {
+    if (!shown || reduceMotion) return "0ms";
+    return `${STAGGER_OFFSET_MS + index * STAGGER_MS}ms`;
   }
 
   return (
@@ -133,7 +208,7 @@ export default function NavHeader() {
         </button>
       </header>
 
-      {menuOpen ? (
+      {mounted ? (
         <div
           id="mobile-nav"
           ref={panelRef}
@@ -141,24 +216,35 @@ export default function NavHeader() {
           role="dialog"
           aria-modal="true"
           aria-label={t("menuLabel")}
+          aria-hidden={!menuOpen}
           onKeyDown={handlePanelKeyDown}
-          className="fixed inset-0 z-20 flex flex-col justify-center-safe overflow-y-auto bg-cream px-8 py-24 md:hidden"
+          className={`fixed inset-0 z-20 flex flex-col justify-center-safe overflow-y-auto bg-cream px-8 py-24 transition-[opacity,translate] ease-out md:hidden ${
+            shown
+              ? "translate-y-0 opacity-100 duration-200"
+              : "pointer-events-none -translate-y-2 opacity-0 duration-150"
+          }`}
         >
           <nav className="flex flex-col items-start gap-2">
-            {LINKS.map((link) => (
+            {LINKS.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className={`rounded-full px-5 py-2 font-display text-4xl font-medium transition-colors ${
+                style={{ transitionDelay: itemDelay(index) }}
+                className={`rounded-full px-5 py-2 font-display text-4xl font-medium transition-[opacity,translate,color] duration-200 ease-out ${
                   isActive(pathname, link.href) ? `${link.accent} text-cream` : "text-ink"
-                }`}
+                } ${shown ? "translate-y-0 opacity-100" : "translate-y-1.5 opacity-0"}`}
               >
                 {t(link.key)}
               </Link>
             ))}
           </nav>
-          <div className="mt-10 border-t border-ink/15 pt-6">
+          <div
+            style={{ transitionDelay: itemDelay(LINKS.length) }}
+            className={`mt-10 border-t border-ink/15 pt-6 transition-[opacity,translate] duration-200 ease-out ${
+              shown ? "translate-y-0 opacity-100" : "translate-y-1.5 opacity-0"
+            }`}
+          >
             <button
               type="button"
               onClick={() => {

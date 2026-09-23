@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent, within } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import NavHeader from "@/ui/nav-header";
 
@@ -78,6 +78,55 @@ describe("NavHeader mobile menu", () => {
     expect(document.body.style.overflow).toBe("hidden");
     fireEvent.keyDown(document, { key: "Escape" });
     expect(document.body.style.overflow).not.toBe("hidden");
+  });
+
+  it("keeps the exiting panel mounted but hidden from assistive tech, then removes it", async () => {
+    const { container } = renderNav();
+    fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));
+    fireEvent.keyDown(document, { key: "Escape" });
+
+    // Still in the DOM so it can animate out, but already gone from the
+    // accessibility tree — a panel on its way out is not a panel you can use.
+    const panel = container.querySelector("#mobile-nav");
+    expect(panel).toBeInTheDocument();
+    expect(panel).toHaveAttribute("aria-hidden", "true");
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+
+    await waitFor(() =>
+      expect(container.querySelector("#mobile-nav")).not.toBeInTheDocument()
+    );
+  });
+
+  it("staggers the links on entrance", async () => {
+    renderNav();
+    fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));
+    // The panel commits hidden first and flips on the next frame, so the
+    // delays only land once that frame has run.
+    await waitFor(() => {
+      const links = within(screen.getByRole("dialog")).getAllByRole("link");
+      const delays = links.map((link) => link.style.transitionDelay);
+      expect(delays).toEqual(["80ms", "120ms", "160ms", "200ms", "240ms"]);
+    });
+  });
+
+  it("drops the stagger and unmounts immediately under reduced motion", () => {
+    const original = window.matchMedia;
+    window.matchMedia = (query) => ({
+      matches: query.includes("prefers-reduced-motion"),
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    });
+    try {
+      const { container } = renderNav();
+      fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));
+      const links = within(screen.getByRole("dialog")).getAllByRole("link");
+      links.forEach((link) => expect(link.style.transitionDelay).toBe("0ms"));
+
+      fireEvent.keyDown(document, { key: "Escape" });
+      expect(container.querySelector("#mobile-nav")).not.toBeInTheDocument();
+    } finally {
+      window.matchMedia = original;
+    }
   });
 
   it("wraps Tab from the last focusable element to the first, containing focus", () => {
