@@ -73,6 +73,23 @@ export default function NavHeader() {
     router.replace(pathname, { locale: otherLocale });
   }
 
+  // aria-modal="true" claims focus is contained — Tab must not be able to
+  // escape into the page behind the overlay.
+  function handlePanelKeyDown(event) {
+    if (event.key !== "Tab") return;
+    const focusable = panelRef.current?.querySelectorAll("a[href], button:not([disabled])");
+    if (!focusable || focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
   return (
     <>
       <header
@@ -110,7 +127,7 @@ export default function NavHeader() {
           aria-controls="mobile-nav"
           aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
           onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
-          className="ml-1 rounded-full px-3 py-1.5 font-display text-2xl leading-none text-ink md:hidden"
+          className="ml-1 flex h-11 w-11 items-center justify-center rounded-full font-display text-2xl leading-none text-ink md:hidden"
         >
           {menuOpen ? "✕" : "≡"}
         </button>
@@ -124,7 +141,8 @@ export default function NavHeader() {
           role="dialog"
           aria-modal="true"
           aria-label={t("menuLabel")}
-          className="fixed inset-0 z-20 flex flex-col justify-center bg-cream px-8 md:hidden"
+          onKeyDown={handlePanelKeyDown}
+          className="fixed inset-0 z-20 flex flex-col justify-center overflow-y-auto bg-cream px-8 py-24 md:hidden"
         >
           <nav className="flex flex-col items-start gap-2">
             {LINKS.map((link) => (
@@ -147,7 +165,7 @@ export default function NavHeader() {
                 switchLocale();
                 closeMenu();
               }}
-              className="font-display text-2xl font-medium text-ink/70"
+              className="flex min-h-11 min-w-11 items-center font-display text-2xl font-medium text-ink/70"
             >
               {t("toggle")}
             </button>
