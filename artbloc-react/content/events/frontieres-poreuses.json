@@ -54,7 +54,7 @@
     {
       "type": "gallery",
       "columns": 3,
-      "images": ["/chungus.png", "/ABBannerTemp.jpg", "/AB2025Poster.png"]
+      "images": [{ "src": "/chungus.png" }, { "src": "/ABBannerTemp.jpg" }, { "src": "/AB2025Poster.png" }]
     }
   ]
 }

@@ -76,9 +76,25 @@ describe("new block types (1B)", () => {
     expect(b.side).toBe("left");
   });
 
-  it("requires >=1 gallery image and defaults columns to 3", () => {
+  it("accepts gallery images as objects, with and without alt", () => {
+    expect(() =>
+      Block.parse({
+        type: "gallery",
+        images: [{ src: "/a.png" }, { src: "/b.png", alt: { fr: "Une œuvre", en: "A work" } }],
+      })
+    ).not.toThrow();
+  });
+
+  it("rejects bare string gallery images", () => {
+    expect(() => Block.parse({ type: "gallery", images: ["/a.png"] })).toThrow();
+  });
+
+  it("still rejects an empty gallery", () => {
     expect(() => Block.parse({ type: "gallery", images: [] })).toThrow();
-    expect(Block.parse({ type: "gallery", images: ["/a.png"] }).columns).toBe(3);
+  });
+
+  it("defaults gallery columns to 3", () => {
+    expect(Block.parse({ type: "gallery", images: [{ src: "/a.png" }] }).columns).toBe(3);
   });
 
   it("requires color and text on coloredSection", () => {
@@ -90,10 +106,8 @@ describe("new block types (1B)", () => {
 });
 
 describe("carousel block (P3)", () => {
-  it("parses a carousel with images", () => {
-    expect(() => Block.parse({ type: "carousel", images: ["/a.png"] })).not.toThrow();
-  });
-  it("rejects a carousel with no images", () => {
+  it("accepts carousel images as objects and rejects an empty list", () => {
+    expect(() => Block.parse({ type: "carousel", images: [{ src: "/a.png" }] })).not.toThrow();
     expect(() => Block.parse({ type: "carousel", images: [] })).toThrow();
   });
 });
