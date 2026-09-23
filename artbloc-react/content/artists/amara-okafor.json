@@ -1,7 +1,7 @@
 {
   "slug": "amara-okafor",
   "name": "Amara Okafor",
-  "mediums": ["Photographie", "Collage"],
+  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
   "avatar": "/AB2025Poster.png",
   "hoverImage": "/ABBannerTemp.jpg",
   "blocks": [

@@ -30,4 +30,15 @@ describe("deepLocalize", () => {
       ],
     });
   });
+
+  it("resolves locale maps held in an array", () => {
+    const input = {
+      mediums: [
+        { fr: "Guitare", en: "Guitar" },
+        { fr: "Chant", en: "Vocals" },
+      ],
+    };
+    expect(deepLocalize(input, "en")).toEqual({ mediums: ["Guitar", "Vocals"] });
+    expect(deepLocalize(input, "fr")).toEqual({ mediums: ["Guitare", "Chant"] });
+  });
 });

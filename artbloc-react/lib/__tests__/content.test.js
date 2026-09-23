@@ -36,6 +36,14 @@ describe("content loader", () => {
     expect(getArtist("nobody", "fr")).toBeNull();
   });
 
+  it("resolves mediums to plain strings for the active locale", () => {
+    const fr = getArtist("louis-vincent-poellhuber", "fr");
+    const en = getArtist("louis-vincent-poellhuber", "en");
+    expect(fr.mediums).toContain("Guitare");
+    expect(en.mediums).toContain("Guitar");
+    expect(typeof fr.mediums[0]).toBe("string");
+  });
+
   it("derives the artist color from the most recent event", () => {
     expect(getArtistColor("louis-vincent-poellhuber")).toBe("coral");
   });

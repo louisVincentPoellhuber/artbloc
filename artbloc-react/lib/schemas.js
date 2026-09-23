@@ -34,12 +34,18 @@ const TextImageBlock = z.object({
   type: z.literal("textImage"),
   text: LocalizedString,
   image: z.string(),
+  alt: LocalizedString.optional(),
   side: z.enum(["left", "right"]).default("left"),
+});
+
+const BlockImage = z.object({
+  src: z.string(),
+  alt: LocalizedString.optional(),
 });
 
 const GalleryBlock = z.object({
   type: z.literal("gallery"),
-  images: z.array(z.string()).min(1),
+  images: z.array(BlockImage).min(1),
   columns: z.number().default(3),
 });
 
@@ -52,7 +58,7 @@ const ColoredSectionBlock = z.object({
 
 const CarouselBlock = z.object({
   type: z.literal("carousel"),
-  images: z.array(z.string()).min(1),
+  images: z.array(BlockImage).min(1),
 });
 
 export const Block = z.discriminatedUnion("type", [
@@ -69,7 +75,7 @@ export const Block = z.discriminatedUnion("type", [
 export const artistSchema = z.object({
   slug: z.string(),
   name: z.string(),
-  mediums: z.array(z.string()).default([]),
+  mediums: z.array(LocalizedString).default([]),
   avatar: z.string(),
   hoverImage: z.string().optional(),
   blocks: z.array(Block).default([]),

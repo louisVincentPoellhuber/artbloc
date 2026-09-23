@@ -1,7 +1,7 @@
 {
   "slug": "yu-xuan-zhao",
   "name": "Yu Xuan Zhao",
-  "mediums": ["Art numérique", "Animation"],
+  "mediums": [{ "fr": "Art numérique", "en": "Digital art" }, { "fr": "Animation", "en": "Animation" }],
   "avatar": "/ABHomeLogo.png",
   "blocks": [
     {

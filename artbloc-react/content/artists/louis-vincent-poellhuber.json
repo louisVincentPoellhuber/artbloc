@@ -1,7 +1,7 @@
 {
   "slug": "louis-vincent-poellhuber",
   "name": "Louis-Vincent Poellhuber",
-  "mediums": ["Pixel art", "Guitar", "Vocals"],
+  "mediums": [{ "fr": "Pixel art", "en": "Pixel art" }, { "fr": "Guitare", "en": "Guitar" }, { "fr": "Chant", "en": "Vocals" }],
   "avatar": "/ABHomeLogo.png",
   "blocks": [
     {

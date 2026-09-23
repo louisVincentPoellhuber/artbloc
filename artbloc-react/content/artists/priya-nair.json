@@ -1,7 +1,7 @@
 {
   "slug": "priya-nair",
   "name": "Priya Nair",
-  "mediums": ["Collage numérique", "Animation"],
+  "mediums": [{ "fr": "Collage numérique", "en": "Digital collage" }, { "fr": "Animation", "en": "Animation" }],
   "avatar": "/chungus.png",
   "hoverImage": "/AB2025Poster.png",
   "blocks": [
@@ -17,6 +17,10 @@
       "type": "textImage",
       "side": "right",
       "image": "/chungus.png",
+      "alt": {
+        "fr": "Collage numérique : un lapin de dessin animé surdimensionné au-dessus d'une forêt d'épinettes enneigées.",
+        "en": "Digital collage: an oversized cartoon rabbit above a snowy spruce forest."
+      },
       "text": {
         "fr": "Née à Laval et installée dans Villeray, Priya travaille à partir d'images trouvées : captures d'écran de VHS, fonds d'écran d'ordinateur, photos de randonnée prises par sa mère. Elle les superpose jusqu'à ce que la couture reste visible. « Je n'essaie pas de vous faire croire que l'image est vraie, dit-elle. Je cherche le moment où on accepte qu'elle ne l'est pas. » Ses collages circulent d'abord en ligne, où ils vivent une seconde vie en mèmes, avant de revenir imprimés sur le mur d'une exposition.",
         "en": "Born in Laval and based in Villeray, Priya works from found images: VHS screen grabs, desktop wallpapers, hiking photos taken by her mother. She layers them until the seam stays visible. “I'm not trying to make you believe the image is real,” she says. “I'm looking for the moment you accept that it isn't.” Her collages circulate online first, living a second life as memes, before coming back printed on a gallery wall."
@@ -67,7 +71,29 @@
     {
       "type": "gallery",
       "columns": 3,
-      "images": ["/chungus.png", "/AB2025Poster.png", "/ABBannerTemp.jpg"]
+      "images": [
+        {
+          "src": "/chungus.png",
+          "alt": {
+            "fr": "Collage numérique : un lapin de dessin animé dans une forêt enneigée au couchant.",
+            "en": "Digital collage: a cartoon rabbit in a snowy forest at sunset."
+          }
+        },
+        {
+          "src": "/AB2025Poster.png",
+          "alt": {
+            "fr": "Affiche illustrée : les lettres « ART BLOC » dessinées comme un immeuble isométrique habité.",
+            "en": "Illustrated poster: the letters “ART BLOC” drawn as an inhabited isometric building."
+          }
+        },
+        {
+          "src": "/ABBannerTemp.jpg",
+          "alt": {
+            "fr": "Photos d'une soirée Art Bloc : groupe sur scène, public devant les œuvres, bouquets de fleurs.",
+            "en": "Photos from an Art Bloc evening: a band on stage, visitors in front of the works, bouquets of flowers."
+          }
+        }
+      ]
     },
     {
       "type": "coloredSection",
@@ -92,11 +118,11 @@
     {
       "type": "carousel",
       "images": [
-        "/chungus.png",
-        "/ABBannerTemp.jpg",
-        "/AB2025Poster.png",
-        "/ABBannerTemp.jpg",
-        "/chungus.png"
+        { "src": "/chungus.png", "alt": { "fr": "Vue d'atelier : le collage au lapin en cours de montage.", "en": "Studio view: the rabbit collage mid-assembly." } },
+        { "src": "/ABBannerTemp.jpg", "alt": { "fr": "Vue d'accrochage au Bâtiment 7.", "en": "Installation view at Bâtiment 7." } },
+        { "src": "/AB2025Poster.png", "alt": { "fr": "L'affiche « Le bloc » accrochée au mur.", "en": "The poster “Le bloc” hung on the wall." } },
+        { "src": "/ABBannerTemp.jpg", "alt": { "fr": "Le public devant les œuvres.", "en": "Visitors in front of the works." } },
+        { "src": "/chungus.png", "alt": { "fr": "Tirage grand format du collage au lapin.", "en": "Large-format print of the rabbit collage." } }
       ]
     },
     {

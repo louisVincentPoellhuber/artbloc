@@ -34,3 +34,9 @@ export function useHideOnScroll({ threshold = 80 } = {}) {
 
   return hidden;
 }
+
+// Pure: the header stays put whenever the mobile menu is open, so the ✕ can
+// never scroll out of reach behind an open overlay.
+export function headerHidden({ hidden, menuOpen }) {
+  return hidden && !menuOpen;
+}
