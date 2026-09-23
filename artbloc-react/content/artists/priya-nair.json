@@ -1,7 +1,7 @@
 {
   "slug": "priya-nair",
   "name": "Priya Nair",
-  "mediums": ["Art numérique", "Animation"],
+  "mediums": ["Collage numérique", "Animation"],
   "avatar": "/chungus.png",
   "hoverImage": "/AB2025Poster.png",
   "blocks": [
@@ -9,9 +9,100 @@
       "type": "richText",
       "variant": "lead",
       "text": {
-        "fr": "Priya anime des mondes numériques inspirés du folklore.",
-        "en": "Priya animates digital worlds drawn from folklore."
+        "fr": "Priya Nair fabrique des collages numériques où les dessins animés de son enfance s'échouent dans les paysages du Québec.",
+        "en": "Priya Nair makes digital collages where the cartoons of her childhood wash up in the landscapes of Quebec."
       }
+    },
+    {
+      "type": "textImage",
+      "side": "right",
+      "image": "/chungus.png",
+      "text": {
+        "fr": "Née à Laval et installée dans Villeray, Priya travaille à partir d'images trouvées : captures d'écran de VHS, fonds d'écran d'ordinateur, photos de randonnée prises par sa mère. Elle les superpose jusqu'à ce que la couture reste visible. « Je n'essaie pas de vous faire croire que l'image est vraie, dit-elle. Je cherche le moment où on accepte qu'elle ne l'est pas. » Ses collages circulent d'abord en ligne, où ils vivent une seconde vie en mèmes, avant de revenir imprimés sur le mur d'une exposition.",
+        "en": "Born in Laval and based in Villeray, Priya works from found images: VHS screen grabs, desktop wallpapers, hiking photos taken by her mother. She layers them until the seam stays visible. “I'm not trying to make you believe the image is real,” she says. “I'm looking for the moment you accept that it isn't.” Her collages circulate online first, living a second life as memes, before coming back printed on a gallery wall."
+      }
+    },
+    {
+      "type": "captionedImage",
+      "variant": "full",
+      "image": "/ABBannerTemp.jpg",
+      "caption": {
+        "fr": "Soirée Art Bloc au Bâtiment 7, novembre 2025. Photo : Art Bloc.",
+        "en": "Art Bloc evening at Bâtiment 7, November 2025. Photo: Art Bloc."
+      }
+    },
+    {
+      "type": "richText",
+      "variant": "body",
+      "text": {
+        "fr": "Le travail commence toujours par un dossier de captures. Priya y accumule pendant des mois des fragments sans lien apparent — un ciel de coucher de soleil trop saturé, un lapin de dessin animé, une rangée d'épinettes — puis les empile jusqu'à ce qu'une image refuse de se défaire. Le montage se fait sans masque ni fondu : les bords restent nets, l'échelle reste fausse, et c'est précisément là que l'image devient drôle, puis un peu triste.",
+        "en": "The work always starts with a folder of screenshots. For months Priya piles up fragments with no apparent connection — an oversaturated sunset, a cartoon rabbit, a row of spruce trees — then stacks them until one image refuses to come apart. She montages without masks or feathering: the edges stay hard, the scale stays wrong, and that is exactly where the picture turns funny, and then a little sad."
+      }
+    },
+    {
+      "type": "quote",
+      "text": {
+        "fr": "Une image ratée ne meurt pas sur internet. Elle devient un fond d'écran, puis une blague, puis un souvenir.",
+        "en": "A failed image doesn't die on the internet. It becomes a wallpaper, then a joke, then a memory."
+      },
+      "attribution": { "fr": "Priya Nair", "en": "Priya Nair" }
+    },
+    {
+      "type": "captionedImage",
+      "variant": "side",
+      "image": "/AB2025Poster.png",
+      "caption": {
+        "fr": "Le bloc (2025), encre et numérique — affiche commandée par Art Bloc pour Fragments de nous.",
+        "en": "Le bloc (2025), ink and digital — poster commissioned by Art Bloc for Fragments of Us."
+      }
+    },
+    {
+      "type": "richText",
+      "variant": "body",
+      "text": {
+        "fr": "Pour Fragments de nous, Art Bloc lui a commandé l'affiche. Priya a laissé le collage de côté et repris l'encre : un bloc isométrique où les lettres du nom deviennent un immeuble, et où chaque habitant fait quelque chose de parfaitement banal — accorder une guitare, arroser une plante, monter dans une échelle. C'était la première fois qu'elle dessinait tout à la main depuis le cégep.",
+        "en": "For Fragments of Us, Art Bloc commissioned the poster. Priya set the collage aside and went back to ink: an isometric block where the letters of the name become a building, and where every resident is doing something perfectly ordinary — tuning a guitar, watering a plant, climbing a ladder. It was the first time she had drawn everything by hand since cégep."
+      }
+    },
+    {
+      "type": "gallery",
+      "columns": 3,
+      "images": ["/chungus.png", "/AB2025Poster.png", "/ABBannerTemp.jpg"]
+    },
+    {
+      "type": "coloredSection",
+      "color": "coral",
+      "heading": {
+        "fr": "À venir — Frontières Poreuses",
+        "en": "Coming up — Porous Borders"
+      },
+      "text": {
+        "fr": "En novembre 2026, Priya présentera une série produite pendant l'été : six collages grand format imprimés sur papier journal, collés à même le mur et destinés à se dégrader pendant toute la durée de l'exposition. Les visiteurs pourront en décoller un fragment et le rapporter chez eux.",
+        "en": "In November 2026, Priya will show a series made over the summer: six large-format collages printed on newsprint, pasted straight onto the wall and meant to degrade over the whole run of the show. Visitors will be able to peel off a fragment and take it home."
+      }
+    },
+    {
+      "type": "richText",
+      "variant": "body",
+      "text": {
+        "fr": "Vues d'atelier et d'accrochage, 2024–2026.",
+        "en": "Studio and installation views, 2024–2026."
+      }
+    },
+    {
+      "type": "carousel",
+      "images": [
+        "/chungus.png",
+        "/ABBannerTemp.jpg",
+        "/AB2025Poster.png",
+        "/ABBannerTemp.jpg",
+        "/chungus.png"
+      ]
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "aqz-KE-bpKQ"
     }
   ]
 }
