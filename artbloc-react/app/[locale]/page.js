@@ -29,14 +29,14 @@ export default async function HomePage({ params }) {
     <div>
       <HomeHero images={site.slideshow} tagline={t("tagline")} />
 
-      <section className="flex min-h-screen items-center justify-center bg-cream px-6">
+      <section className="flex items-center justify-center bg-cream px-6 py-24 md:min-h-screen">
         <p className="mx-auto max-w-4xl text-center font-display text-4xl leading-tight text-ink md:text-6xl">
           {t("description")}
         </p>
       </section>
 
       {edition ? (
-        <section className="relative flex min-h-screen items-center overflow-hidden bg-olive px-6 py-24 text-cream">
+        <section className="relative flex items-center overflow-hidden bg-olive px-6 py-24 text-cream md:min-h-screen">
           <TexturedBackground variant="olive" />
           <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center">
             <div className="md:w-1/2">
@@ -71,7 +71,7 @@ export default async function HomePage({ params }) {
       ) : null}
 
       {editionArtists.length > 0 ? (
-        <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-coral px-6 py-24 text-cream">
+        <section className="relative flex flex-col justify-center overflow-hidden bg-coral px-6 py-24 text-cream md:min-h-screen">
           <TexturedBackground variant="coral" />
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <h2 className="font-display text-5xl font-semibold md:text-6xl">
@@ -101,7 +101,7 @@ export default async function HomePage({ params }) {
         </section>
       ) : null}
 
-      <section className="flex min-h-screen flex-col justify-center bg-cream px-6 py-16">
+      <section className="flex flex-col justify-center bg-cream px-6 py-16 md:min-h-screen">
         <h2 className="mb-12 text-center font-display text-5xl font-semibold text-ink md:text-6xl">
           {t("involvementTitle")} <span className="text-coral">!</span>
         </h2>
