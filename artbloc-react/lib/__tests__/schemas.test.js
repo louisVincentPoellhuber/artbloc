@@ -4,7 +4,7 @@ import { artistSchema, eventSchema, Block } from "@/lib/schemas";
 const validArtist = {
   slug: "lvp",
   name: "Louis-Vincent Poellhuber",
-  mediums: ["Pixel art"],
+  mediums: [{ fr: "Pixel art", en: "Pixel art" }],
   avatar: "/a.png",
   blocks: [{ type: "richText", text: { fr: "Salut", en: "Hi" } }],
 };
@@ -25,6 +25,16 @@ describe("artistSchema", () => {
       blocks: [{ type: "richText", text: { en: "Hi" } }],
     };
     expect(() => artistSchema.parse(broken)).toThrow();
+  });
+
+  it("rejects a bare string medium", () => {
+    const broken = { ...validArtist, mediums: ["Pixel art"] };
+    expect(() => artistSchema.parse(broken)).toThrow();
+  });
+
+  it("accepts a medium with only the French translation", () => {
+    const partial = { ...validArtist, mediums: [{ fr: "Gravure" }] };
+    expect(() => artistSchema.parse(partial)).not.toThrow();
   });
 });
 

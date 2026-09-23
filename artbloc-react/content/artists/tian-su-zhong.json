@@ -1,7 +1,7 @@
 {
   "slug": "tian-su-zhong",
   "name": "Tian-Su Zhong",
-  "mediums": ["Dessin", "Gravure"],
+  "mediums": [{ "fr": "Dessin", "en": "Drawing" }, { "fr": "Gravure", "en": "Printmaking" }],
   "avatar": "/ABHomeLogo.png",
   "blocks": [
     {

@@ -1,7 +1,7 @@
 {
   "slug": "nancy-zhu",
   "name": "Nancy Zhu",
-  "mediums": ["Sculpture", "Céramique"],
+  "mediums": [{ "fr": "Sculpture", "en": "Sculpture" }, { "fr": "Céramique", "en": "Ceramics" }],
   "avatar": "/ABHomeLogo.png",
   "hoverImage": "/ABBannerTemp.jpg",
   "blocks": [

@@ -69,7 +69,7 @@ export const Block = z.discriminatedUnion("type", [
 export const artistSchema = z.object({
   slug: z.string(),
   name: z.string(),
-  mediums: z.array(z.string()).default([]),
+  mediums: z.array(LocalizedString).default([]),
   avatar: z.string(),
   hoverImage: z.string().optional(),
   blocks: z.array(Block).default([]),

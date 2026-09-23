@@ -1,7 +1,7 @@
 {
   "slug": "priya-nair",
   "name": "Priya Nair",
-  "mediums": ["Collage numérique", "Animation"],
+  "mediums": [{ "fr": "Collage numérique", "en": "Digital collage" }, { "fr": "Animation", "en": "Animation" }],
   "avatar": "/chungus.png",
   "hoverImage": "/AB2025Poster.png",
   "blocks": [
