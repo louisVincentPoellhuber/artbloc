@@ -5,7 +5,10 @@
     "evenements": "ÉVÉNEMENTS",
     "apropos": "À PROPOS",
     "contact": "CONTACT",
-    "toggle": "EN"
+    "toggle": "EN",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menuLabel": "Menu principal"
   },
   "footer": {
     "navigation": "Navigation",
