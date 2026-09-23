@@ -142,7 +142,7 @@ export default function NavHeader() {
           aria-modal="true"
           aria-label={t("menuLabel")}
           onKeyDown={handlePanelKeyDown}
-          className="fixed inset-0 z-20 flex flex-col justify-center overflow-y-auto bg-cream px-8 py-24 md:hidden"
+          className="fixed inset-0 z-20 flex flex-col justify-center-safe overflow-y-auto bg-cream px-8 py-24 md:hidden"
         >
           <nav className="flex flex-col items-start gap-2">
             {LINKS.map((link) => (
