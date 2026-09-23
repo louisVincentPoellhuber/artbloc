@@ -57,6 +57,14 @@ describe("NavHeader mobile menu", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
+  it("returns focus to the trigger when Escape closes the panel", () => {
+    renderNav();
+    const trigger = screen.getByRole("button", { name: "Ouvrir le menu" });
+    fireEvent.click(trigger);
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.getByRole("button", { name: "Ouvrir le menu" })).toHaveFocus();
+  });
+
   it("closes when a link is selected", () => {
     renderNav();
     fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));

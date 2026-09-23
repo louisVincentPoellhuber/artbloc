@@ -40,7 +40,7 @@ export default function NavHeader() {
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") closeMenu();
     };
     document.addEventListener("keydown", onKeyDown);
     const previousOverflow = document.body.style.overflow;
