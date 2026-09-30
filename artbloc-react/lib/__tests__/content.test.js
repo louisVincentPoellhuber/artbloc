@@ -66,7 +66,7 @@ describe("content loader", () => {
   });
 
   it("derives coral for an artist in the 2026 event", () => {
-    expect(getArtistColor("jennie-ming")).toBe("coral");
+    expect(getArtistColor("jenny-meng")).toBe("coral");
   });
 
   it("falls back to coral for an artist in no event", () => {

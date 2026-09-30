@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { getTeam } from "@/lib/content";
+import { getAllArtistSlugs, getTeam } from "@/lib/content";
+import { Link } from "@/i18n/navigation";
 import PageTitle from "@/ui/page-title";
 import RichText from "@/ui/blocks/rich-text";
 import ColoredSection from "@/ui/blocks/colored-section";
@@ -17,19 +18,30 @@ export default async function AboutPage({ params }) {
   const team = getTeam(locale);
   const exec = team.filter((m) => m.group === "exec");
   const satellites = team.filter((m) => m.group === "satellite");
+  // Many of the team are also exhibiting artists. Where a spotlight page exists
+  // the card links to it; where it doesn't, the card is simply static.
+  const artistSlugs = new Set(getAllArtistSlugs());
 
   const grid = (members) => (
     <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 px-6 sm:grid-cols-3 lg:grid-cols-4">
-      {members.map((m) => (
-        <PersonCard
-          key={m.slug}
-          image={m.photo}
-          hoverImage={m.hoverImage}
-          primary={m.name}
-          secondary={m.role}
-          color={groupColor[m.group]}
-        />
-      ))}
+      {members.map((m) => {
+        const card = (
+          <PersonCard
+            image={m.photo}
+            hoverImage={m.hoverImage}
+            primary={m.name}
+            secondary={m.role}
+            color={groupColor[m.group]}
+          />
+        );
+        return artistSlugs.has(m.slug) ? (
+          <Link key={m.slug} href={`/artists/${m.slug}`} className="block h-full">
+            {card}
+          </Link>
+        ) : (
+          <div key={m.slug}>{card}</div>
+        );
+      })}
     </div>
   );
 
