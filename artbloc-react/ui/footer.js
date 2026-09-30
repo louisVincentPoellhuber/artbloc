@@ -31,7 +31,7 @@ export default async function Footer() {
         <ul className="space-y-2 text-sm text-cream/80">
           {NAV.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="transition-colors hover:text-cream">
+              <Link href={item.href} className="inline-flex min-h-11 items-center transition-colors hover:text-cream">
                 {sentenceCase(tNav(item.key), locale)}
               </Link>
             </li>
@@ -42,17 +42,17 @@ export default async function Footer() {
         <p className="mb-4 font-display text-lg font-semibold tracking-wide">{t("contact")}</p>
         <ul className="space-y-2 text-sm text-cream/80">
           <li>
-            <a href={`mailto:${site.contact.email}`} className="transition-colors hover:text-cream">
+            <a href={`mailto:${site.contact.email}`} className="inline-flex min-h-11 items-center transition-colors hover:text-cream">
               {t("email")}
             </a>
           </li>
           <li>
-            <a href={site.contact.instagram} target="_blank" rel="noreferrer" className="transition-colors hover:text-cream">
+            <a href={site.contact.instagram} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-cream">
               {t("instagram")}
             </a>
           </li>
           <li>
-            <a href={site.contact.facebook} target="_blank" rel="noreferrer" className="transition-colors hover:text-cream">
+            <a href={site.contact.facebook} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-cream">
               {t("facebook")}
             </a>
           </li>

@@ -61,7 +61,10 @@ export default function NavHeader() {
   const panelRef = useRef(null);
 
   // A route change means the user navigated away — the panel must not survive it.
+  // Selecting a link already closes the panel directly; this is the safety net for
+  // navigation the panel does not initiate, such as browser back/forward.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [pathname]);
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
+import { act, render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import NavHeader from "@/ui/nav-header";
 
@@ -124,6 +124,33 @@ describe("NavHeader mobile menu", () => {
 
       fireEvent.keyDown(document, { key: "Escape" });
       expect(container.querySelector("#mobile-nav")).not.toBeInTheDocument();
+    } finally {
+      window.matchMedia = original;
+    }
+  });
+
+  it("closes when the viewport widens past the desktop breakpoint", () => {
+    // This path runs only in a real browser resize — no other test or the build
+    // ever executes it, so without this it ships unverified.
+    const original = window.matchMedia;
+    const listeners = new Set();
+    window.matchMedia = () => ({
+      matches: false,
+      addEventListener: (_type, cb) => listeners.add(cb),
+      removeEventListener: (_type, cb) => listeners.delete(cb),
+    });
+    try {
+      renderNav();
+      fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));
+      expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+      // Still narrow: the panel stays put.
+      act(() => listeners.forEach((cb) => cb({ matches: false })));
+      expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+      // Crossed into desktop: the panel must go, or it strands the pill behind it.
+      act(() => listeners.forEach((cb) => cb({ matches: true })));
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     } finally {
       window.matchMedia = original;
     }
