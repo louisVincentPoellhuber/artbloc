@@ -3,6 +3,9 @@
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 
+// Movement under this is a click, not a drag.
+const DRAG_THRESHOLD_PX = 4;
+
 export default function Carousel({ children, label }) {
   const t = useTranslations("carousel");
   const trackRef = useRef(null);
@@ -20,8 +23,13 @@ export default function Carousel({ children, label }) {
     if (e.pointerType && e.pointerType !== "mouse") return;
     const el = trackRef.current;
     if (!el) return;
-    drag.current = { down: true, moved: false, startX: e.clientX, startLeft: el.scrollLeft };
-    el.setPointerCapture?.(e.pointerId);
+    drag.current = {
+      down: true,
+      moved: false,
+      captured: false,
+      startX: e.clientX,
+      startLeft: el.scrollLeft,
+    };
   }
 
   function onPointerMove(e) {
@@ -29,12 +37,23 @@ export default function Carousel({ children, label }) {
     const el = trackRef.current;
     if (!d.down || !el) return;
     const dx = e.clientX - d.startX;
-    if (Math.abs(dx) > 4) d.moved = true;
+    if (!d.moved && Math.abs(dx) > DRAG_THRESHOLD_PX) {
+      d.moved = true;
+      // Capture only once this is genuinely a drag. Capturing on pointerdown
+      // would retarget pointerup — and with it the click — to the track, so a
+      // plain click would never reach the card's link.
+      el.setPointerCapture?.(e.pointerId);
+      d.captured = true;
+    }
+    if (!d.moved) return;
     el.scrollLeft = d.startLeft - dx;
   }
 
   function onPointerUp(e) {
-    trackRef.current?.releasePointerCapture?.(e.pointerId);
+    if (drag.current.captured) {
+      trackRef.current?.releasePointerCapture?.(e.pointerId);
+      drag.current.captured = false;
+    }
     drag.current.down = false;
   }
 

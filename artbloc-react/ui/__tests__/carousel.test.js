@@ -56,6 +56,32 @@ describe("Carousel", () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it("does not capture the pointer until the movement is actually a drag", () => {
+    // Capturing on pointerdown retargets pointerup — and therefore the click —
+    // to the track, so a plain click never reaches the card's link.
+    const setPointerCapture = vi.fn();
+    Element.prototype.setPointerCapture = setPointerCapture;
+    Element.prototype.releasePointerCapture = vi.fn();
+
+    renderCarousel(
+      <Carousel>
+        <a href="/x">Card</a>
+      </Carousel>
+    );
+    const track = screen.getByRole("group");
+
+    fireEvent.pointerDown(track, { pointerType: "mouse", clientX: 200, pointerId: 1 });
+    expect(setPointerCapture).not.toHaveBeenCalled();
+
+    // Under the 4px threshold: still a click, not a drag.
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 202, pointerId: 1 });
+    expect(setPointerCapture).not.toHaveBeenCalled();
+
+    // Past the threshold it is a drag, and capture is what keeps it smooth.
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 150, pointerId: 1 });
+    expect(setPointerCapture).toHaveBeenCalledWith(1);
+  });
+
   it("lets a click through when there was no drag", () => {
     const onClick = vi.fn((e) => e.preventDefault());
     renderCarousel(
