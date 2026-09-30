@@ -93,7 +93,6 @@ export const eventSchema = z.object({
   price: LocalizedString.optional(),
   poster: z.string().optional(),
   eventbriteUrl: z.string().optional(),
-  categories: z.array(LocalizedString).default([]),
   artists: z.array(z.string()).default([]),
   blocks: z.array(Block).default([]),
 });

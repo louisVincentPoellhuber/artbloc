@@ -3,7 +3,7 @@ import { getFormatter, getTranslations, setRequestLocale } from "next-intl/serve
 import { getSite, getEventsByStatus, getAllArtists, getArtistColor } from "@/lib/content";
 import { Link } from "@/i18n/navigation";
 import HomeHero from "@/ui/home-hero";
-import GradientSphereCluster from "@/ui/gradient-sphere-cluster";
+import Image from "next/image";
 import TexturedBackground from "@/ui/textured-background";
 import SectionLink from "@/ui/section-link";
 import Carousel from "@/ui/carousel";
@@ -60,9 +60,23 @@ export default async function HomePage({ params }) {
                 </a>
               ) : null}
             </div>
-            <div className="md:w-1/2">
-              <GradientSphereCluster labels={edition.categories} />
-            </div>
+            {edition.poster ? (
+              <div className="md:w-1/2">
+                {/* Tilted like the EventCard poster, leaning away from the text. */}
+                <Link
+                  href={`/events/${edition.slug}`}
+                  className="group/poster mx-auto block w-56 rotate-6 transition-transform duration-300 sm:w-64 md:w-80 motion-safe:hover:scale-105"
+                >
+                  <Image
+                    src={edition.poster}
+                    alt={edition.title}
+                    width={420}
+                    height={560}
+                    className="h-auto w-full rounded-xl object-cover shadow-2xl"
+                  />
+                </Link>
+              </div>
+            ) : null}
           </div>
           <div className="absolute bottom-8 right-6 z-10 md:bottom-12 md:right-12">
             <SectionLink href="/events" label={t("seeEvents")} />

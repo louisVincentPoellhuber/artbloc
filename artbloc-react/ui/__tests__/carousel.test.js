@@ -65,7 +65,7 @@ describe("Carousel", () => {
 
     renderCarousel(
       <Carousel>
-        <a href="/x">Card</a>
+        <div>Card</div>
       </Carousel>
     );
     const track = screen.getByRole("group");

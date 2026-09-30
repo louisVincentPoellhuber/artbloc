@@ -44,10 +44,6 @@ vi.mock("@/lib/content", () => ({
 
 const AboutPage = (await import("@/app/[locale]/about/page")).default;
 
-function renderAbout() {
-  return render(AboutPage({ params: Promise.resolve({ locale: "fr" }) }));
-}
-
 describe("About team grid", () => {
   it("links a member who has an artist page to it", async () => {
     render(await AboutPage({ params: Promise.resolve({ locale: "fr" }) }));

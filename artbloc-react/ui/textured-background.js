@@ -1,4 +1,4 @@
-import { NOISE } from "@/ui/gradient-sphere";
+import { NOISE } from "@/ui/noise";
 
 // Non-interactive backdrop for the colored bands: a multi-stop gradient, a couple
 // of soft blurred accent shapes, and a film-grain overlay — matching the design
