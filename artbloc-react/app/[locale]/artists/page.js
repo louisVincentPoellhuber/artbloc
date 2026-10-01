@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
 import { getAllArtists, getArtistColor } from "@/lib/content";
@@ -9,11 +9,13 @@ export default async function ArtistsPage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations("artists");
+
   const artists = getAllArtists(locale);
 
   return (
     <div className="pb-24">
-      <PageTitle>Nos artistes</PageTitle>
+      <PageTitle>{t("title")}</PageTitle>
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 pt-12 sm:grid-cols-3 lg:grid-cols-4">
         {artists.map((artist) => (
           <Link key={artist.slug} href={`/artists/${artist.slug}`} className="block h-full">

@@ -36,6 +36,14 @@ describe("content loader", () => {
     expect(getArtist("nobody", "fr")).toBeNull();
   });
 
+  it("resolves mediums to plain strings for the active locale", () => {
+    const fr = getArtist("louis-vincent-poellhuber", "fr");
+    const en = getArtist("louis-vincent-poellhuber", "en");
+    expect(fr.mediums).toContain("Guitare");
+    expect(en.mediums).toContain("Guitar");
+    expect(typeof fr.mediums[0]).toBe("string");
+  });
+
   it("derives the artist color from the most recent event", () => {
     expect(getArtistColor("louis-vincent-poellhuber")).toBe("coral");
   });
@@ -49,8 +57,8 @@ describe("content loader", () => {
     expect(getSite("fr").contact.email).toBe("artbloc@outlook.com");
   });
 
-  it("loads all six artists", () => {
-    expect(getAllArtists("fr").length).toBe(6);
+  it("loads all ten artists", () => {
+    expect(getAllArtists("fr").length).toBe(10);
   });
 
   it("derives teal for an artist only in the 2025 event", () => {
@@ -58,7 +66,7 @@ describe("content loader", () => {
   });
 
   it("derives coral for an artist in the 2026 event", () => {
-    expect(getArtistColor("jennie-ming")).toBe("coral");
+    expect(getArtistColor("jenny-meng")).toBe("coral");
   });
 
   it("falls back to coral for an artist in no event", () => {

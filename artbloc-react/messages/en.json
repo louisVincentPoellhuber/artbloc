@@ -5,7 +5,10 @@
     "evenements": "EVENTS",
     "apropos": "ABOUT",
     "contact": "CONTACT",
-    "toggle": "FR"
+    "toggle": "FR",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuLabel": "Main menu"
   },
   "footer": {
     "navigation": "Navigation",
@@ -16,10 +19,17 @@
     "facebook": "Facebook"
   },
   "events": {
+    "title": "Our events",
     "tickets": "Tickets",
     "discover": "Discover",
     "upcoming": "Upcoming",
     "past": "Past events"
+  },
+  "artists": {
+    "title": "Our artists"
+  },
+  "video": {
+    "title": "Art Bloc video"
   },
   "about": {
     "missionTitle": "Mission",

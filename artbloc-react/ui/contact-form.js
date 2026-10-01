@@ -50,7 +50,7 @@ export default function ContactForm() {
   }
 
   const field =
-    "rounded-xl border border-ink/15 bg-cream px-4 py-2 text-ink focus:border-coral focus:outline-none";
+    "min-h-11 rounded-xl border border-ink/15 bg-cream px-4 py-2 text-ink focus:border-coral focus:outline-none";
 
   return (
     <form data-testid="contact-form" onSubmit={onSubmit} className="flex flex-col gap-4" aria-busy={state === "submitting"}>

@@ -38,4 +38,60 @@ describe("Carousel", () => {
     fireEvent.click(screen.getByRole("button", { name: "Suivant" }));
     expect(scrollBy).toHaveBeenCalled();
   });
+
+  it("suppresses the click that ends a mouse drag", () => {
+    const onClick = vi.fn((e) => e.preventDefault());
+    renderCarousel(
+      <Carousel>
+        <a href="/x" onClick={onClick}>
+          Card
+        </a>
+      </Carousel>
+    );
+    const track = screen.getByRole("group");
+    fireEvent.pointerDown(track, { pointerType: "mouse", clientX: 200 });
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 60 });
+    fireEvent.pointerUp(track, { pointerType: "mouse", clientX: 60 });
+    fireEvent.click(screen.getByText("Card"));
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("does not capture the pointer until the movement is actually a drag", () => {
+    // Capturing on pointerdown retargets pointerup — and therefore the click —
+    // to the track, so a plain click never reaches the card's link.
+    const setPointerCapture = vi.fn();
+    Element.prototype.setPointerCapture = setPointerCapture;
+    Element.prototype.releasePointerCapture = vi.fn();
+
+    renderCarousel(
+      <Carousel>
+        <div>Card</div>
+      </Carousel>
+    );
+    const track = screen.getByRole("group");
+
+    fireEvent.pointerDown(track, { pointerType: "mouse", clientX: 200, pointerId: 1 });
+    expect(setPointerCapture).not.toHaveBeenCalled();
+
+    // Under the 4px threshold: still a click, not a drag.
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 202, pointerId: 1 });
+    expect(setPointerCapture).not.toHaveBeenCalled();
+
+    // Past the threshold it is a drag, and capture is what keeps it smooth.
+    fireEvent.pointerMove(track, { pointerType: "mouse", clientX: 150, pointerId: 1 });
+    expect(setPointerCapture).toHaveBeenCalledWith(1);
+  });
+
+  it("lets a click through when there was no drag", () => {
+    const onClick = vi.fn((e) => e.preventDefault());
+    renderCarousel(
+      <Carousel>
+        <a href="/x" onClick={onClick}>
+          Card
+        </a>
+      </Carousel>
+    );
+    fireEvent.click(screen.getByText("Card"));
+    expect(onClick).toHaveBeenCalled();
+  });
 });

@@ -33,7 +33,7 @@ export default async function EventsPage({ params }) {
 
   return (
     <div className="pb-24">
-      <PageTitle>Nos événements</PageTitle>
+      <PageTitle>{t("title")}</PageTitle>
       <section className="mx-auto max-w-5xl px-6 pt-12">
         <h2 className="mb-6 font-display text-3xl text-ink/80">{t("upcoming")}</h2>
         <div className="flex flex-col gap-8">{upcoming.map((e) => card(e, "upcoming"))}</div>

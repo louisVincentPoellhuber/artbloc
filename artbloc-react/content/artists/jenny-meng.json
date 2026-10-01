@@ -1,7 +1,7 @@
 {
-  "slug": "jennie-ming",
-  "name": "Jennie Ming",
-  "mediums": ["Peinture à l'huile", "Illustration"],
+  "slug": "jenny-meng",
+  "name": "Jenny Meng",
+  "mediums": [{ "fr": "Peinture à l'huile", "en": "Oil painting" }, { "fr": "Illustration", "en": "Illustration" }],
   "avatar": "/ABHomeLogo.png",
   "hoverImage": "/chungus.png",
   "blocks": [

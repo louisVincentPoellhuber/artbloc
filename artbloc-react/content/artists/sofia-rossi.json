@@ -1,0 +1,17 @@
+{
+  "slug": "sofia-rossi",
+  "name": "Sofia Rossi",
+  "mediums": [{ "fr": "Céramique", "en": "Ceramics" }],
+  "avatar": "/ABHomeLogo.png",
+  "hoverImage": "/ABBannerTemp.jpg",
+  "blocks": [
+    {
+      "type": "richText",
+      "variant": "lead",
+      "text": {
+        "fr": "Sofia façonne des céramiques aux glaçures inspirées de la mer.",
+        "en": "Sofia shapes ceramics with sea-inspired glazes."
+      }
+    }
+  ]
+}

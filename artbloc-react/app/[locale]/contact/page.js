@@ -20,15 +20,15 @@ export default async function ContactPage({ params }) {
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-10 px-6 md:grid-cols-2">
         <div className="flex flex-col gap-4 text-lg">
-          <a href={`mailto:${site.contact.email}`} className="flex items-center gap-3 hover:text-coral">
+          <a href={`mailto:${site.contact.email}`} className="flex min-h-11 items-center gap-3 hover:text-coral">
             <Image src="/emailIcon.png" width={32} height={32} alt="" />
             {site.contact.email}
           </a>
-          <a href={site.contact.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-coral">
+          <a href={site.contact.instagram} target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-3 hover:text-coral">
             <Image src="/instagramIcon.png" width={32} height={32} alt="" />
             @artblocstudio
           </a>
-          <a href={site.contact.facebook} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-coral">
+          <a href={site.contact.facebook} target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-3 hover:text-coral">
             <Image src="/facebookIcon.png" width={32} height={32} alt="" />
             ART BLOC Studio
           </a>

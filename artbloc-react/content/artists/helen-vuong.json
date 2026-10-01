@@ -1,7 +1,7 @@
 {
   "slug": "helen-vuong",
   "name": "Helen Vuong",
-  "mediums": ["Photographie", "Collage"],
+  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
   "avatar": "/ABHomeLogo.png",
   "blocks": [
     {
