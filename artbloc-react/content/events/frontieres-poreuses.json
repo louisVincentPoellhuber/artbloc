@@ -4,29 +4,29 @@
     "fr": "Frontières Poreuses",
     "en": "Porous Borders"
   },
-  "date": "2026-11-01",
+  "date": "2026-10-16",
   "color": "coral",
   "orientation": "left",
   "venue": {
-    "fr": "Montréal",
-    "en": "Montreal"
+    "fr": "Maison des arts participatifs, 3819 Av. Calixa-Lavallée",
+    "en": "Maison des arts participatifs, 3819 Av. Calixa-Lavallée"
   },
-  "poster": "/AB2025Poster.png",
+  "poster": "/AB2026Poster.png",
   "eventbriteUrl": "https://www.eventbrite.ca/",
   "price": {
     "fr": "Gratuit",
     "en": "Free"
   },
   "artists": [
-    "louis-vincent-poellhuber",
+    "an-laurence",
     "jenny-meng",
-    "yu-xuan-zhao",
-    "helen-vuong",
-    "tian-su-zhong",
-    "amara-okafor",
-    "diego-morales",
-    "priya-nair",
-    "sofia-rossi"
+    "anh-tran",
+    "anie-jade-glazer",
+    "maude-desilets",
+    "maya-wou",
+    "vivian-chan",
+    "wener-zhang",
+    "wenxi-wang"
   ],
   "blocks": [
     {

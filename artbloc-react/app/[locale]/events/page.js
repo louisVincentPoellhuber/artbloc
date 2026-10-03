@@ -10,7 +10,10 @@ export default async function EventsPage({ params }) {
 
   const t = await getTranslations("events");
   const format = await getFormatter();
-  const fmt = (iso) => format.dateTime(new Date(iso), { year: "numeric", month: "long" });
+  // timeZone: "UTC" so a plain YYYY-MM-DD renders on its own day, not the day
+  // before in western timezones (the string is parsed as UTC midnight).
+  const fmt = (iso) =>
+    format.dateTime(new Date(iso), { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
   const upcoming = getEventsByStatus("upcoming", locale);
   const past = getEventsByStatus("past", locale);

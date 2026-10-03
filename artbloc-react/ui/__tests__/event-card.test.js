@@ -36,4 +36,14 @@ describe("EventCard", () => {
     renderCard({ ...base, status: "past", ticketsUrl: "https://x" });
     expect(screen.queryByText("Billets")).toBeNull();
   });
+
+  it("links the poster and the panel to the event page", () => {
+    renderCard({ ...base, status: "past" });
+    const toEvent = screen
+      .getAllByRole("link")
+      .filter((a) => a.getAttribute("href")?.includes("/events/frontieres-poreuses"));
+    // poster link (labelled by title) + the stretched Discover link
+    expect(toEvent.length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByRole("link", { name: "Frontières Poreuses" })).toBeInTheDocument();
+  });
 });
