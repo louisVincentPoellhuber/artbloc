@@ -57,6 +57,14 @@ describe("content loader", () => {
     expect(getSite("fr").contact.email).toBe("artbloc@outlook.com");
   });
 
+  it("expands the slideshow folder into sorted image paths", () => {
+    const { slideshow } = getSite("fr");
+    expect(Array.isArray(slideshow)).toBe(true);
+    expect(slideshow.length).toBeGreaterThan(0);
+    expect(slideshow.every((src) => src.startsWith("/slideshow/"))).toBe(true);
+    expect([...slideshow].sort()).toEqual(slideshow);
+  });
+
   it("loads all ten artists", () => {
     expect(getAllArtists("fr").length).toBe(10);
   });

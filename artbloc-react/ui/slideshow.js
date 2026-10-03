@@ -3,8 +3,25 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function Slideshow({ images, interval = 5000 }) {
+function shuffledOrder(n) {
+  const order = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
+
+export default function Slideshow({ images, interval = 5000, randomize = true }) {
   const [active, setActive] = useState(0);
+  // Start in source order so the server and first client render agree (no
+  // hydration mismatch); reshuffle after mount, so each reload gets a fresh
+  // order. Math.random() during render would break hydration — hence useEffect.
+  const [order, setOrder] = useState(() => images.map((_, i) => i));
+
+  useEffect(() => {
+    if (randomize) setOrder(shuffledOrder(images.length));
+  }, [randomize, images.length]);
 
   useEffect(() => {
     if (images.length < 2) return;
@@ -16,15 +33,15 @@ export default function Slideshow({ images, interval = 5000 }) {
 
   return (
     <div className="absolute inset-0">
-      {images.map((src, i) => (
+      {order.map((imageIndex, position) => (
         <Image
-          key={i}
-          src={src}
+          key={imageIndex}
+          src={images[imageIndex]}
           alt=""
           fill
           sizes="100vw"
           className={`object-cover transition-opacity duration-1000 ${
-            i === active ? "opacity-100" : "opacity-0"
+            position === active ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}

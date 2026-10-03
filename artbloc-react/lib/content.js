@@ -11,9 +11,24 @@ import { deriveArtistColor } from "@/lib/colors";
 import { eventStatus } from "@/lib/events";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+const PUBLIC_DIR = path.join(process.cwd(), "public");
+const IMAGE_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
 
 function readJson(...segments) {
   return JSON.parse(readFileSync(path.join(CONTENT_DIR, ...segments), "utf8"));
+}
+
+// Expand a folder under public/ into a sorted list of web-root image paths.
+// Lets site.json point slideshow at a folder instead of listing every file.
+function listPublicImages(dir) {
+  try {
+    return readdirSync(path.join(PUBLIC_DIR, dir))
+      .filter((file) => IMAGE_RE.test(file))
+      .sort()
+      .map((file) => `/${dir}/${file}`);
+  } catch {
+    return [];
+  }
 }
 
 function listSlugs(dir) {
@@ -87,5 +102,10 @@ export function getTeam(locale) {
 }
 
 export function getSite(locale) {
-  return deepLocalize(siteSchema.parse(readJson("site.json")), locale);
+  const site = deepLocalize(siteSchema.parse(readJson("site.json")), locale);
+  // slideshow may be a folder name (expanded here) or an explicit list.
+  if (typeof site.slideshow === "string") {
+    site.slideshow = listPublicImages(site.slideshow);
+  }
+  return site;
 }

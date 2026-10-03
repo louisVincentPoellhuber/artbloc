@@ -113,5 +113,6 @@ export const siteSchema = z.object({
     facebook: z.string(),
   }),
   address: LocalizedString.optional(),
-  slideshow: z.array(z.string()).default([]),
+  // Either a folder under public/ (e.g. "slideshow") or an explicit list of paths.
+  slideshow: z.union([z.string(), z.array(z.string())]).default([]),
 });
