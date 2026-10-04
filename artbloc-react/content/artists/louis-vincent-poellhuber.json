@@ -12,12 +12,12 @@
     "otherLinks": [{ "label": "The Maybes", "url": "https://instagram.com/the.maybes.band" }]
   },
   "images": [
-    { "src": "/artists/louis-vincent-poellhuber/1.png" },
-    { "src": "/artists/louis-vincent-poellhuber/2.png" },
     {
       "src": "/artists/louis-vincent-poellhuber/3.mp4",
       "alt": { "fr": "Animation en pixel art", "en": "Pixel-art animation" }
-    }
+    },
+    { "src": "/artists/louis-vincent-poellhuber/1.png" },
+    { "src": "/artists/louis-vincent-poellhuber/2.png" }
   ],
   "artBloc2025": [{ "src": "/artists/louis-vincent-poellhuber/artbloc2025/1.jpg" }],
   "blocks": []
