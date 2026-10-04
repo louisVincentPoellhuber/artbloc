@@ -2,9 +2,13 @@
   "slug": "helen-vuong",
   "name": "Helen Vuong",
   "role": {
-    "fr": "Rôle à venir",
-    "en": "Role TBC"
+    "fr": "Logistique",
+    "en": "Logistics"
   },
   "photo": "/ABHomeLogo.png",
-  "group": "exec"
+  "group": "exec",
+  "roleDescription": {
+    "fr": "Helen gère la logistique. Elle trouve les lieux, organise le matériel et s'occupe du travail administratif qui fait rouler Art Bloc.",
+    "en": "Helen runs logistics. She lines up the venues, sorts out the equipment and handles the admin work that keeps Art Bloc going."
+  }
 }

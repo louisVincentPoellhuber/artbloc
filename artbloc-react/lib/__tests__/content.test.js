@@ -10,6 +10,7 @@ import {
   getEventsByStatus,
   getSite,
   getTeam,
+  getTeamMember,
 } from "@/lib/content";
 
 describe("content loader", () => {
@@ -18,18 +19,15 @@ describe("content loader", () => {
   });
 
   it("returns a locale-resolved artist (no locale maps leak through)", () => {
-    const artist = getArtist("louis-vincent-poellhuber", "en");
-    expect(artist.blocks[0].text).toBe(
-      "Louis celebrates curiosity and the discovery of everyday life through pixels."
-    );
-    expect(typeof artist.blocks[0].text).toBe("string");
+    const artist = getArtist("maya-wou", "en");
+    expect(typeof artist.statement).toBe("string");
+    expect(artist.statement).toContain("Through oil painting");
   });
 
   it("resolves the French locale for content text", () => {
-    const artist = getArtist("louis-vincent-poellhuber", "fr");
-    expect(artist.blocks[0].text).toBe(
-      "Louis célèbre la curiosité et la découverte de la vie de tous les jours à travers les pixels."
-    );
+    const artist = getArtist("maya-wou", "fr");
+    expect(typeof artist.statement).toBe("string");
+    expect(artist.statement).toContain("peinture à l'huile");
   });
 
   it("returns null for an unknown artist", () => {
@@ -37,10 +35,10 @@ describe("content loader", () => {
   });
 
   it("resolves mediums to plain strings for the active locale", () => {
-    const fr = getArtist("louis-vincent-poellhuber", "fr");
-    const en = getArtist("louis-vincent-poellhuber", "en");
-    expect(fr.mediums).toContain("Guitare");
-    expect(en.mediums).toContain("Guitar");
+    const fr = getArtist("maya-wou", "fr");
+    const en = getArtist("maya-wou", "en");
+    expect(fr.mediums).toContain("Peintre");
+    expect(en.mediums).toContain("Painter");
     expect(typeof fr.mediums[0]).toBe("string");
   });
 
@@ -107,5 +105,30 @@ describe("content loader", () => {
     const grouped = team.filter((m) => m.group === "exec" || m.group === "satellite");
     // Every member falls into one of the two known groups.
     expect(grouped.length).toBe(team.length);
+  });
+});
+
+describe("getTeamMember", () => {
+  it("returns a localized team record by slug", () => {
+    const m = getTeamMember("nancy-zhu", "fr");
+    expect(m.slug).toBe("nancy-zhu");
+    expect(typeof m.role).toBe("string");
+  });
+
+  it("returns null for a non-team slug", () => {
+    expect(getTeamMember("not-a-member", "fr")).toBeNull();
+  });
+});
+
+describe("effective avatar", () => {
+  it("prefers the headshot when present", () => {
+    const louis = getArtist("louis-vincent-poellhuber", "fr");
+    expect(louis.avatar).toBe("/artists/louis-vincent-poellhuber/headshot.jpg");
+  });
+
+  it("falls back to the first image when there is no headshot", () => {
+    // an-laurence has images but no headshot.
+    const an = getArtist("an-laurence", "fr");
+    expect(an.avatar).toBe("/artists/an-laurence/1.png");
   });
 });

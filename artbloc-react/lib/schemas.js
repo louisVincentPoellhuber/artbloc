@@ -43,6 +43,14 @@ const BlockImage = z.object({
   alt: LocalizedString.optional(),
 });
 
+const Socials = z.object({
+  instagram: z.string().optional(),
+  website: z.string().optional(),
+  email: z.string().optional(),
+  etsy: z.string().optional(),
+  otherLinks: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
+});
+
 const GalleryBlock = z.object({
   type: z.literal("gallery"),
   images: z.array(BlockImage).min(1),
@@ -76,8 +84,14 @@ export const artistSchema = z.object({
   slug: z.string(),
   name: z.string(),
   mediums: z.array(LocalizedString).default([]),
-  avatar: z.string(),
+  avatar: z.string().optional(),
+  headshot: z.string().optional(),
   hoverImage: z.string().optional(),
+  statement: LocalizedString.optional(),
+  socials: Socials.optional(),
+  images: z.array(BlockImage).default([]),
+  artBloc2025: z.array(BlockImage).default([]),
+  interview: z.object({ youtubeId: z.string() }).optional(),
   blocks: z.array(Block).default([]),
 });
 
@@ -101,6 +115,7 @@ export const teamSchema = z.object({
   slug: z.string(),
   name: z.string(),
   role: LocalizedString,
+  roleDescription: LocalizedString.optional(),
   photo: z.string(),
   hoverImage: z.string().optional(),
   group: z.enum(["exec", "satellite"]),

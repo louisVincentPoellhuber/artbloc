@@ -28,6 +28,11 @@
   "artists": {
     "title": "Nos artistes"
   },
+  "artist": {
+    "interviewTitle": "Entrevue d'artiste",
+    "atArtBloc2025": "À Art Bloc 2025",
+    "roleHeading": "À Art Bloc"
+  },
   "video": {
     "title": "Vidéo Art Bloc"
   },

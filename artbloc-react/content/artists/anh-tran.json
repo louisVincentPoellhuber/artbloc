@@ -1,16 +1,17 @@
 {
   "slug": "anh-tran",
   "name": "Anh Tran",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "mediums": [{ "fr": "Peintre", "en": "Painter" }],
+  "statement": {
+    "en": "Anh Tran explores the ways we carry others with us. Through acrylic paintings of everyday objects, gestures, food, and shared memories, she reflects on how identity is shaped by family, friendship, culture, and the small influences we absorb, often without realizing it.",
+    "fr": "Anh Tran explore les façons dont nous portons les autres en nous. À travers des peintures d'objets, de gestes, de nourriture et de souvenirs partagés, elle explore comment notre identité se construit par la famille, l'amitié, la culture et les influences absorbées sans même nous en rendre compte."
+  },
+  "socials": { "instagram": "anhtran.studio" },
+  "interview": { "youtubeId": "pgr-H1q1dj8" },
+  "images": [
+    { "src": "/artists/anh-tran/1.png" },
+    { "src": "/artists/anh-tran/2.png" },
+    { "src": "/artists/anh-tran/3.png" }
+  ],
+  "blocks": []
 }

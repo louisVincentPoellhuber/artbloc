@@ -55,7 +55,9 @@ export function getArtist(slug, locale) {
     return null;
   }
   const artist = artistSchema.parse(raw);
-  return deepLocalize(artist, locale);
+  // headshot wins, then the first artwork, then any explicit avatar, then a fallback.
+  const avatar = artist.headshot ?? artist.images[0]?.src ?? artist.avatar ?? "/ABHomeLogo.png";
+  return deepLocalize({ ...artist, avatar }, locale);
 }
 
 export function getAllArtists(locale) {
@@ -99,6 +101,15 @@ export function getTeam(locale) {
   return listSlugs("team").map((slug) =>
     deepLocalize(teamSchema.parse(readJson("team", `${slug}.json`)), locale)
   );
+}
+
+export function getTeamMember(slug, locale) {
+  try {
+    const raw = readJson("team", `${slug}.json`);
+    return deepLocalize(teamSchema.parse(raw), locale);
+  } catch {
+    return null;
+  }
 }
 
 export function getSite(locale) {

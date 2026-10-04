@@ -2,10 +2,14 @@
   "slug": "nancy-zhu",
   "name": "Nancy Zhu",
   "role": {
-    "fr": "Rôle à venir",
-    "en": "Role TBC"
+    "fr": "Commissariat",
+    "en": "Curation"
   },
   "photo": "/ABHomeLogo.png",
   "group": "exec",
-  "hoverImage": "/ABBannerTemp.jpg"
+  "hoverImage": "/ABBannerTemp.jpg",
+  "roleDescription": {
+    "fr": "Nancy dirige le commissariat. C'est elle qui échange avec les artistes, qui définit le thème et la description de chaque événement et qui décide de la forme que prend l'exposition.",
+    "en": "Nancy leads the curation. She's the one talking with the artists, setting each event's theme and description, and deciding how the show comes together."
+  }
 }

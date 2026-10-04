@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { artistSchema, eventSchema, Block } from "@/lib/schemas";
+import { artistSchema, teamSchema, eventSchema, Block } from "@/lib/schemas";
 
 const validArtist = {
   slug: "lvp",
@@ -126,5 +126,63 @@ describe("event price (2B)", () => {
       price: { fr: "Gratuit", en: "Free" },
     });
     expect(parsed.price).toEqual({ fr: "Gratuit", en: "Free" });
+  });
+});
+
+describe("artistSchema extensions", () => {
+  it("accepts the new optional fields", () => {
+    const parsed = artistSchema.parse({
+      slug: "x",
+      name: "X",
+      headshot: "/artists/x/headshot.jpg",
+      statement: { fr: "Bonjour", en: "Hello" },
+      socials: {
+        instagram: "handle",
+        website: "https://x.ca",
+        email: "x@x.com",
+        etsy: "https://etsy.com/shop/x",
+        otherLinks: [{ label: "Band", url: "https://instagram.com/band" }],
+      },
+      images: [{ src: "/artists/x/1.png" }],
+      artBloc2025: [{ src: "/artists/x/artbloc2025/1.jpg" }],
+      interview: { youtubeId: "abc123" },
+    });
+    expect(parsed.socials.instagram).toBe("handle");
+    expect(parsed.images[0].src).toBe("/artists/x/1.png");
+    expect(parsed.interview.youtubeId).toBe("abc123");
+  });
+
+  it("still parses a minimal artist with no new fields", () => {
+    const parsed = artistSchema.parse({ slug: "y", name: "Y" });
+    expect(parsed.images).toEqual([]);
+    expect(parsed.artBloc2025).toEqual([]);
+    expect(parsed.socials).toBeUndefined();
+  });
+});
+
+describe("teamSchema extensions", () => {
+  it("accepts an optional bilingual roleDescription", () => {
+    const parsed = teamSchema.parse({
+      slug: "z",
+      name: "Z",
+      role: { fr: "Rôle", en: "Role" },
+      photo: "/p.png",
+      group: "exec",
+      roleDescription: { fr: "Fait des choses", en: "Does things" },
+    });
+    expect(parsed.roleDescription.en).toBe("Does things");
+  });
+
+  it("rejects a bare-string roleDescription", () => {
+    expect(() =>
+      teamSchema.parse({
+        slug: "z",
+        name: "Z",
+        role: { fr: "Rôle", en: "Role" },
+        photo: "/p.png",
+        group: "exec",
+        roleDescription: "Fait des choses",
+      })
+    ).toThrow();
   });
 });

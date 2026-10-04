@@ -99,6 +99,7 @@ export default async function HomePage({ params }) {
                     <PersonCard
                       image={a.avatar}
                       hoverImage={a.hoverImage}
+                      images={a.images}
                       primary={a.name}
                       secondary={a.mediums[0] ?? ""}
                       color={getArtistColor(a.slug)}

@@ -2,9 +2,13 @@
   "slug": "louis-vincent-poellhuber",
   "name": "Louis-Vincent Poellhuber",
   "role": {
-    "fr": "Rôle à venir",
-    "en": "Role TBC"
+    "fr": "Communications",
+    "en": "Communications"
   },
   "photo": "/ABHomeLogo.png",
-  "group": "exec"
+  "group": "exec",
+  "roleDescription": {
+    "fr": "Louis est cofondateur et responsable des communications. Il s'occupe des entrevues d'artistes, des réseaux sociaux, du site web et de l'image publique d'Art Bloc. Il a exposé en 2025, et son groupe, The Maybes, y a joué cette année-là et sera de retour en 2026.",
+    "en": "Louis is a co-founder and looks after communications. He takes care of the artist interviews, the social media, the website and how Art Bloc shows up in public. He exhibited in 2025, and his band, The Maybes, played that year and is back in 2026."
+  }
 }

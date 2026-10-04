@@ -1,17 +1,19 @@
 {
   "slug": "jenny-meng",
   "name": "Jenny Meng",
-  "mediums": [{ "fr": "Peinture à l'huile", "en": "Oil painting" }, { "fr": "Illustration", "en": "Illustration" }],
-  "avatar": "/ABHomeLogo.png",
-  "hoverImage": "/chungus.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Jennie explore la couleur et la mémoire à travers la peinture à l'huile.",
-        "en": "Jennie explores colour and memory through oil painting."
-      }
-    }
-  ]
+  "mediums": [{ "fr": "Peintre", "en": "Painter" }],
+  "headshot": "/artists/jenny-meng/headshot.jpg",
+  "statement": {
+    "en": "Jenny uses oil paint to revisit quiet moments of love in her early adulthood: fruit cut silently, late afternoon walks, clumsy hugs. Her work pays tribute to the tenderness in everyday gestures and the small acts of care that reveal emotional legacies.",
+    "fr": "Jenny utilise la peinture à l'huile pour revisiter les moments silencieux d'amour de sa jeunesse : des fruits découpés en silence, des balades en fin d'après-midi, des câlins maladroits. Son travail rend hommage à la tendresse des gestes quotidiens et aux petits actes d'attention qui révèlent les héritages émotionnels."
+  },
+  "socials": { "instagram": "jenny.qwm" },
+  "images": [
+    { "src": "/artists/jenny-meng/1.png" },
+    { "src": "/artists/jenny-meng/2.png" },
+    { "src": "/artists/jenny-meng/3.png" },
+    { "src": "/artists/jenny-meng/4.png" }
+  ],
+  "artBloc2025": [{ "src": "/artists/jenny-meng/artbloc2025/1.jpg" }],
+  "blocks": []
 }
