@@ -5,16 +5,16 @@
 //  - FRAME is deliberately far taller than the form needs. Zeffy's document
 //    fills whatever height it is given, and a frame that matches its content
 //    exactly renders its own scrollbar.
-//  - CROP hides the dead space at the top, where the form's title still
-//    occupies a line box (the title is set to an invisible character in Zeffy
-//    so the card's own French heading does that job instead).
 //  - VIEW is what actually shows: two fields and the submit button.
-//
-// They are tuned, not robust: if Zeffy changes the form's internal layout these
-// need re-checking, or the crop will start clipping a field instead of padding.
+//  - CROP would trim the dead row left by the form's hidden title, but it is
+//    deliberately 0. A fixed pixel offset into a cross-origin iframe is
+//    renderer-dependent — at 40px it clipped the first field in Firefox while
+//    rendering correctly in Chromium at every width, and there is no way to
+//    verify it from here. Showing the form from its true top cannot clip,
+//    at the cost of a little empty space under the body copy.
 const FRAME = 480;
-const CROP = 40;
-const VIEW = 160;
+const CROP = 0;
+const VIEW = 200;
 
 export default function NewsletterCard({ title, body, embedUrl }) {
   if (!embedUrl) return null;

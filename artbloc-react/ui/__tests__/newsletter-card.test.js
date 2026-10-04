@@ -34,9 +34,13 @@ describe("NewsletterCard", () => {
     );
   });
 
-  it("offsets the frame upward to hide the form's empty title row", () => {
+  it("does not offset the frame, so the form's top can never be clipped", () => {
+    // A negative offset trims the dead row left by the form's hidden title, but
+    // how far that row extends is renderer-dependent: at -40px it clipped the
+    // first field in Firefox while looking correct in Chromium. Showing the
+    // form from its true top trades a little empty space for a guarantee.
     const { container } = render(<NewsletterCard title="T" body="B" embedUrl={EMBED} />);
-    expect(parseInt(container.querySelector("iframe").style.top, 10)).toBeLessThan(0);
+    expect(parseInt(container.querySelector("iframe").style.top, 10)).toBe(0);
   });
 
   it("renders nothing when no embed is configured", () => {
