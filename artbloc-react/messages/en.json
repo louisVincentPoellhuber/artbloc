@@ -73,6 +73,13 @@
     "previous": "Previous",
     "next": "Next"
   },
+  "lightbox": {
+    "label": "Enlarged image",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "zoom": "Enlarge image"
+  },
   "home": {
     "tagline": "Where Montreal's emerging art meets its community.",
     "description": "Each year, a dozen artists from various disciplines display their work at a public event, offering interactive activities that foster connection with the audience.",

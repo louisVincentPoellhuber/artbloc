@@ -73,6 +73,13 @@
     "previous": "Précédent",
     "next": "Suivant"
   },
+  "lightbox": {
+    "label": "Image agrandie",
+    "close": "Fermer",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "zoom": "Agrandir l'image"
+  },
   "home": {
     "tagline": "Là où l'art émergent montréalais rencontre sa communauté.",
     "description": "Art Bloc est une organisation sans but lucratif de Montréal qui met en scène des expositions temporaires pour les artistes émergents. Chaque année, une douzaine d’artistes de divers horizons présentent leur travail lors d’un événement ouvert à tous, agrémenté d’activités favorisant les échanges avec le public.",
