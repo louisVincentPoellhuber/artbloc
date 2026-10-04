@@ -22,6 +22,7 @@ export default async function ArtistsPage({ params }) {
             <PersonCard
               image={artist.avatar}
               hoverImage={artist.hoverImage}
+              images={artist.images}
               primary={artist.name}
               secondary={artist.mediums[0] ?? ""}
               color={getArtistColor(artist.slug)}
