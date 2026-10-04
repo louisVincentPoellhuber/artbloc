@@ -13,35 +13,37 @@ function shuffledOrder(n) {
 }
 
 export default function Slideshow({ images, interval = 5000, randomize = true }) {
+  // Images render in source order and `active` starts at 0, so the server and
+  // first client render agree (no hydration mismatch, no first-frame flash).
+  // The play order is a random permutation built on the client and walked by
+  // the interval below — randomness never touches render, so hydration is safe.
   const [active, setActive] = useState(0);
-  // Start in source order so the server and first client render agree (no
-  // hydration mismatch); reshuffle after mount, so each reload gets a fresh
-  // order. Math.random() during render would break hydration — hence useEffect.
-  const [order, setOrder] = useState(() => images.map((_, i) => i));
-
-  useEffect(() => {
-    if (randomize) setOrder(shuffledOrder(images.length));
-  }, [randomize, images.length]);
 
   useEffect(() => {
     if (images.length < 2) return;
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
-    const id = setInterval(() => setActive((i) => (i + 1) % images.length), interval);
+    const n = images.length;
+    const order = randomize ? shuffledOrder(n) : Array.from({ length: n }, (_, i) => i);
+    let pos = 0; // index into `order`; the first visible image is always images[0]
+    const id = setInterval(() => {
+      pos = (pos + 1) % order.length;
+      setActive(order[pos]);
+    }, interval);
     return () => clearInterval(id);
-  }, [images.length, interval]);
+  }, [images.length, interval, randomize]);
 
   return (
     <div className="absolute inset-0">
-      {order.map((imageIndex, position) => (
+      {images.map((src, i) => (
         <Image
-          key={imageIndex}
-          src={images[imageIndex]}
+          key={i}
+          src={src}
           alt=""
           fill
           sizes="100vw"
           className={`object-cover transition-opacity duration-1000 ${
-            position === active ? "opacity-100" : "opacity-0"
+            i === active ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
