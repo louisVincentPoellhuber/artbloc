@@ -19,17 +19,17 @@ describe("content loader", () => {
   });
 
   it("returns a locale-resolved artist (no locale maps leak through)", () => {
-    const artist = getArtist("louis-vincent-poellhuber", "en");
+    const artist = getArtist("priya-nair", "en");
     expect(artist.blocks[0].text).toBe(
-      "Louis celebrates curiosity and the discovery of everyday life through pixels."
+      "Priya Nair makes digital collages where the cartoons of her childhood wash up in the landscapes of Quebec."
     );
     expect(typeof artist.blocks[0].text).toBe("string");
   });
 
   it("resolves the French locale for content text", () => {
-    const artist = getArtist("louis-vincent-poellhuber", "fr");
+    const artist = getArtist("priya-nair", "fr");
     expect(artist.blocks[0].text).toBe(
-      "Louis célèbre la curiosité et la découverte de la vie de tous les jours à travers les pixels."
+      "Priya Nair fabrique des collages numériques où les dessins animés de son enfance s'échouent dans les paysages du Québec."
     );
   });
 
@@ -38,10 +38,10 @@ describe("content loader", () => {
   });
 
   it("resolves mediums to plain strings for the active locale", () => {
-    const fr = getArtist("louis-vincent-poellhuber", "fr");
-    const en = getArtist("louis-vincent-poellhuber", "en");
-    expect(fr.mediums).toContain("Guitare");
-    expect(en.mediums).toContain("Guitar");
+    const fr = getArtist("priya-nair", "fr");
+    const en = getArtist("priya-nair", "en");
+    expect(fr.mediums).toContain("Collage numérique");
+    expect(en.mediums).toContain("Digital collage");
     expect(typeof fr.mediums[0]).toBe("string");
   });
 
@@ -120,5 +120,18 @@ describe("getTeamMember", () => {
 
   it("returns null for a non-team slug", () => {
     expect(getTeamMember("not-a-member", "fr")).toBeNull();
+  });
+});
+
+describe("effective avatar", () => {
+  it("prefers the headshot when present", () => {
+    const louis = getArtist("louis-vincent-poellhuber", "fr");
+    expect(louis.avatar).toBe("/artists/louis-vincent-poellhuber/headshot.jpg");
+  });
+
+  it("falls back to the first image when there is no headshot", () => {
+    // an-laurence has images but no headshot.
+    const an = getArtist("an-laurence", "fr");
+    expect(an.avatar).toBe("/artists/an-laurence/1.png");
   });
 });

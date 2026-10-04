@@ -1,23 +1,20 @@
 {
   "slug": "louis-vincent-poellhuber",
   "name": "Louis-Vincent Poellhuber",
-  "mediums": [{ "fr": "Pixel art", "en": "Pixel art" }, { "fr": "Guitare", "en": "Guitar" }, { "fr": "Chant", "en": "Vocals" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Louis célèbre la curiosité et la découverte de la vie de tous les jours à travers les pixels.",
-        "en": "Louis celebrates curiosity and the discovery of everyday life through pixels."
-      }
-    },
-    {
-      "type": "captionedImage",
-      "image": "/chungus.png",
-      "variant": "side",
-      "caption": { "fr": "Titre. Légende.", "en": "Title. Caption." }
-    },
-    { "type": "videoEmbed", "provider": "youtube", "id": "dQw4w9WgXcQ" }
-  ]
+  "mediums": [{ "fr": "Artiste numérique", "en": "Digital artist" }],
+  "headshot": "/artists/louis-vincent-poellhuber/headshot.jpg",
+  "statement": {
+    "en": "Louis celebrates the whimsy and wonder of everyday life through large pixels, often blending fantasy with reality. Like his medium, his work encourages the viewer to forget minute details, to capture small moments of happiness and discover the magic of the mundane.",
+    "fr": "Louis célèbre la curiosité et la découverte de la vie de tous les jours à travers de pixels larges, mixant souvent fantaisie et réalité. Tout comme son médium, son travail encourage le spectateur à laisser tomber les détails trop précis, à saisir les petits moments de bonheur et à découvrir la magie du quotidien."
+  },
+  "socials": {
+    "instagram": "louis.vp",
+    "otherLinks": [{ "label": "The Maybes", "url": "https://instagram.com/the.maybes.band" }]
+  },
+  "images": [
+    { "src": "/artists/louis-vincent-poellhuber/1.png" },
+    { "src": "/artists/louis-vincent-poellhuber/2.png" }
+  ],
+  "artBloc2025": [{ "src": "/artists/louis-vincent-poellhuber/artbloc2025/1.jpg" }],
+  "blocks": []
 }
