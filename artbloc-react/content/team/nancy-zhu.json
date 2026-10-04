@@ -7,5 +7,9 @@
   },
   "photo": "/ABHomeLogo.png",
   "group": "exec",
-  "hoverImage": "/ABBannerTemp.jpg"
+  "hoverImage": "/ABBannerTemp.jpg",
+  "roleDescription": {
+    "fr": "Nancy dirige le commissariat — les échanges avec les artistes, le thème et la description de chaque événement, et la forme de l'exposition.",
+    "en": "Nancy leads curation — the conversations with artists, the theme and description of each event, and the shape of the show."
+  }
 }

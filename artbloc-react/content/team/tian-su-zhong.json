@@ -6,5 +6,9 @@
     "en": "Role TBC"
   },
   "photo": "/ABHomeLogo.png",
-  "group": "satellite"
+  "group": "satellite",
+  "roleDescription": {
+    "fr": "Tian-Su gère les événements sur le terrain — montage, démontage et bon déroulement de la soirée — et prête main-forte à diverses tâches au fil de l'année.",
+    "en": "Tian-Su manages the events on the ground — setup, teardown and keeping the night running smoothly — and pitches in on extra tasks through the year."
+  }
 }

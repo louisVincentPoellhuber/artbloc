@@ -3,5 +3,9 @@
   "name": "Jenny Meng",
   "role": { "fr": "Coordonnatrice artistique", "en": "Art Coordinator" },
   "photo": "/ABHomeLogo.png",
-  "group": "exec"
+  "group": "exec",
+  "roleDescription": {
+    "fr": "Jenny dirige Art Bloc à titre de coordonnatrice et cofondatrice — orientant le commissariat, construisant le matériel d'exposition (podiums et cloisons) et gérant la logistique. Elle a exposé en 2025 et revient comme artiste en 2026.",
+    "en": "Jenny leads Art Bloc as coordinator and co-founder — steering curation, building the display equipment (podiums and walls) and running logistics. She exhibited in 2025 and returns as an artist in 2026."
+  }
 }

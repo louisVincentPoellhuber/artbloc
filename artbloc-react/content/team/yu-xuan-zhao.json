@@ -6,5 +6,9 @@
     "en": "Role TBC"
   },
   "photo": "/ABHomeLogo.png",
-  "group": "satellite"
+  "group": "satellite",
+  "roleDescription": {
+    "fr": "Yu Xuan appuie les communications, contribuant à rédiger et façonner les messages d'Art Bloc. Elle a aussi exposé en 2025.",
+    "en": "Yu Xuan supports communications, helping write and shape Art Bloc's messaging. She also exhibited in 2025."
+  }
 }

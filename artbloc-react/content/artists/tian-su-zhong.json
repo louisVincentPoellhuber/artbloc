@@ -1,16 +1,7 @@
 {
   "slug": "tian-su-zhong",
   "name": "Tian-Su Zhong",
-  "mediums": [{ "fr": "Dessin", "en": "Drawing" }, { "fr": "Gravure", "en": "Printmaking" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Tian-Su travaille le trait et la matière par le dessin et la gravure.",
-        "en": "Tian-Su works line and texture through drawing and printmaking."
-      }
-    }
-  ]
+  "mediums": [],
+  "headshot": "/artists/tian-su-zhong/headshot.jpg",
+  "blocks": []
 }

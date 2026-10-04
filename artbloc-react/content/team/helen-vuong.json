@@ -6,5 +6,9 @@
     "en": "Role TBC"
   },
   "photo": "/ABHomeLogo.png",
-  "group": "exec"
+  "group": "exec",
+  "roleDescription": {
+    "fr": "Helen s'occupe de la logistique — les lieux, le matériel et le travail administratif qui fait rouler Art Bloc.",
+    "en": "Helen handles logistics — venues, equipment and the administrative work that keeps Art Bloc running."
+  }
 }
