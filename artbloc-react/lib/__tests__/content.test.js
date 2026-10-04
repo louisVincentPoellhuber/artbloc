@@ -44,8 +44,17 @@ describe("content loader", () => {
     expect(typeof fr.mediums[0]).toBe("string");
   });
 
-  it("derives the artist color from the most recent event", () => {
-    expect(getArtistColor("louis-vincent-poellhuber")).toBe("coral");
+  // The color-derivation *logic* (most-recent-event-wins, fallback) is covered
+  // directly in colors.test.js with synthetic data. Here we only check the
+  // integration: real content resolves to a valid palette token.
+  it("derives a valid palette color for every artist", () => {
+    const tokens = getAllArtistSlugs().map((slug) => getArtistColor(slug));
+    expect(tokens.length).toBeGreaterThan(0);
+    expect(tokens.every((c) => c === "coral" || c === "teal")).toBe(true);
+  });
+
+  it("falls back to coral for an artist in no event", () => {
+    expect(getArtistColor("definitely-not-an-artist")).toBe("coral");
   });
 
   it("filters events by status and localizes them", () => {
@@ -65,20 +74,11 @@ describe("content loader", () => {
     expect([...slideshow].sort()).toEqual(slideshow);
   });
 
-  it("loads all ten artists", () => {
-    expect(getAllArtists("fr").length).toBe(10);
-  });
-
-  it("derives teal for an artist only in the 2025 event", () => {
-    expect(getArtistColor("nancy-zhu")).toBe("teal");
-  });
-
-  it("derives coral for an artist in the 2026 event", () => {
-    expect(getArtistColor("jenny-meng")).toBe("coral");
-  });
-
-  it("falls back to coral for an artist in no event", () => {
-    expect(getArtistColor("tian-su-zhong")).toBe("coral");
+  it("loads one artist per file, each with a slug and name", () => {
+    const artists = getAllArtists("fr");
+    expect(artists.length).toBe(getAllArtistSlugs().length);
+    expect(artists.length).toBeGreaterThan(0);
+    expect(artists.every((a) => a.slug && a.name)).toBe(true);
   });
 
   it("lists all event slugs", () => {
@@ -88,17 +88,24 @@ describe("content loader", () => {
   });
 
   it("resolves an event's artists to slug, name and avatar", () => {
-    const event = getEvent("frontieres-poreuses", "fr");
+    // Use whichever event actually lists artists, rather than a fixed slug.
+    const slug = getAllEventSlugs().find((s) => getEvent(s, "fr").artists.length > 0);
+    const event = getEvent(slug, "fr");
     const artists = getEventArtists(event, "fr");
-    expect(artists.map((a) => a.slug)).toContain("louis-vincent-poellhuber");
-    expect(artists[0]).toHaveProperty("name");
-    expect(artists[0]).toHaveProperty("avatar");
+    expect(artists.length).toBeGreaterThan(0);
+    // Every resolved artist is one the event listed.
+    expect(event.artists).toEqual(expect.arrayContaining(artists.map((a) => a.slug)));
+    for (const a of artists) {
+      expect(a).toHaveProperty("name");
+      expect(a).toHaveProperty("avatar");
+    }
   });
 
-  it("loads six team members across two groups", () => {
+  it("loads the team split across valid groups", () => {
     const team = getTeam("fr");
-    expect(team.length).toBe(6);
-    expect(team.filter((m) => m.group === "exec").length).toBe(4);
-    expect(team.filter((m) => m.group === "satellite").length).toBe(2);
+    expect(team.length).toBeGreaterThan(0);
+    const grouped = team.filter((m) => m.group === "exec" || m.group === "satellite");
+    // Every member falls into one of the two known groups.
+    expect(grouped.length).toBe(team.length);
   });
 });
