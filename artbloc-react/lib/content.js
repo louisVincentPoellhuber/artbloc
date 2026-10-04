@@ -68,6 +68,35 @@ export function getArtistColor(slug) {
   return deriveArtistColor(slug, loadAllRawEvents());
 }
 
+/**
+ * Artists grouped by the year of the event they showed in, newest year first.
+ *
+ * The event rosters are the only record of who exhibited and when, so the year
+ * is derived rather than stored (see D7 — there is no Edition entity). This
+ * also decides who counts as an artist: anyone in no roster, such as staff who
+ * have a page but have never shown work, appears under no year and so is
+ * absent from the list. Someone who showed in two years appears under both.
+ */
+export function getArtistsByYear(locale) {
+  const byYear = new Map();
+  for (const event of loadAllRawEvents()) {
+    const year = new Date(event.date).getFullYear();
+    const slugs = byYear.get(year) ?? [];
+    for (const slug of event.artists ?? []) {
+      if (!slugs.includes(slug)) slugs.push(slug);
+    }
+    byYear.set(year, slugs);
+  }
+
+  return [...byYear.entries()]
+    .sort((a, b) => b[0] - a[0])
+    .map(([year, slugs]) => ({
+      year,
+      artists: slugs.map((slug) => getArtist(slug, locale)).filter(Boolean),
+    }))
+    .filter((group) => group.artists.length > 0);
+}
+
 export function getEvent(slug, locale) {
   let raw;
   try {
