@@ -7,6 +7,7 @@ import PageTitle from "@/ui/page-title";
 import RichText from "@/ui/blocks/rich-text";
 import ColoredSection from "@/ui/blocks/colored-section";
 import PersonCard from "@/ui/person-card";
+import Pillars from "@/ui/pillars";
 
 const groupColor = { exec: "coral", satellite: "teal" };
 
@@ -52,6 +53,11 @@ export default async function AboutPage({ params }) {
         <RichText text={t("missionLead")} variant="lead" />
         <RichText text={t("missionBody")} />
       </div>
+
+      <Pillars
+        heading={t("pillarsTitle")}
+        items={[1, 2, 3].map((n) => ({ title: t(`pillar${n}Title`), body: t(`pillar${n}Body`) }))}
+      />
 
       <div className="mt-16 w-full">
         <Image
