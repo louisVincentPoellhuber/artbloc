@@ -19,18 +19,15 @@ describe("content loader", () => {
   });
 
   it("returns a locale-resolved artist (no locale maps leak through)", () => {
-    const artist = getArtist("priya-nair", "en");
-    expect(artist.blocks[0].text).toBe(
-      "Priya Nair makes digital collages where the cartoons of her childhood wash up in the landscapes of Quebec."
-    );
-    expect(typeof artist.blocks[0].text).toBe("string");
+    const artist = getArtist("maya-wou", "en");
+    expect(typeof artist.statement).toBe("string");
+    expect(artist.statement).toContain("Through oil painting");
   });
 
   it("resolves the French locale for content text", () => {
-    const artist = getArtist("priya-nair", "fr");
-    expect(artist.blocks[0].text).toBe(
-      "Priya Nair fabrique des collages numériques où les dessins animés de son enfance s'échouent dans les paysages du Québec."
-    );
+    const artist = getArtist("maya-wou", "fr");
+    expect(typeof artist.statement).toBe("string");
+    expect(artist.statement).toContain("peinture à l'huile");
   });
 
   it("returns null for an unknown artist", () => {
@@ -38,10 +35,10 @@ describe("content loader", () => {
   });
 
   it("resolves mediums to plain strings for the active locale", () => {
-    const fr = getArtist("priya-nair", "fr");
-    const en = getArtist("priya-nair", "en");
-    expect(fr.mediums).toContain("Collage numérique");
-    expect(en.mediums).toContain("Digital collage");
+    const fr = getArtist("maya-wou", "fr");
+    const en = getArtist("maya-wou", "en");
+    expect(fr.mediums).toContain("Peintre");
+    expect(en.mediums).toContain("Painter");
     expect(typeof fr.mediums[0]).toBe("string");
   });
 
