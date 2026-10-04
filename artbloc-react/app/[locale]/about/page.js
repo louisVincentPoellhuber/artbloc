@@ -54,11 +54,6 @@ export default async function AboutPage({ params }) {
         <RichText text={t("missionBody")} />
       </div>
 
-      <Pillars
-        heading={t("pillarsTitle")}
-        items={[1, 2, 3].map((n) => ({ title: t(`pillar${n}Title`), body: t(`pillar${n}Body`) }))}
-      />
-
       <div className="mt-16 w-full">
         <Image
           src="/ABBannerTemp.jpg"
@@ -69,9 +64,13 @@ export default async function AboutPage({ params }) {
         />
       </div>
 
-      <div className="mt-16">
-        <ColoredSection color="teal" heading={t("historyTitle")} text={t("historyBody")} />
-      </div>
+      {/* Full-bleed teal band sits flush under the banner (no margin gap). */}
+      <ColoredSection color="teal" heading={t("historyTitle")} text={t("historyBody")} />
+
+      <Pillars
+        heading={t("pillarsTitle")}
+        items={[1, 2, 3].map((n) => ({ title: t(`pillar${n}Title`), body: t(`pillar${n}Body`) }))}
+      />
 
       <section className="mt-20">
         <h2 className="px-6 font-display text-4xl font-semibold text-ink md:text-5xl">
