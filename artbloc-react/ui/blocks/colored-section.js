@@ -10,7 +10,14 @@ export default function ColoredSection({ color = "coral", heading, text }) {
         {heading ? (
           <h2 className="mb-4 font-display text-3xl font-semibold md:text-4xl">{heading}</h2>
         ) : null}
-        <p className="text-lg leading-relaxed">{text}</p>
+        {/* Blank lines in the source text split into separate paragraphs. */}
+        {String(text)
+          .split(/\n\s*\n/)
+          .map((paragraph, i) => (
+            <p key={i} className="text-lg leading-relaxed [&:not(:first-child)]:mt-4">
+              {paragraph}
+            </p>
+          ))}
       </div>
     </section>
   );

@@ -33,10 +33,10 @@
   },
   "about": {
     "missionTitle": "Mission",
-    "missionLead": "Art Bloc vise à offrir un espace aux artistes émergents par l'intermédiaire d'expositions temporaires à Montréal.",
+    "missionLead": "Art Bloc organise des événements multidisciplinaires accessibles qui permettent aux artistes émergents de présenter leur travail, de se développer et de rencontrer leur public.",
     "missionBody": "Notre mission est de réduire les barrières d'accès au monde de l'art pour les artistes émergents et de leur offrir une visibilité. En proposant un espace d'exposition accessible, le projet aspire à démocratiser l'art local et à créer des liens au sein de la scène culturelle.",
     "historyTitle": "Notre histoire",
-    "historyBody": "Notre engagement à nourrir la créativité. Art Bloc est né en octobre 2024 d'une observation simple mais percutante : plusieurs jeunes artistes abandonnent progressivement leur pratique sous le poids des responsabilités. Là où les musiciens ont les open mics, les artistes auront Art Bloc.",
+    "historyBody": "Art Bloc est un collectif montréalais fondé en octobre 2024 par le désir de raviver la créativité chez les artistes qui, sous le poids des responsabilités quotidiennes, ont parfois arrêté l’art.\n\nNous avons constaté que plusieurs d’entre nous avaient mis de côté notre parcours artistique pour le travail, les études ou la famille. Nous ne nous percevions plus comme des artistes, même si la flamme brûlait toujours en nous.\n\nPour ranimer cette étincelle, nous avons d’abord présenté notre propre art, afin de démontrer que nos vies et notre art pouvaient coexister. Aujourd’hui, nous souhaitons donner l’opportunité à d’autres artistes, qu’ils soient au début ou à un stade avancé de leur cheminement, de retrouver leur passion et de la partager.\n\nNous espérons également que, en découvrant ces artistes et en discutant avec eux, le public trouvera l’élan pour lancer ou poursuivre son propre chemin artistique.",
     "meetTitle": "Rencontrez-nous",
     "execTitle": "Conseil exécutif",
     "satellitesTitle": "Satellites"
@@ -67,8 +67,8 @@
     "next": "Suivant"
   },
   "home": {
-    "tagline": "Expositions éphémères à but non lucratif où l'art et la communauté se rencontrent.",
-    "description": "Art Bloc est une description bien claire, orientée vers la communauté, le bloc, etc.",
+    "tagline": "Là où l'art émergent montréalais rencontre sa communauté.",
+    "description": "Art Bloc est une organisation sans but lucratif de Montréal qui met en scène des expositions temporaires pour les artistes émergents. Chaque année, une douzaine d’artistes de divers horizons présentent leur travail lors d’un événement ouvert à tous, agrémenté d’activités favorisant les échanges avec le public.",
     "editionPrefix": "Édition",
     "artistsTitle": "Nos artistes",
     "involvementTitle": "Impliquez-vous",

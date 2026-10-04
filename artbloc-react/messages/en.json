@@ -33,10 +33,10 @@
   },
   "about": {
     "missionTitle": "Mission",
-    "missionLead": "Art Bloc gives emerging artists a space through temporary exhibitions in Montreal.",
+    "missionLead": "Art Bloc organizes inclusive, cross-disciplinary events that provide a platform for budding artists to display their work, grow, and engage with their audience.",
     "missionBody": "Our mission is to lower the barriers to the art world for emerging artists and give them visibility. By offering an accessible exhibition space, the project aims to democratize local art and build connections within the cultural scene.",
     "historyTitle": "Our story",
-    "historyBody": "Our commitment to nurturing creativity. Art Bloc was born in October 2024 from a simple but striking observation: many young artists gradually give up their practice under the weight of other responsibilities. Where musicians have open mics, artists will have Art Bloc.",
+    "historyBody": "Art Bloc is a Montreal-based collective established in October 2024 with the mission of reigniting the creative flame in artists who, due to the demands of daily life, may have stopped creating art.\n\nWe noticed that many of us had put our artistic journeys on hold for careers, education, or family commitments. We no longer saw ourselves as artists, even though the passion was still there.\n\nTo reignite that spark, we started by exhibiting our own art to prove to ourselves that our lives and our art could coexist. Now we want to give the same opportunity to other artists wherever they are in their journey so they can reconnect with their practice and share it.\n\nIt is our hope that by discovering these artists and getting to know them, visitors will feel inspired to start or continue their own artistic journey.",
     "meetTitle": "Meet us",
     "execTitle": "Executive board",
     "satellitesTitle": "Satellites"
@@ -67,8 +67,8 @@
     "next": "Next"
   },
   "home": {
-    "tagline": "Non-profit pop-up exhibitions where art and community meet.",
-    "description": "Art Bloc is a clear, community-oriented description — the bloc, etc.",
+    "tagline": "Where Montreal's emerging art meets its community.",
+    "description": "Each year, a dozen artists from various disciplines display their work at a public event, offering interactive activities that foster connection with the audience.",
     "editionPrefix": "Edition",
     "artistsTitle": "Our artists",
     "involvementTitle": "Get involved",
