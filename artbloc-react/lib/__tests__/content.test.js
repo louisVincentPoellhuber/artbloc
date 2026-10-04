@@ -10,6 +10,7 @@ import {
   getEventsByStatus,
   getSite,
   getTeam,
+  getTeamMember,
 } from "@/lib/content";
 
 describe("content loader", () => {
@@ -107,5 +108,17 @@ describe("content loader", () => {
     const grouped = team.filter((m) => m.group === "exec" || m.group === "satellite");
     // Every member falls into one of the two known groups.
     expect(grouped.length).toBe(team.length);
+  });
+});
+
+describe("getTeamMember", () => {
+  it("returns a localized team record by slug", () => {
+    const m = getTeamMember("nancy-zhu", "fr");
+    expect(m.slug).toBe("nancy-zhu");
+    expect(typeof m.role).toBe("string");
+  });
+
+  it("returns null for a non-team slug", () => {
+    expect(getTeamMember("not-a-member", "fr")).toBeNull();
   });
 });
