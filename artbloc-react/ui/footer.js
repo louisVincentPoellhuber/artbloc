@@ -56,10 +56,15 @@ export default async function Footer() {
               {t("facebook")}
             </a>
           </li>
+          <li>
+            <a href={site.contact.youtube} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-cream">
+              {t("youtube")}
+            </a>
+          </li>
         </ul>
       </div>
       <div>
-        <p className="mb-4 font-display text-lg font-semibold tracking-wide">{t("adresse")}</p>
+        <p className="mb-4 font-display text-lg font-semibold tracking-wide">{t("location")}</p>
         <p className="text-sm text-cream/80">{site.address}</p>
       </div>
     </footer>

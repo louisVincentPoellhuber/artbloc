@@ -32,6 +32,17 @@ export default async function ContactPage({ params }) {
             <Image src="/facebookIcon.png" width={32} height={32} alt="" />
             ART BLOC Studio
           </a>
+          <a href={site.contact.youtube} target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-3 hover:text-coral">
+            {/* Inline so the mark matches the 32px PNG icons above without adding an asset. */}
+            <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
+              <path
+                fill="#FF0000"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"
+              />
+              <path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6-6.2 3.6z" />
+            </svg>
+            @artblocstudio
+          </a>
         </div>
         <ContactForm />
       </div>

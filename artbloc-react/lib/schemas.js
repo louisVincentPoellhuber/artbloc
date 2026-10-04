@@ -111,6 +111,7 @@ export const siteSchema = z.object({
     email: z.string(),
     instagram: z.string(),
     facebook: z.string(),
+    youtube: z.string(),
   }),
   // "Impliquez-vous" destinations, shared by Home and Contact. A null or absent
   // entry renders its card inert rather than linking nowhere.

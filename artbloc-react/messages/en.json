@@ -13,10 +13,11 @@
   "footer": {
     "navigation": "Navigation",
     "contact": "Contact",
-    "adresse": "Address",
+    "location": "Location",
     "email": "Email",
     "instagram": "Instagram",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "youtube": "YouTube"
   },
   "events": {
     "title": "Our events",
