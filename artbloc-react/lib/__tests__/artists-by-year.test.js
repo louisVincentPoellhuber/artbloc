@@ -42,3 +42,25 @@ describe("getArtistsByYear", () => {
     }
   });
 });
+
+describe("team photos", () => {
+  it("uses the artist page's image when that page supplies one", async () => {
+    const { getTeam } = await import("@/lib/content");
+    const team = getTeam("fr");
+    const withHeadshot = team.filter((m) => m.photo !== "/ABHomeLogo.png");
+    // Several of the team have real headshots on their artist pages; those must
+    // reach the About grid rather than the placeholder sitting on the team file.
+    expect(withHeadshot.length).toBeGreaterThan(0);
+    for (const m of withHeadshot) expect(m.photo).toMatch(/^\/artists\//);
+  });
+
+  it("keeps the team photo when the artist page has no image of its own", async () => {
+    const { getTeam, getArtist } = await import("@/lib/content");
+    for (const m of getTeam("fr")) {
+      const artistAvatar = getArtist(m.slug, "fr")?.avatar;
+      if (!artistAvatar || artistAvatar === "/ABHomeLogo.png") {
+        expect(m.photo).toBe("/ABHomeLogo.png");
+      }
+    }
+  });
+});

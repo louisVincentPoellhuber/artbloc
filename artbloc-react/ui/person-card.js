@@ -48,7 +48,10 @@ export default function PersonCard({ image, hoverImage, images = [], primary, se
       <div className={`px-4 pt-3 pb-1 font-display text-lg leading-tight font-semibold text-cream ${c.bg}`}>
         {primary}
       </div>
-      <div className={`px-4 pb-3 text-sm text-ink/80 ${c.soft}`}>{secondary}</div>
+      {/* flex-1 so the colour reaches the card's bottom edge: a grid row
+          stretches to its tallest card, and without this the shorter ones
+          end in a strip of bare parchment. */}
+      <div className={`flex-1 px-4 pb-3 text-sm text-ink/80 ${c.soft}`}>{secondary}</div>
     </>
   );
 

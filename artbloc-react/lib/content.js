@@ -126,16 +126,30 @@ export function getEventArtists(event, locale) {
     .map((artist) => ({ slug: artist.slug, name: artist.name, avatar: artist.avatar }));
 }
 
+const FALLBACK_AVATAR = "/ABHomeLogo.png";
+
+/**
+ * Most of the team also have an artist page, and that page is where real
+ * headshots get maintained. Share its image rather than keeping a second copy
+ * on the team file, which drifts the moment one is updated and the other is
+ * not. The team photo still wins if the artist page has no image of its own.
+ */
+function withArtistPhoto(member, locale) {
+  const fromArtist = getArtist(member.slug, locale)?.avatar;
+  const usable = fromArtist && fromArtist !== FALLBACK_AVATAR;
+  return usable ? { ...member, photo: fromArtist } : member;
+}
+
 export function getTeam(locale) {
   return listSlugs("team").map((slug) =>
-    deepLocalize(teamSchema.parse(readJson("team", `${slug}.json`)), locale)
+    withArtistPhoto(deepLocalize(teamSchema.parse(readJson("team", `${slug}.json`)), locale), locale)
   );
 }
 
 export function getTeamMember(slug, locale) {
   try {
     const raw = readJson("team", `${slug}.json`);
-    return deepLocalize(teamSchema.parse(raw), locale);
+    return withArtistPhoto(deepLocalize(teamSchema.parse(raw), locale), locale);
   } catch {
     return null;
   }
