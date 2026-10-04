@@ -5,6 +5,7 @@ import { getSite } from "@/lib/content";
 import PageTitle from "@/ui/page-title";
 import ContactForm from "@/ui/contact-form";
 import ActionCard from "@/ui/action-card";
+import NewsletterCard from "@/ui/newsletter-card";
 
 export default async function ContactPage({ params }) {
   const { locale } = await params;
@@ -54,11 +55,19 @@ export default async function ContactPage({ params }) {
             body={t("action1Body")}
             href={site.involvement.artists}
           />
-          <ActionCard
-            title={t("action2Title")}
-            body={t("action2Body")}
-            href={site.involvement.newsletter}
-          />
+          {site.involvement.newsletterEmbed ? (
+            <NewsletterCard
+              title={t("action2Title")}
+              body={t("action2Body")}
+              embedUrl={site.involvement.newsletterEmbed}
+            />
+          ) : (
+            <ActionCard
+              title={t("action2Title")}
+              body={t("action2Body")}
+              href={site.involvement.newsletter}
+            />
+          )}
           <ActionCard
             title={t("action3Title")}
             body={t("action3Body")}

@@ -118,7 +118,10 @@ export const siteSchema = z.object({
   involvement: z
     .object({
       artists: z.string().nullable().optional(),
+      // Fallback link, used only if the embedded signup form is removed.
       newsletter: z.string().nullable().optional(),
+      // Zeffy signup form embedded straight into the newsletter card.
+      newsletterEmbed: z.string().nullable().optional(),
       donate: z.string().nullable().optional(),
     })
     .default({}),

@@ -9,6 +9,7 @@ import SectionLink from "@/ui/section-link";
 import Carousel from "@/ui/carousel";
 import PersonCard from "@/ui/person-card";
 import ActionCard from "@/ui/action-card";
+import NewsletterCard from "@/ui/newsletter-card";
 
 export default async function HomePage({ params }) {
   const { locale } = await params;
@@ -125,11 +126,19 @@ export default async function HomePage({ params }) {
             body={tc("action1Body")}
             href={site.involvement.artists}
           />
-          <ActionCard
-            title={tc("action2Title")}
-            body={tc("action2Body")}
-            href={site.involvement.newsletter}
-          />
+          {site.involvement.newsletterEmbed ? (
+            <NewsletterCard
+              title={tc("action2Title")}
+              body={tc("action2Body")}
+              embedUrl={site.involvement.newsletterEmbed}
+            />
+          ) : (
+            <ActionCard
+              title={tc("action2Title")}
+              body={tc("action2Body")}
+              href={site.involvement.newsletter}
+            />
+          )}
           <ActionCard
             title={tc("action3Title")}
             body={tc("action3Body")}
