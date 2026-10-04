@@ -70,12 +70,11 @@ describe("PersonCard", () => {
     // Hover zone is the whole card root, not just the image.
     const card = container.firstChild;
     fireEvent.mouseEnter(card);
-    const imgs = container.querySelectorAll("img");
-    expect(imgs.length).toBe(2);
-    expect(["/a.png", "/b.png", "/c.png"].some((s) => currentSrc(container).includes(s.slice(1)))).toBe(true);
+    expect(container.querySelectorAll("img").length).toBe(2);
+    expect(currentSrc(container)).toContain("a.png");
   });
 
-  it("shows a different image on each entry and keeps it after leaving", () => {
+  it("advances in order on each entry and keeps the image after leaving", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
@@ -88,13 +87,13 @@ describe("PersonCard", () => {
     const card = container.firstChild;
 
     fireEvent.mouseEnter(card);
-    const first = currentSrc(container);
-    // Leaving does not revert: the overlay image is still there.
+    expect(currentSrc(container)).toContain("a.png");
+    // Leaving does not revert: the image stays.
     fireEvent.mouseLeave(card);
-    expect(currentSrc(container)).toBe(first);
-    // Re-entering advances to a different image.
+    expect(currentSrc(container)).toContain("a.png");
+    // Re-entering advances to the next image, in order.
     fireEvent.mouseEnter(card);
-    expect(currentSrc(container)).not.toBe(first);
+    expect(currentSrc(container)).toContain("b.png");
   });
 
   it("excludes video items from the swap set", () => {
