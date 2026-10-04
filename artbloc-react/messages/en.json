@@ -13,10 +13,11 @@
   "footer": {
     "navigation": "Navigation",
     "contact": "Contact",
-    "adresse": "Address",
+    "location": "Location",
     "email": "Email",
     "instagram": "Instagram",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "youtube": "YouTube"
   },
   "events": {
     "title": "Our events",
@@ -77,6 +78,13 @@
     "label": "Carousel",
     "previous": "Previous",
     "next": "Next"
+  },
+  "lightbox": {
+    "label": "Enlarged image",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "zoom": "Enlarge image"
   },
   "home": {
     "tagline": "Where Montreal's emerging art meets its community.",

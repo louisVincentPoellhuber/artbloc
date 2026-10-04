@@ -126,7 +126,20 @@ export const siteSchema = z.object({
     email: z.string(),
     instagram: z.string(),
     facebook: z.string(),
+    youtube: z.string(),
   }),
+  // "Impliquez-vous" destinations, shared by Home and Contact. A null or absent
+  // entry renders its card inert rather than linking nowhere.
+  involvement: z
+    .object({
+      artists: z.string().nullable().optional(),
+      // Fallback link, used only if the embedded signup form is removed.
+      newsletter: z.string().nullable().optional(),
+      // Zeffy signup form embedded straight into the newsletter card.
+      newsletterEmbed: z.string().nullable().optional(),
+      donate: z.string().nullable().optional(),
+    })
+    .default({}),
   address: LocalizedString.optional(),
   // Either a folder under public/ (e.g. "slideshow") or an explicit list of paths.
   slideshow: z.union([z.string(), z.array(z.string())]).default([]),

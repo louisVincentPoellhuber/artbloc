@@ -12,10 +12,11 @@ const catalog = {
   footer: {
     navigation: "Navigation",
     contact: "Contact",
-    adresse: "Adresse",
+    location: "Emplacement",
     email: "Courriel",
     instagram: "Instagram",
     facebook: "Facebook",
+    youtube: "YouTube",
   },
 };
 

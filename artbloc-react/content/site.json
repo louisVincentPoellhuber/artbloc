@@ -2,8 +2,18 @@
   "contact": {
     "email": "artbloc@outlook.com",
     "instagram": "https://www.instagram.com/artblocstudio/",
-    "facebook": "https://www.facebook.com/profile.php?id=61579428009401"
+    "facebook": "https://www.facebook.com/profile.php?id=61579428009401",
+    "youtube": "https://www.youtube.com/@artblocstudio"
   },
-  "address": { "fr": "À venir", "en": "TBD" },
+  "involvement": {
+    "artists": "https://forms.gle/botWx86xcw97S6dZA",
+    "newsletter": null,
+    "newsletterEmbed": "https://www.zeffy.com/en-CA/embed/newsletter-form/subscribe-to-get-notified-about-new-events-106247",
+    "donate": "https://www.zeffy.com/en-CA/donation-form/help-us-build-our-next-event"
+  },
+  "address": {
+    "fr": "Montréal, Québec, Canada",
+    "en": "Montreal, Quebec, Canada"
+  },
   "slideshow": "slideshow"
 }

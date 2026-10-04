@@ -13,10 +13,11 @@
   "footer": {
     "navigation": "Navigation",
     "contact": "Contact",
-    "adresse": "Adresse",
+    "location": "Emplacement",
     "email": "Courriel",
     "instagram": "Instagram",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "youtube": "YouTube"
   },
   "events": {
     "title": "Nos événements",
@@ -77,6 +78,13 @@
     "label": "Carrousel",
     "previous": "Précédent",
     "next": "Suivant"
+  },
+  "lightbox": {
+    "label": "Image agrandie",
+    "close": "Fermer",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "zoom": "Agrandir l'image"
   },
   "home": {
     "tagline": "Là où l'art émergent montréalais rencontre sa communauté.",
