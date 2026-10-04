@@ -14,46 +14,34 @@ function shuffle(arr) {
   return a;
 }
 
-// When `images` (an artist's gallery) is provided, moving the mouse across the
-// card scrubs through those artworks in a shuffled order — a quick way to scan
-// an artist's work. The shuffle is built lazily on first hover (client only, so
-// no hydration mismatch). Without a gallery, it falls back to the single
+// When `images` (an artist's gallery) is provided, each time the cursor enters
+// the card the artwork swaps to the next one in a shuffled order. Leaving does
+// nothing, so moving in and out (or across cards) scans through the work. The
+// shuffle is built lazily on mount; the overlay never renders before the first
+// interaction, so the server/client shuffle difference is never in the initial
+// DOM (no hydration mismatch). Without a gallery, it falls back to the single
 // hoverImage crossfade.
 export default function PersonCard({ image, hoverImage, images = [], primary, secondary, color = "coral" }) {
   const c = colorClasses(color);
-  // Only still images scrub; a video item can't go through next/image.
+  // Only still images swap; a video item can't go through next/image.
   const gallery = images.map((img) => img.src).filter((src) => src && !isVideo(src));
   const hasGallery = gallery.length > 0;
 
-  // Shuffle once on mount. The order only feeds the hover overlay, which never
-  // renders before the first mouse interaction, so the server/client shuffle
-  // difference is never reflected in the initial DOM (no hydration mismatch).
   const [order] = useState(() => shuffle(gallery));
   const [active, setActive] = useState(-1); // -1 = show the base avatar
 
   function enter() {
-    if (hasGallery) setActive(0);
-  }
-  function scrub(e) {
-    if (!hasGallery) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = rect.width ? (e.clientX - rect.left) / rect.width : 0;
-    const idx = Math.min(order.length - 1, Math.max(0, Math.floor(ratio * order.length)));
-    setActive(idx);
-  }
-  function leave() {
-    setActive(-1);
+    // Advance to the next artwork on every entry; the shown image persists.
+    if (hasGallery) setActive((prev) => (prev + 1) % order.length);
   }
 
-  const scrubSrc = hasGallery && active >= 0 ? order[active] : null;
+  const shownSrc = hasGallery && active >= 0 ? order[active] : null;
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-parchment shadow-sm transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1">
       <div
         className="relative aspect-square w-full overflow-hidden bg-cream"
         onMouseEnter={enter}
-        onMouseMove={scrub}
-        onMouseLeave={leave}
       >
         <Image
           src={image}
@@ -63,10 +51,10 @@ export default function PersonCard({ image, hoverImage, images = [], primary, se
           className="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
         />
         {hasGallery ? (
-          scrubSrc ? (
+          shownSrc ? (
             <Image
-              key={scrubSrc}
-              src={scrubSrc}
+              key={shownSrc}
+              src={shownSrc}
               alt=""
               aria-hidden="true"
               width={400}

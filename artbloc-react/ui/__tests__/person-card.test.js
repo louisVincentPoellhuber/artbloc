@@ -51,7 +51,7 @@ describe("PersonCard", () => {
     expect(container.querySelectorAll("img").length).toBe(1);
   });
 
-  it("scrubs to a gallery image on mouse enter", () => {
+  it("swaps to a gallery image when the cursor enters", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
@@ -65,8 +65,50 @@ describe("PersonCard", () => {
     fireEvent.mouseEnter(frame);
     const imgs = container.querySelectorAll("img");
     expect(imgs.length).toBe(2);
-    // The overlay shows one of the gallery images, not the avatar.
     const overlay = imgs[1];
     expect(["/a.png", "/b.png", "/c.png"].some((s) => overlay.getAttribute("src").includes(s.slice(1)))).toBe(true);
+  });
+
+  it("shows a different image on each entry and keeps it after leaving", () => {
+    const { container } = render(
+      <PersonCard
+        image="/avatar.png"
+        images={[{ src: "/a.png" }, { src: "/b.png" }, { src: "/c.png" }]}
+        primary="A"
+        secondary="b"
+        color="coral"
+      />
+    );
+    const frame = container.querySelector("div.relative");
+    const overlaySrc = () => container.querySelectorAll("img")[1]?.getAttribute("src");
+
+    fireEvent.mouseEnter(frame);
+    const first = overlaySrc();
+    // Leaving does not revert: the overlay image is still there.
+    fireEvent.mouseLeave(frame);
+    expect(container.querySelectorAll("img").length).toBe(2);
+    expect(overlaySrc()).toBe(first);
+    // Re-entering advances to a different image.
+    fireEvent.mouseEnter(frame);
+    expect(overlaySrc()).not.toBe(first);
+  });
+
+  it("excludes video items from the swap set", () => {
+    const { container } = render(
+      <PersonCard
+        image="/avatar.png"
+        images={[{ src: "/a.png" }, { src: "/clip.mp4" }]}
+        primary="A"
+        secondary="b"
+        color="coral"
+      />
+    );
+    const frame = container.querySelector("div.relative");
+    // Enter twice; only the single still image is ever shown (never the video).
+    fireEvent.mouseEnter(frame);
+    fireEvent.mouseEnter(frame);
+    const overlay = container.querySelectorAll("img")[1];
+    expect(overlay.getAttribute("src")).toContain("a.png");
+    expect(container.querySelector("video")).toBeNull();
   });
 });
