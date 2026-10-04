@@ -38,79 +38,64 @@ describe("PersonCard", () => {
     expect(container.querySelectorAll("img").length).toBe(2);
   });
 
-  it("shows only the base image before hover when a gallery is provided", () => {
+  // The visible layer is the one at full opacity; its source is the current item.
+  const shownSrc = (container) => container.querySelector(".opacity-100")?.getAttribute("src");
+  const imgBySrc = (container, name) =>
+    [...container.querySelectorAll("img")].find((im) => im.getAttribute("src")?.includes(name));
+
+  it("shows the avatar as the first item before any hover", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
-        images={[{ src: "/a.png" }, { src: "/b.png" }, { src: "/c.png" }]}
+        images={[{ src: "/a.png" }, { src: "/b.png" }]}
         primary="A"
         secondary="b"
         color="coral"
       />
     );
     expect(container.querySelectorAll("img").length).toBe(1);
+    expect(shownSrc(container)).toContain("avatar");
   });
 
-  // The current artwork is the last <img> (it fades in over the previous one).
-  const currentSrc = (container) => {
-    const imgs = container.querySelectorAll("img");
-    return imgs[imgs.length - 1]?.getAttribute("src");
-  };
-
-  it("swaps to a gallery image when the cursor enters anywhere on the card", () => {
+  it("buffers the next item on entry without revealing it until it loads, and keeps it after leaving", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
-        images={[{ src: "/a.png" }, { src: "/b.png" }, { src: "/c.png" }]}
+        images={[{ src: "/a.png" }, { src: "/b.png" }]}
         primary="A"
         secondary="b"
         color="coral"
       />
     );
-    // Hover zone is the whole card root, not just the image.
-    const card = container.firstChild;
-    fireEvent.mouseEnter(card);
-    expect(container.querySelectorAll("img").length).toBe(2);
-    expect(currentSrc(container)).toContain("a.png");
-  });
+    const card = container.firstChild; // hover zone is the whole card
 
-  it("advances in order on each entry and keeps the image after leaving", () => {
-    const { container } = render(
-      <PersonCard
-        image="/avatar.png"
-        images={[{ src: "/a.png" }, { src: "/b.png" }, { src: "/c.png" }]}
-        primary="A"
-        secondary="b"
-        color="coral"
-      />
-    );
-    const card = container.firstChild;
-
+    // Entering mounts the next item (so it can load) but keeps the avatar
+    // visible until that image has loaded — this is what prevents the flash.
     fireEvent.mouseEnter(card);
-    expect(currentSrc(container)).toContain("a.png");
-    // Leaving does not revert: the image stays.
+    expect(imgBySrc(container, "a.png")).toBeTruthy();
+    expect(shownSrc(container)).toContain("avatar");
+
+    // Leaving does not revert or unmount the buffered layer.
     fireEvent.mouseLeave(card);
-    expect(currentSrc(container)).toContain("a.png");
-    // Re-entering advances to the next image, in order.
-    fireEvent.mouseEnter(card);
-    expect(currentSrc(container)).toContain("b.png");
+    expect(imgBySrc(container, "a.png")).toBeTruthy();
   });
 
-  it("excludes video items from the swap set", () => {
+  it("includes a video item in the rotation", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
-        images={[{ src: "/a.png" }, { src: "/clip.mp4" }]}
+        images={[{ src: "/clip.mp4" }, { src: "/a.png" }]}
         primary="A"
         secondary="b"
         color="coral"
       />
     );
     const card = container.firstChild;
-    // Enter twice; only the single still image is ever shown (never the video).
+    // First entry reaches the video item; it mounts as a <video> with both sources.
     fireEvent.mouseEnter(card);
-    fireEvent.mouseEnter(card);
-    expect(currentSrc(container)).toContain("a.png");
-    expect(container.querySelector("video")).toBeNull();
+    const video = container.querySelector("video");
+    expect(video).not.toBeNull();
+    const types = [...video.querySelectorAll("source")].map((s) => s.getAttribute("type"));
+    expect(types).toEqual(["video/webm", "video/mp4"]);
   });
 });
