@@ -12,6 +12,17 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+
+  /* Crossfade used when an artist card swaps to the next artwork on hover. */
+  --animate-card-fade: card-fade 300ms ease-out;
+  @keyframes card-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 body {

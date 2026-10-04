@@ -51,7 +51,13 @@ describe("PersonCard", () => {
     expect(container.querySelectorAll("img").length).toBe(1);
   });
 
-  it("swaps to a gallery image when the cursor enters", () => {
+  // The current artwork is the last <img> (it fades in over the previous one).
+  const currentSrc = (container) => {
+    const imgs = container.querySelectorAll("img");
+    return imgs[imgs.length - 1]?.getAttribute("src");
+  };
+
+  it("swaps to a gallery image when the cursor enters anywhere on the card", () => {
     const { container } = render(
       <PersonCard
         image="/avatar.png"
@@ -61,12 +67,12 @@ describe("PersonCard", () => {
         color="coral"
       />
     );
-    const frame = container.querySelector("div.relative");
-    fireEvent.mouseEnter(frame);
+    // Hover zone is the whole card root, not just the image.
+    const card = container.firstChild;
+    fireEvent.mouseEnter(card);
     const imgs = container.querySelectorAll("img");
     expect(imgs.length).toBe(2);
-    const overlay = imgs[1];
-    expect(["/a.png", "/b.png", "/c.png"].some((s) => overlay.getAttribute("src").includes(s.slice(1)))).toBe(true);
+    expect(["/a.png", "/b.png", "/c.png"].some((s) => currentSrc(container).includes(s.slice(1)))).toBe(true);
   });
 
   it("shows a different image on each entry and keeps it after leaving", () => {
@@ -79,18 +85,16 @@ describe("PersonCard", () => {
         color="coral"
       />
     );
-    const frame = container.querySelector("div.relative");
-    const overlaySrc = () => container.querySelectorAll("img")[1]?.getAttribute("src");
+    const card = container.firstChild;
 
-    fireEvent.mouseEnter(frame);
-    const first = overlaySrc();
+    fireEvent.mouseEnter(card);
+    const first = currentSrc(container);
     // Leaving does not revert: the overlay image is still there.
-    fireEvent.mouseLeave(frame);
-    expect(container.querySelectorAll("img").length).toBe(2);
-    expect(overlaySrc()).toBe(first);
+    fireEvent.mouseLeave(card);
+    expect(currentSrc(container)).toBe(first);
     // Re-entering advances to a different image.
-    fireEvent.mouseEnter(frame);
-    expect(overlaySrc()).not.toBe(first);
+    fireEvent.mouseEnter(card);
+    expect(currentSrc(container)).not.toBe(first);
   });
 
   it("excludes video items from the swap set", () => {
@@ -103,12 +107,11 @@ describe("PersonCard", () => {
         color="coral"
       />
     );
-    const frame = container.querySelector("div.relative");
+    const card = container.firstChild;
     // Enter twice; only the single still image is ever shown (never the video).
-    fireEvent.mouseEnter(frame);
-    fireEvent.mouseEnter(frame);
-    const overlay = container.querySelectorAll("img")[1];
-    expect(overlay.getAttribute("src")).toContain("a.png");
+    fireEvent.mouseEnter(card);
+    fireEvent.mouseEnter(card);
+    expect(currentSrc(container)).toContain("a.png");
     expect(container.querySelector("video")).toBeNull();
   });
 });
