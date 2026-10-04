@@ -1,16 +1,16 @@
 {
   "slug": "maya-wou",
   "name": "Maya Wou",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "mediums": [{ "fr": "Peintre", "en": "Painter" }],
+  "statement": {
+    "en": "Through oil painting, I capture moments suspended between stillness and energy, beauty and imperfection, life and decay. Using colour, light, organic matter and blurred forms, I leave space for imagination, creating capsules of experience that reflect life as something constantly shifting, uncertain and beautifully imperfect.",
+    "fr": "À travers la peinture à l'huile, je capture des moments suspendus entre immobilité et énergie, beauté et imperfection, vie et déclin. Par la couleur, la lumière, la matière organique et les formes floues, je laisse place à l'imagination, créant des fragments d'expérience qui reflètent une vie en constante évolution, incertaine et magnifiquement imparfaite."
+  },
+  "socials": { "instagram": "mayawouart", "website": "https://www.mayawou.com" },
+  "images": [
+    { "src": "/artists/maya-wou/1.png" },
+    { "src": "/artists/maya-wou/2.png" },
+    { "src": "/artists/maya-wou/3.png" }
+  ],
+  "blocks": []
 }

@@ -1,16 +1,12 @@
 {
   "slug": "vivian-chan",
-  "name": "Vivian Chan",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "name": "Vivian Chan (Vivz)",
+  "mediums": [{ "fr": "Artiste visuelle abstraite", "en": "Abstract visual artist" }],
+  "statement": {
+    "en": "Vivz, also known as Vivian Chan, captures how the universe and our realities flow together seamlessly by working with acrylic on canvas and plywood. She creates meditative portals that invite quiet reflection on the expansion of human consciousness.",
+    "fr": "Vivz, également connue sous le nom de Vivian Chan, représente la façon dont l'univers et nos réalités s'entremêlent naturellement en travaillant avec l'acrylique sur toile et sur du contreplaqué. Elle crée des portails méditatifs qui invitent à une réflexion silencieuse sur l'expansion de la conscience humaine."
+  },
+  "socials": { "instagram": "_artvivz", "email": "artvivz.chan@gmail.com" },
+  "images": [{ "src": "/artists/vivian-chan/1.png" }],
+  "blocks": []
 }

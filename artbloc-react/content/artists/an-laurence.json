@@ -1,16 +1,22 @@
 {
   "slug": "an-laurence",
-  "name": "An Laurence",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "name": "An Laurence 安媛",
+  "mediums": [{ "fr": "Artiste multidisciplinaire", "en": "Multidisciplinary artist" }],
+  "statement": {
+    "fr": "An Laurence 安媛 est une artiste multidisciplinaire dont le travail s'attarde sur l'ambiguïté, l'identité transnationale et le deuil. Elle aime mélanger les médiums et détourner les instruments de création pour exprimer des réalités hybrides et examiner les narratifs sous-représentés et/ou alternatifs.",
+    "en": "An Laurence 安媛 is a multidisciplinary artist whose work explores ambiguity, transnational identity, and grief. She enjoys mixing media and repurposing creative tools to express hybrid realities and examine underrepresented and/or alternative narratives."
+  },
+  "socials": {
+    "instagram": "an_laurence_",
+    "email": "an.laurence@proton.me",
+    "website": "https://an-laurence.ca"
+  },
+  "interview": { "youtubeId": "8k_GXvwk2d8" },
+  "images": [
+    { "src": "/artists/an-laurence/1.png" },
+    { "src": "/artists/an-laurence/2.png" },
+    { "src": "/artists/an-laurence/3.png" },
+    { "src": "/artists/an-laurence/4.png" }
+  ],
+  "blocks": []
 }

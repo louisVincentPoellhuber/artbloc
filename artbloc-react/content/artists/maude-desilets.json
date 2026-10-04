@@ -1,16 +1,19 @@
 {
   "slug": "maude-desilets",
-  "name": "Maude Desilets",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "name": "Maude Désilets",
+  "mediums": [{ "fr": "Art végétal", "en": "Botanical art" }],
+  "statement": {
+    "fr": "Maude Désilets utilise la plus ancienne forme de végétation sur terre, la mousse végétale, pour explorer la connexion profonde entre les humains et la nature. Maude considère la nature elle-même comme la véritable artiste, en laissant ses irrégularités et ses imperfections dicter le mouvement de chacune de ses pièces. Les visiteurs sont invités à plonger dans un état contemplatif, admirant des paysages en reliefs contemporains et apaisants."
+  },
+  "socials": {
+    "instagram": "plantiquaires",
+    "etsy": "https://www.etsy.com/ca/shop/Plantiquaires"
+  },
+  "images": [
+    { "src": "/artists/maude-desilets/1.png" },
+    { "src": "/artists/maude-desilets/2.png" },
+    { "src": "/artists/maude-desilets/3.png" },
+    { "src": "/artists/maude-desilets/4.png" }
+  ],
+  "blocks": []
 }

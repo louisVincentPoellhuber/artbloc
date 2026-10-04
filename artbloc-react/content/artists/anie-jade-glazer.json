@@ -1,16 +1,20 @@
 {
   "slug": "anie-jade-glazer",
   "name": "Anie-Jade Glazer",
-  "mediums": [{ "fr": "Photographie", "en": "Photography" }, { "fr": "Collage", "en": "Collage" }],
-  "avatar": "/ABHomeLogo.png",
-  "blocks": [
-    {
-      "type": "richText",
-      "variant": "lead",
-      "text": {
-        "fr": "Helen compose des récits visuels par la photographie et le collage.",
-        "en": "Helen composes visual narratives through photography and collage."
-      }
-    }
-  ]
+  "mediums": [{ "fr": "Peintre", "en": "Painter" }],
+  "statement": {
+    "fr": "La peinture est au cœur de la pratique d'Anie-Jade Glazer. Puisant dans les archives du Web, elle sélectionne des images vouées à se perdre dans la surabondance visuelle contemporaine, avec un intérêt particulier pour les identités en marge des normes sociales. Elle utilise ces images comme matériaux pour construire de nouvelles compositions par collage numérique, transformant l'image d'origine avant de la peindre sur une toile. Ce passage lent de l'archive au collage, puis à la peinture, donne un second souffle tangible à des images autrement condamnées à l'oubli."
+  },
+  "socials": {
+    "instagram": "aniejade.glazer",
+    "email": "anie.glazer@gmail.com",
+    "website": "https://www.anie-jade-glazer.com"
+  },
+  "interview": { "youtubeId": "7oUw9DLmp_Q" },
+  "images": [
+    { "src": "/artists/anie-jade-glazer/1.png" },
+    { "src": "/artists/anie-jade-glazer/2.png" },
+    { "src": "/artists/anie-jade-glazer/3.png" }
+  ],
+  "blocks": []
 }
