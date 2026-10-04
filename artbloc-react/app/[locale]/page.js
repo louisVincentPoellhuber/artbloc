@@ -120,9 +120,21 @@ export default async function HomePage({ params }) {
           {t("involvementTitle")} <span className="text-coral">!</span>
         </h2>
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          <ActionCard title={tc("action1Title")} body={tc("action1Body")} href={`mailto:${site.contact.email}`} />
-          <ActionCard title={tc("action2Title")} body={tc("action2Body")} href="#" />
-          <ActionCard title={tc("action3Title")} body={tc("action3Body")} href="#" />
+          <ActionCard
+            title={tc("action1Title")}
+            body={tc("action1Body")}
+            href={site.involvement.artists}
+          />
+          <ActionCard
+            title={tc("action2Title")}
+            body={tc("action2Body")}
+            href={site.involvement.newsletter}
+          />
+          <ActionCard
+            title={tc("action3Title")}
+            body={tc("action3Body")}
+            href={site.involvement.donate}
+          />
         </div>
       </section>
     </div>

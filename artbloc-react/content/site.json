@@ -4,6 +4,14 @@
     "instagram": "https://www.instagram.com/artblocstudio/",
     "facebook": "https://www.facebook.com/profile.php?id=61579428009401"
   },
-  "address": { "fr": "À venir", "en": "TBD" },
+  "involvement": {
+    "artists": "mailto:artbloc@outlook.com",
+    "newsletter": "https://forms.gle/botWx86xcw97S6dZA",
+    "donate": "https://www.zeffy.com/en-CA/donation-form/help-us-build-our-next-event"
+  },
+  "address": {
+    "fr": "À venir",
+    "en": "TBD"
+  },
   "slideshow": "slideshow"
 }

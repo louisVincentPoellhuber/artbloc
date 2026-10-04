@@ -38,9 +38,21 @@ export default async function ContactPage({ params }) {
 
       <section className="mt-20 px-6">
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          <ActionCard title={t("action1Title")} body={t("action1Body")} href={`mailto:${site.contact.email}`} />
-          <ActionCard title={t("action2Title")} body={t("action2Body")} href="#" />
-          <ActionCard title={t("action3Title")} body={t("action3Body")} href="#" />
+          <ActionCard
+            title={t("action1Title")}
+            body={t("action1Body")}
+            href={site.involvement.artists}
+          />
+          <ActionCard
+            title={t("action2Title")}
+            body={t("action2Body")}
+            href={site.involvement.newsletter}
+          />
+          <ActionCard
+            title={t("action3Title")}
+            body={t("action3Body")}
+            href={site.involvement.donate}
+          />
         </div>
       </section>
     </div>

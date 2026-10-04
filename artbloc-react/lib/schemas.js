@@ -112,6 +112,15 @@ export const siteSchema = z.object({
     instagram: z.string(),
     facebook: z.string(),
   }),
+  // "Impliquez-vous" destinations, shared by Home and Contact. A null or absent
+  // entry renders its card inert rather than linking nowhere.
+  involvement: z
+    .object({
+      artists: z.string().nullable().optional(),
+      newsletter: z.string().nullable().optional(),
+      donate: z.string().nullable().optional(),
+    })
+    .default({}),
   address: LocalizedString.optional(),
   // Either a folder under public/ (e.g. "slideshow") or an explicit list of paths.
   slideshow: z.union([z.string(), z.array(z.string())]).default([]),
