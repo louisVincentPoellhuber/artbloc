@@ -126,4 +126,15 @@ describe("useLightbox", () => {
     fireEvent.keyDown(document, { key: "Escape" });
     expect(document.body.style.overflow).not.toBe("hidden");
   });
+
+  it("plays a video item in the overlay instead of an image", () => {
+    renderHost({ images: [{ src: "/clip.mp4", alt: "Animation" }] });
+    fireEvent.click(screen.getByText("trigger-0"));
+    const dialog = screen.getByRole("dialog");
+    const video = dialog.querySelector("video");
+    expect(video).not.toBeNull();
+    expect(dialog.querySelector("img")).toBeNull();
+    const types = [...video.querySelectorAll("source")].map((s) => s.getAttribute("type"));
+    expect(types).toEqual(["video/webm", "video/mp4"]);
+  });
 });

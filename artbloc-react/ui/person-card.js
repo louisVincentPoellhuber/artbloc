@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { colorClasses } from "@/lib/palette";
+import { isVideo } from "@/lib/media";
 
 function shuffle(arr) {
   const a = [...arr];
@@ -20,7 +21,8 @@ function shuffle(arr) {
 // hoverImage crossfade.
 export default function PersonCard({ image, hoverImage, images = [], primary, secondary, color = "coral" }) {
   const c = colorClasses(color);
-  const gallery = images.map((img) => img.src).filter(Boolean);
+  // Only still images scrub; a video item can't go through next/image.
+  const gallery = images.map((img) => img.src).filter((src) => src && !isVideo(src));
   const hasGallery = gallery.length > 0;
 
   // Shuffle once on mount. The order only feeds the hover overlay, which never

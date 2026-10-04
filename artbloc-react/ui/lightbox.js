@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { isVideo, webmFor } from "@/lib/media";
 
 /**
  * Zoom overlay for the image blocks. Blocks keep their own trigger markup and
@@ -91,15 +92,31 @@ function Lightbox({ images, index, onIndex, onClose }) {
       onClick={onClose}
       className="fixed inset-0 z-40 flex items-center justify-center bg-ink/90 p-4 backdrop-blur-sm"
     >
-      {/* object-contain, so the overlay finally shows the uncropped image. */}
-      <Image
-        src={image.src}
-        alt={image.alt ?? ""}
-        width={1600}
-        height={1200}
-        onClick={(event) => event.stopPropagation()}
-        className="max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
-      />
+      {/* object-contain, so the overlay finally shows the uncropped work. A
+          video item (a converted animation) plays looped instead. */}
+      {isVideo(image.src) ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+          onClick={(event) => event.stopPropagation()}
+          className="max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
+        >
+          <source src={webmFor(image.src)} type="video/webm" />
+          <source src={image.src} type="video/mp4" />
+        </video>
+      ) : (
+        <Image
+          src={image.src}
+          alt={image.alt ?? ""}
+          width={1600}
+          height={1200}
+          onClick={(event) => event.stopPropagation()}
+          className="max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
+        />
+      )}
 
       <button
         type="button"
