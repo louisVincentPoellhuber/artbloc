@@ -45,7 +45,7 @@ export default function PersonCard({ image, hoverImage, images = [], primary, se
 
   return (
     <div
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-parchment shadow-sm transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-parchment shadow-sm transition duration-200 hover:shadow-xl"
       onMouseEnter={enter}
     >
       <div className="relative aspect-square w-full overflow-hidden bg-cream">
