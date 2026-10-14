@@ -1,11 +1,31 @@
 {
   "slug": "nancy-zhu",
   "name": "Nancy Zhu",
-  "mediums": [{ "fr": "Peintre", "en": "Painter" }],
+  "mediums": [
+    {
+      "fr": "Peintre",
+      "en": "Painter"
+    }
+  ],
   "statement": {
     "en": "Nancy's oil portraits are study and reverie. Her oil work embraces realism not as mere imitation, but as a way of honoring the poetry of anatomy: the rise of bone beneath skin, the subtle play of light, the delicate shadow that defines form. She discovers beauty in the structures that sustain life and in the subtleties that make us human.",
     "fr": "Les portraits à l'huile de Nancy sont à la fois étude et rêverie. Son travail à l'huile aborde le réalisme non pas comme une simple imitation, mais comme une façon d'honorer la poésie de l'anatomie : l'émergence de l'os sous la peau, le jeu subtil de la lumière, l'ombre délicate qui définit la forme. Elle trouve la beauté dans les structures qui soutiennent la vie et dans les nuances qui font de nous des êtres humains."
   },
-  "artBloc2025": [{ "src": "/artists/nancy-zhu/artbloc2025/1.jpg" }],
-  "blocks": []
+  "artBloc2025": [
+    {
+      "src": "/artists/nancy-zhu/1.jpg"
+    }
+  ],
+  "blocks": [],
+  "images": [
+    {
+      "src": "/artists/nancy-zhu/ArtBlox2025-076.jpg"
+    },
+    {
+      "src": "/artists/nancy-zhu/ArtBlox2025-170.jpg"
+    },
+    {
+      "src": "/artists/nancy-zhu/IMG_6387.png"
+    }
+  ]
 }

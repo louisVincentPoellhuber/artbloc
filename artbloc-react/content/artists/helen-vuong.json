@@ -1,6 +1,16 @@
 {
   "slug": "helen-vuong",
   "name": "Helen Vuong",
-  "mediums": [],
-  "blocks": []
+  "mediums": [
+    {
+      "fr": "Photographe",
+      "en": "Photographer"
+    }
+  ],
+  "blocks": [],
+  "headshot": "/artists/helen-vuong/headshot.jpg",
+  "statement": {
+    "fr": "Helen était la photographe de l'exposition Fragments de nous en 2025. La plupart des images de cette soirée sur ce site sont les siennes.",
+    "en": "Helen was the photographer for the Fragments of Us exhibition in 2025. Most of the images of that evening on this site are hers."
+  }
 }

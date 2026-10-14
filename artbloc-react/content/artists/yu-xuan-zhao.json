@@ -1,11 +1,25 @@
 {
   "slug": "yu-xuan-zhao",
   "name": "Yu Xuan Zhao",
-  "mediums": [{ "fr": "Artiste numérique", "en": "Digital artist" }],
+  "mediums": [
+    {
+      "fr": "Artiste numérique",
+      "en": "Digital artist"
+    }
+  ],
   "statement": {
     "en": "Yu Xuan's work revisits life's moments through memory. In rough, unfinished lines, her art captures both the immediacy of a sketchbook and the elusiveness of recollection. Guided by her interest in human psychology, she portrays quiet, mundane scenes that reflect growing pains, self-discovery, and empathy for her younger self.",
     "fr": "Les œuvres de Yu Xuan revisitent des instants de vie à travers la mémoire. Tracées de lignes brutes et inachevées, elles saisissent l'immédiateté du croquis et l'évanescence du souvenir. Inspirée par la psychologie humaine, elle dépeint des scènes simples qui reflètent les douleurs de la croissance, l'épanouissement et l'empathie envers son plus jeune moi."
   },
-  "artBloc2025": [{ "src": "/artists/yu-xuan-zhao/artbloc2025/1.jpg" }],
-  "blocks": []
+  "artBloc2025": [
+    {
+      "src": "/artists/yu-xuan-zhao/1.jpg"
+    }
+  ],
+  "blocks": [],
+  "images": [
+    {
+      "src": "/artists/yu-xuan-zhao/ArtBlox2025-079.jpg"
+    }
+  ]
 }

@@ -1,7 +1,16 @@
 {
   "slug": "louis-vincent-poellhuber",
   "name": "Louis-Vincent Poellhuber",
-  "mediums": [{ "fr": "Artiste numérique", "en": "Digital artist" }],
+  "mediums": [
+    {
+      "fr": "Artiste numérique",
+      "en": "Digital artist"
+    },
+    {
+      "fr": "Musicien",
+      "en": "Musician"
+    }
+  ],
   "headshot": "/artists/louis-vincent-poellhuber/headshot.jpg",
   "statement": {
     "en": "Louis celebrates the whimsy and wonder of everyday life through large pixels, often blending fantasy with reality. Like his medium, his work encourages the viewer to forget minute details, to capture small moments of happiness and discover the magic of the mundane.",
@@ -9,16 +18,34 @@
   },
   "socials": {
     "instagram": "louis.vp",
-    "otherLinks": [{ "label": "The Maybes", "url": "https://instagram.com/the.maybes.band" }]
+    "otherLinks": [
+      {
+        "label": "The Maybes",
+        "url": "https://instagram.com/the.maybes.band"
+      }
+    ]
   },
   "images": [
     {
-      "src": "/artists/louis-vincent-poellhuber/3.mp4",
-      "alt": { "fr": "Animation en pixel art", "en": "Pixel-art animation" }
+      "src": "/artists/louis-vincent-poellhuber/3.mp4"
     },
-    { "src": "/artists/louis-vincent-poellhuber/1.png" },
-    { "src": "/artists/louis-vincent-poellhuber/2.png" }
+    {
+      "src": "/artists/louis-vincent-poellhuber/1.png"
+    },
+    {
+      "src": "/artists/louis-vincent-poellhuber/2.png"
+    },
+    {
+      "src": "/artists/louis-vincent-poellhuber/ArtBlox2025-014.jpg"
+    },
+    {
+      "src": "/artists/louis-vincent-poellhuber/ArtBlox2025-136.jpg"
+    }
   ],
-  "artBloc2025": [{ "src": "/artists/louis-vincent-poellhuber/artbloc2025/1.jpg" }],
+  "artBloc2025": [
+    {
+      "src": "/artists/louis-vincent-poellhuber/1.jpg"
+    }
+  ],
   "blocks": []
 }

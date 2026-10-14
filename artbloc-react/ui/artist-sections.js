@@ -45,7 +45,16 @@ export default function ArtistSections({ artist, team }) {
 
       {artist.interview?.youtubeId ? <InterviewEmbed youtubeId={artist.interview.youtubeId} /> : null}
 
-      <ArtistGallery images={artist.images} />
+      {/* The headshot appears above only as a small round avatar, so it joins the
+          gallery too — last, since the gallery's first item spans full width and
+          a portrait is not the right thing to lead with. */}
+      <ArtistGallery
+        images={
+          artist.headshot
+            ? [...artist.images, { src: artist.headshot, alt: artist.name }]
+            : artist.images
+        }
+      />
 
       <ArtBloc2025 label={t("atArtBloc2025")} images={artist.artBloc2025} />
     </article>

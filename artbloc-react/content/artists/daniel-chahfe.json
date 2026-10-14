@@ -1,0 +1,26 @@
+{
+  "slug": "daniel-chahfe",
+  "name": "Daniel Chahfe",
+  "mediums": [
+    {
+      "fr": "Peintre",
+      "en": "Painter"
+    },
+    {
+      "fr": "Musicien",
+      "en": "Musician"
+    }
+  ],
+  "images": [
+    {
+      "src": "/artists/daniel-chahfe/ArtBlox2025-035.jpg"
+    },
+    {
+      "src": "/artists/daniel-chahfe/ArtBlox2025-043.jpg"
+    },
+    {
+      "src": "/artists/daniel-chahfe/ArtBlox2025-151.jpg"
+    }
+  ],
+  "blocks": []
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "ivenska-holbrook",
+  "name": "Ivenska Holbrook",
+  "mediums": [
+    {
+      "fr": "Peintre",
+      "en": "Painter"
+    },
+    {
+      "fr": "Musicienne",
+      "en": "Musician"
+    }
+  ],
+  "headshot": "/artists/ivenska-holbrook/headshot.jpg",
+  "images": [
+    {
+      "src": "/artists/ivenska-holbrook/ArtBlox2025-031.jpg"
+    },
+    {
+      "src": "/artists/ivenska-holbrook/ArtBlox2025-042.jpg"
+    },
+    {
+      "src": "/artists/ivenska-holbrook/ArtBlox2025-147.jpg"
+    }
+  ],
+  "blocks": []
+}

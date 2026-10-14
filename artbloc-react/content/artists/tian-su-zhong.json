@@ -1,7 +1,27 @@
 {
   "slug": "tian-su-zhong",
   "name": "Tian-Su Zhong",
-  "mediums": [],
+  "mediums": [
+    {
+      "fr": "Gestion d'événements",
+      "en": "Event management"
+    }
+  ],
   "headshot": "/artists/tian-su-zhong/headshot.jpg",
-  "blocks": []
+  "blocks": [],
+  "images": [
+    {
+      "src": "/artists/tian-su-zhong/mixer.jpg"
+    },
+    {
+      "src": "/artists/tian-su-zhong/IMG_6388.png"
+    },
+    {
+      "src": "/artists/tian-su-zhong/IMG_6389.png"
+    }
+  ],
+  "statement": {
+    "fr": "Tian-Su est un membre actif de plusieurs organisations, où il a géré de nombreux événements. On l'a vu à la Dawson Esports Association, aux soirées de mahjong de Chinatown Youth (@jqc_cty), et à Art Bloc.",
+    "en": "Tian-Su is an active member of several organisations, where he has run many events. He has been with the Dawson Esports Association, Chinatown Youth's mahjong nights (@jqc_cty), and Art Bloc."
+  }
 }
