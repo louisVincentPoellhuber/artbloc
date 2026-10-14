@@ -39,9 +39,9 @@ describe("artistSchema", () => {
 });
 
 describe("Block discriminated union", () => {
-  it("defaults captionedImage variant to full", () => {
+  it("defaults captionedImage variant to wide", () => {
     const parsed = Block.parse({ type: "captionedImage", image: "/x.png" });
-    expect(parsed.variant).toBe("full");
+    expect(parsed.variant).toBe("wide");
   });
 
   it("rejects an unknown block type", () => {

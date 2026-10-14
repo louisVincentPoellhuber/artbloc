@@ -32,12 +32,12 @@ describe("CaptionedImage", () => {
   }
 
   it("renders the caption", () => {
-    renderCaptioned({ image: "/x.png", caption: "Une légende", variant: "full" });
+    renderCaptioned({ image: "/x.png", caption: "Une légende", variant: "wide" });
     expect(screen.getByText("Une légende")).toBeInTheDocument();
   });
 
   it("zooms a single image without arrow controls", () => {
-    renderCaptioned({ image: "/x.png", caption: "Une légende", variant: "full" });
+    renderCaptioned({ image: "/x.png", caption: "Une légende", variant: "wide" });
     fireEvent.click(screen.getByRole("button", { name: "Une légende" }));
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();

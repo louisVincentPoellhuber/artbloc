@@ -36,7 +36,7 @@
     },
     {
       "type": "captionedImage",
-      "variant": "full",
+      "variant": "wide",
       "image": "/events/2025_fragments/ArtBlox2025-015.jpg",
       "caption": {
         "fr": "La salle d'exposition au Bâtiment 7, avant l'arrivée du public.",
@@ -90,7 +90,7 @@
     },
     {
       "type": "captionedImage",
-      "variant": "full",
+      "variant": "wide",
       "image": "/events/2025_fragments/ArtBlox2025-099.jpg",
       "caption": {
         "fr": "La salle au plus fort de la soirée, entre la table de nourriture et les cimaises.",
@@ -112,7 +112,7 @@
     },
     {
       "type": "captionedImage",
-      "variant": "full",
+      "variant": "wide",
       "image": "/events/2025_fragments/ArtBlox2025-180.jpg",
       "caption": {
         "fr": "Une partie de l'équipe et des artistes, à la fin de la soirée.",

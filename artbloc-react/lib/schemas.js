@@ -15,7 +15,7 @@ const CaptionedImageBlock = z.object({
   type: z.literal("captionedImage"),
   image: z.string(),
   caption: LocalizedString.optional(),
-  variant: z.enum(["side", "full"]).default("full"),
+  variant: z.enum(["side", "wide"]).default("wide"),
 });
 
 const VideoEmbedBlock = z.object({
