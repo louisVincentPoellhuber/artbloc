@@ -20,96 +20,68 @@
   "blocks": [
     {
       "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ richText — variante « lead »",
-        "en": "▸ richText — \"lead\" variant"
-      }
-    },
-    {
-      "type": "richText",
       "variant": "lead",
       "text": {
-        "fr": "Texte d'introduction en variante lead, plus grand et accrocheur.",
-        "en": "Lead-variant intro text, larger and attention-grabbing."
+        "fr": "En novembre 2025, Art Bloc présentait sa toute première exposition au Bâtiment 7.",
+        "en": "In November 2025, Art Bloc held its very first exhibition at Bâtiment 7."
       }
     },
     {
       "type": "richText",
       "variant": "body",
       "text": {
-        "fr": "▸ richText — variante « body »",
-        "en": "▸ richText — \"body\" variant"
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "Paragraphe de corps de texte standard, dans une colonne lisible centrée.",
-        "en": "A standard body paragraph in a centered readable column."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ captionedImage — variante « full » (pleine largeur)",
-        "en": "▸ captionedImage — \"full\" variant (full-bleed)"
+        "fr": "Art Bloc est un collectif dédié à soutenir le développement de l'identité artistique, à solidifier la communauté de créatifs et à briser les barrières d'accès au monde de l'art pour les artistes émergents. « Fragments de nous » en était la première invitation.",
+        "en": "Art Bloc is a collective devoted to supporting the growth of artistic identity, strengthening the community of creatives, and breaking down the barriers to the art world for emerging artists. “Fragments of Us” was its first invitation."
       }
     },
     {
       "type": "captionedImage",
       "variant": "full",
-      "image": "/ABBannerTemp.jpg",
+      "image": "/events/2025_fragments/ArtBlox2025-015.jpg",
       "caption": {
-        "fr": "Image pleine largeur avec légende.",
-        "en": "Full-bleed image with a caption."
+        "fr": "La salle d'exposition au Bâtiment 7, avant l'arrivée du public.",
+        "en": "The exhibition room at Bâtiment 7, before the doors opened."
       }
     },
     {
       "type": "richText",
       "variant": "body",
       "text": {
-        "fr": "▸ captionedImage — variante « side » (décalée)",
-        "en": "▸ captionedImage — \"side\" variant (offset)"
+        "fr": "L'exposition éphémère présentait des œuvres qui explorent l'identité, l'appartenance et la transformation personnelle. Ce thème a été choisi parce que chacun d'entre nous porte des identités multiples : ami, artiste, étudiant, patient, aidant. Parfois ces rôles se fondent harmonieusement ; d'autres fois, ils s'opposent.",
+        "en": "The pop-up exhibition brought together works exploring identity, belonging and personal transformation. The theme was chosen because each of us carries multiple identities: friend, artist, student, patient, caregiver. Sometimes those roles blend together; other times they pull against each other."
       }
     },
     {
-      "type": "captionedImage",
-      "variant": "side",
-      "image": "/chungus.png",
-      "caption": {
-        "fr": "Image décalée qui déborde la marge.",
-        "en": "Offset image that breaks the margin."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
+      "type": "textImage",
+      "side": "left",
+      "image": "/events/2025_fragments/ArtBlox2025-022.jpg",
+      "alt": {
+        "fr": "Répétition du groupe avant l'ouverture.",
+        "en": "The band rehearsing before the doors opened."
+      },
       "text": {
-        "fr": "▸ videoEmbed (YouTube)",
-        "en": "▸ videoEmbed (YouTube)"
+        "fr": "Avant l'ouverture, le groupe répète pendant que les derniers cadres trouvent leur place. Monter une exposition éphémère, c'est quelques heures pour transformer un étage d'atelier en salle d'exposition — puis tout défaire le soir venu.",
+        "en": "Before the doors opened, the band ran through its set while the last frames found their places. Mounting a pop-up exhibition means a few hours to turn a workshop floor into a gallery — and taking it all down again that night."
       }
     },
     {
-      "type": "videoEmbed",
-      "provider": "youtube",
-      "id": "dQw4w9WgXcQ"
-    },
-    {
-      "type": "richText",
-      "variant": "body",
+      "type": "textImage",
+      "side": "right",
+      "image": "/events/2025_fragments/ArtBlox2025-016.jpg",
+      "alt": {
+        "fr": "Une artiste devant ses œuvres accrochées.",
+        "en": "An artist standing beside her hung work."
+      },
       "text": {
-        "fr": "▸ quote — avec attribution",
-        "en": "▸ quote — with attribution"
+        "fr": "Les œuvres réunies cette année-là venaient d'artistes émergents pour qui c'était, bien souvent, la première exposition. Peinture, dessin, sculpture, céramique : chaque mur portait une facette différente du thème.",
+        "en": "The works gathered that year came from emerging artists, for many of whom this was a first exhibition. Painting, drawing, sculpture, ceramics: each wall carried a different facet of the theme."
       }
     },
     {
       "type": "quote",
       "text": {
-        "fr": "L'art est un acte communautaire.",
-        "en": "Art is a communal act."
+        "fr": "Toutes les facettes de ma personnalité sont-elles prises en compte et respectées ?",
+        "en": "Are all the facets of who I am acknowledged and respected?"
       },
       "attribution": {
         "fr": "Fragments de nous",
@@ -117,80 +89,54 @@
       }
     },
     {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ quote — sans attribution",
-        "en": "▸ quote — without attribution"
-      }
-    },
-    {
-      "type": "quote",
-      "text": {
-        "fr": "Une citation sans attribution.",
-        "en": "A quote without attribution."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ textImage — image à gauche (side « left »)",
-        "en": "▸ textImage — image left (side \"left\")"
+      "type": "captionedImage",
+      "variant": "full",
+      "image": "/events/2025_fragments/ArtBlox2025-099.jpg",
+      "caption": {
+        "fr": "La salle au plus fort de la soirée, entre la table de nourriture et les cimaises.",
+        "en": "The room at the height of the evening, between the food table and the partition walls."
       }
     },
     {
       "type": "textImage",
       "side": "left",
-      "image": "/chungus.png",
+      "image": "/events/2025_fragments/ArtBlox2025-165.jpg",
+      "alt": {
+        "fr": "Le groupe en spectacle pendant la soirée.",
+        "en": "The band performing during the evening."
+      },
       "text": {
-        "fr": "Texte à droite de l'image, qui se place à gauche.",
-        "en": "Text to the right of the image, which sits on the left."
+        "fr": "La soirée s'est poursuivie en musique, puis en discours. Un collectif qui démarre, ce sont des dizaines de petites décisions prises ensemble — et un soir où l'on découvre qu'elles tiennent debout.",
+        "en": "The evening carried on with music, then speeches. A collective getting started is dozens of small decisions made together — and one evening where you find out they hold up."
+      }
+    },
+    {
+      "type": "captionedImage",
+      "variant": "full",
+      "image": "/events/2025_fragments/ArtBlox2025-180.jpg",
+      "caption": {
+        "fr": "Une partie de l'équipe et des artistes, à la fin de la soirée.",
+        "en": "Some of the team and artists, at the end of the night."
+      }
+    },
+    {
+      "type": "coloredSection",
+      "color": "teal",
+      "heading": {
+        "fr": "Ce qui a suivi",
+        "en": "What came next"
+      },
+      "text": {
+        "fr": "« Fragments de nous » a montré qu'il existait un public pour ce genre de soirée, et des artistes prêts à y accrocher leurs premières pièces. Un an plus tard, l'édition 2026 reprend le fil là où celle-ci l'a laissé.",
+        "en": "“Fragments of Us” showed there was an audience for this kind of evening, and artists ready to hang their first pieces in it. A year later, the 2026 edition picks up the thread where this one left it."
       }
     },
     {
       "type": "richText",
       "variant": "body",
       "text": {
-        "fr": "▸ textImage — image à droite (side « right »)",
-        "en": "▸ textImage — image right (side \"right\")"
-      }
-    },
-    {
-      "type": "textImage",
-      "side": "right",
-      "image": "/AB2025Poster.png",
-      "text": {
-        "fr": "Texte à gauche de l'image, qui se place à droite.",
-        "en": "Text to the left of the image, which sits on the right."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ gallery — 2 colonnes",
-        "en": "▸ gallery — 2 columns"
-      }
-    },
-    {
-      "type": "gallery",
-      "columns": 2,
-      "images": [
-        {
-          "src": "/chungus.png"
-        },
-        {
-          "src": "/ABBannerTemp.jpg"
-        }
-      ]
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ gallery — 3 colonnes",
-        "en": "▸ gallery — 3 columns"
+        "fr": "La soirée en images.",
+        "en": "The evening in pictures."
       }
     },
     {
@@ -198,74 +144,130 @@
       "columns": 3,
       "images": [
         {
-          "src": "/chungus.png"
+          "src": "/events/2025_fragments/ArtBlox2025-001.jpg"
         },
         {
-          "src": "/ABBannerTemp.jpg"
+          "src": "/events/2025_fragments/ArtBlox2025-002.jpg"
         },
         {
-          "src": "/AB2025Poster.png"
-        }
-      ]
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ coloredSection — coral, avec titre",
-        "en": "▸ coloredSection — coral, with heading"
-      }
-    },
-    {
-      "type": "coloredSection",
-      "color": "coral",
-      "heading": {
-        "fr": "Bande coral",
-        "en": "Coral band"
-      },
-      "text": {
-        "fr": "Bande teintée pleine largeur avec titre.",
-        "en": "Full-bleed tinted band with a heading."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ coloredSection — teal, sans titre",
-        "en": "▸ coloredSection — teal, without heading"
-      }
-    },
-    {
-      "type": "coloredSection",
-      "color": "teal",
-      "text": {
-        "fr": "Bande teintée pleine largeur sans titre.",
-        "en": "Full-bleed tinted band without a heading."
-      }
-    },
-    {
-      "type": "richText",
-      "variant": "body",
-      "text": {
-        "fr": "▸ carousel",
-        "en": "▸ carousel"
-      }
-    },
-    {
-      "type": "carousel",
-      "images": [
-        {
-          "src": "/chungus.png"
+          "src": "/events/2025_fragments/ArtBlox2025-004.jpg"
         },
         {
-          "src": "/ABBannerTemp.jpg"
+          "src": "/events/2025_fragments/ArtBlox2025-005.jpg"
         },
         {
-          "src": "/AB2025Poster.png"
+          "src": "/events/2025_fragments/ArtBlox2025-006.jpg"
         },
         {
-          "src": "/chungus.png"
+          "src": "/events/2025_fragments/ArtBlox2025-007.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-008.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-009.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-013.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-014.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-017.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-018.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-025.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-032.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-035.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-041.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-051.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-058.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-059.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-064.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-066.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-085.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-088.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-089.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-090.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-094.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-105.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-107.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-116.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-117.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-136.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-137.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-141.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-146.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-172.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/ArtBlox2025-176.jpg"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6385.png"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6387.png"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6388.png"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6389.png"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6394.png"
+        },
+        {
+          "src": "/events/2025_fragments/IMG_6396.png"
         }
       ]
     }

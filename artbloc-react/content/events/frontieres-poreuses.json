@@ -33,28 +33,39 @@
       "type": "richText",
       "variant": "lead",
       "text": {
-        "fr": "Frontières Poreuses réunit des artistes émergents pour une soirée d'exposition éphémère.",
-        "en": "Porous Borders brings emerging artists together for one ephemeral exhibition night."
+        "fr": "Nous sommes faits de lieux, de souvenirs, de rencontres et d'histoires qui nous traversent.",
+        "en": "We are made of places, memories, encounters and stories that pass through us."
       }
     },
     {
-      "type": "textImage",
-      "side": "left",
-      "image": "/ABBannerTemp.jpg",
+      "type": "richText",
+      "variant": "body",
       "text": {
-        "fr": "Une nuit de peinture, de sculpture et de musique au cœur de Montréal.",
-        "en": "A night of painting, sculpture and music in the heart of Montreal."
+        "fr": "Une culture en rencontre avec une autre. Une conversation qui nous transforme. Un lieu qui laisse une trace. L'identité se révèle alors multiple, faite de fragments et de contradictions. Nous ne sommes jamais tout à fait les mêmes d'un lieu à l'autre, d'une rencontre à l'autre.",
+        "en": "One culture meeting another. A conversation that changes us. A place that leaves its mark. Identity reveals itself as multiple then, made of fragments and contradictions. We are never quite the same from one place to the next, from one encounter to the next."
+      }
+    },
+    {
+      "type": "richText",
+      "variant": "body",
+      "text": {
+        "fr": "Les œuvres réunies ici explorent ces passages : entre soi et l'autre, entre appartenance et découverte, entre ce que l'on connaît et ce que l'on cherche encore.",
+        "en": "The works gathered here explore those crossings: between the self and the other, between belonging and discovery, between what we know and what we are still looking for."
       }
     },
     {
       "type": "quote",
       "text": {
-        "fr": "L'art appartient à tout le monde.",
-        "en": "Art belongs to everyone."
-      },
-      "attribution": {
-        "fr": "Art Bloc",
-        "en": "Art Bloc"
+        "fr": "Frontières Poreuses est une invitation à regarder ce qui nous relie et les différentes personnes que nous sommes. Un espace pour se perdre, se reconnaître et poursuivre une rencontre avec soi.",
+        "en": "Porous Borders is an invitation to look at what connects us, and at the different people we are. A space to lose yourself, recognise yourself, and carry on an encounter with yourself."
+      }
+    },
+    {
+      "type": "richText",
+      "variant": "body",
+      "text": {
+        "fr": "Les préparatifs, en cours.",
+        "en": "Preparations, under way."
       }
     },
     {
@@ -62,13 +73,16 @@
       "columns": 3,
       "images": [
         {
-          "src": "/chungus.png"
+          "src": "/events/2026_frontieres/20261003_141238.jpg"
         },
         {
-          "src": "/ABBannerTemp.jpg"
+          "src": "/events/2026_frontieres/20261003_161107.jpg"
         },
         {
-          "src": "/AB2025Poster.png"
+          "src": "/events/2026_frontieres/20261003_174903.jpg"
+        },
+        {
+          "src": "/events/2026_frontieres/IMG_2906.jpg"
         }
       ]
     }
