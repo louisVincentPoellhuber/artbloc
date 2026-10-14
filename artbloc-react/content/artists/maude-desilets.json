@@ -1,7 +1,12 @@
 {
   "slug": "maude-desilets",
   "name": "Maude Désilets",
-  "mediums": [{ "fr": "Art végétal", "en": "Botanical art" }],
+  "mediums": [
+    {
+      "fr": "Art végétal",
+      "en": "Botanical art"
+    }
+  ],
   "statement": {
     "fr": "Maude Désilets utilise la plus ancienne forme de végétation sur terre, la mousse végétale, pour explorer la connexion profonde entre les humains et la nature. Maude considère la nature elle-même comme la véritable artiste, en laissant ses irrégularités et ses imperfections dicter le mouvement de chacune de ses pièces. Les visiteurs sont invités à plonger dans un état contemplatif, admirant des paysages en reliefs contemporains et apaisants."
   },
@@ -10,10 +15,21 @@
     "etsy": "https://www.etsy.com/ca/shop/Plantiquaires"
   },
   "images": [
-    { "src": "/artists/maude-desilets/1.png" },
-    { "src": "/artists/maude-desilets/2.png" },
-    { "src": "/artists/maude-desilets/3.png" },
-    { "src": "/artists/maude-desilets/4.png" }
+    {
+      "src": "/artists/maude-desilets/1.png"
+    },
+    {
+      "src": "/artists/maude-desilets/2.png"
+    },
+    {
+      "src": "/artists/maude-desilets/3.png"
+    },
+    {
+      "src": "/artists/maude-desilets/4.png"
+    }
   ],
-  "blocks": []
+  "blocks": [],
+  "interview": {
+    "youtubeId": "tsSbrl_JffM"
+  }
 }

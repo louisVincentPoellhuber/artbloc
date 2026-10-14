@@ -1,14 +1,29 @@
 {
   "slug": "wener-zhang",
   "name": "Wener Zhang",
-  "mediums": [{ "fr": "Peinture et installation", "en": "Painting & installation" }],
+  "mediums": [
+    {
+      "fr": "Peinture et installation",
+      "en": "Painting & installation"
+    }
+  ],
   "statement": {
     "fr": "Wener Zhang is an artist working between Zhengzhou, China, and Tiohtià:ke/Montreal. Her practice spans painting, drawing, installation, and fiber-based processes. She explores how intimate memories and experiences of migration are embedded within physical objects, tactile materials, and acts of making."
   },
-  "socials": { "instagram": "ooooopsid", "email": "wenerzhang4@gmail.com" },
+  "socials": {
+    "instagram": "ooooopsid",
+    "email": "wenerzhang4@gmail.com"
+  },
   "images": [
-    { "src": "/artists/wener-zhang/1.png" },
-    { "src": "/artists/wener-zhang/2.png" }
+    {
+      "src": "/artists/wener-zhang/1.png"
+    },
+    {
+      "src": "/artists/wener-zhang/2.png"
+    }
   ],
-  "blocks": []
+  "blocks": [],
+  "interview": {
+    "youtubeId": "spqiHTB1Ixw"
+  }
 }
